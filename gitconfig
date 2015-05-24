@@ -1,3 +1,9 @@
 [user]
 	name = shvetsovdm
 	email = sorrows@mail.ru
+[color]
+	ui = true
+[core]
+	autocrlf = input
+	safecrlf = false
+	editor = mate -w
