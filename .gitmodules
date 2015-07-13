@@ -58,3 +58,6 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = git@github.com:tomasr/molokai.git
+[submodule "vim/bundle/papercolor-theme"]
+	path = vim/bundle/papercolor-theme
+	url = git@github.com:NLKNguyen/papercolor-theme.git
