@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/shvetsovdm'
-let g:netrw_dirhist_2='/Users/shvetsovdm/Projects/rails_navigation_proto'
-let g:netrw_dirhist_3='/Users/shvetsovdm/Projects/lvlup_proto'
-let g:netrw_dirhist_4='/Users/shvetsovdm/Projects/pict-source'
