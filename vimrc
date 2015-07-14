@@ -9,7 +9,8 @@ filetype plugin indent on
 " Visual preferences
 syntax enable
 filetype plugin indent on
-colorscheme jellybeans
+set background=light
+colorscheme PaperColor
 set list
 set number
 set cursorline
