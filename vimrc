@@ -21,7 +21,8 @@ set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " Highlight long lines
-let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+highlight OverLength ctermbg=white
+match OverLength /\%101v.*/
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -36,21 +37,14 @@ set noswapfile
 " Russian langmap
 :set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-" Custom shortcuts
+""
+" Shortcuts and mappings
+""
 
 " Unite
-noremap <C-o> :Unite file<CR>
-noremap <C-l> :Unite file_rec<CR>
-noremap <C-i> :Unite buffer<CR>
-
-" Custom helpers
-
-" Word wrapping
-map <Leader>' ciw'<C-r>"'<ESC>
-map <Leader>" ciw"<C-r>""<ESC>
-map <Leader>( ciw(<C-r>")<ESC>
-map <Leader>{ ciw{ <C-r>" }<ESC>
-map <Leader>[ ciw[<C-r>"]<ESC>
+noremap <Leader>f :Unite file<CR>
+noremap <Leader>o :Unite file_rec<CR>
+noremap <Leader>b :Unite buffer<CR>
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -66,3 +60,6 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" The sudo tee trick mappings
+cmap w!! w !sudo tee % >/dev/null
