@@ -61,3 +61,6 @@
 [submodule "vim/bundle/papercolor-theme"]
 	path = vim/bundle/papercolor-theme
 	url = git@github.com:NLKNguyen/papercolor-theme.git
+[submodule "vim/bundle/better-indent-support-for-php-with-html"]
+	path = vim/bundle/better-indent-support-for-php-with-html
+	url = git@github.com:captbaritone/better-indent-support-for-php-with-html.git
