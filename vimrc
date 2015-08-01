@@ -41,6 +41,12 @@ set noswapfile
 " Shortcuts and mappings
 ""
 
+" Vim way
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " Unite
 noremap <Leader>f :Unite file<CR>
 noremap <Leader>o :Unite file_rec<CR>
