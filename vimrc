@@ -34,8 +34,12 @@ set lazyredraw
 " Do not create swap files
 set noswapfile
 
-" Russian langmap
-:set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+" vim-xkbswitch automatic keyboard layout switching
+" dependencies:
+"   https://github.com/myshov/xkbswitch-macosx
+"   https://github.com/vovkasm/input-source-switcher
+let g:XkbSwitchEnabled = 1
+let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
 
 ""
 " Shortcuts and mappings

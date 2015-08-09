@@ -64,3 +64,6 @@
 [submodule "vim/bundle/better-indent-support-for-php-with-html"]
 	path = vim/bundle/better-indent-support-for-php-with-html
 	url = git@github.com:captbaritone/better-indent-support-for-php-with-html.git
+[submodule "vim/bundle/vim-xkbswitch"]
+	path = vim/bundle/vim-xkbswitch
+	url = git@github.com:lyokha/vim-xkbswitch.git
