@@ -12,7 +12,7 @@ filetype plugin indent on
 set background=light
 colorscheme PaperColor
 set list
-set number
+set relativenumber
 set cursorline
 set hlsearch
 
@@ -20,16 +20,9 @@ set hlsearch
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-" Highlight long lines
-highlight OverLength ctermbg=white
-match OverLength /\%101v.*/
-
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-
-set ttyfast
-set lazyredraw
 
 " Do not create swap files
 set noswapfile
