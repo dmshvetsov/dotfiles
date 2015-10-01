@@ -64,3 +64,6 @@
 [submodule "vim/bundle/vim-xkbswitch"]
 	path = vim/bundle/vim-xkbswitch
 	url = git@github.com:lyokha/vim-xkbswitch.git
+[submodule "vim/bundle/vim-coffee-script"]
+	path = vim/bundle/vim-coffee-script
+	url = git@github.com:kchmck/vim-coffee-script.git
