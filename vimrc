@@ -13,8 +13,11 @@ set background=light
 colorscheme PaperColor
 set list
 set relativenumber
+set showcmd
 set cursorline
 set hlsearch
+set lazyredraw
+set showmatch
 
 " Use the same symbols as TextMate for tabs and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
