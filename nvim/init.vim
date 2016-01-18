@@ -15,6 +15,10 @@ Plug 'leshill/vim-json'
 Plug 'slim-template/vim-slim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+" tryout
+Plug 'airblade/vim-gitgutter'
+Plug 'skalnik/vim-vroom'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 ""
