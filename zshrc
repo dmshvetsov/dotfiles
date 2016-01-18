@@ -51,7 +51,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
+export PATH=$PATH:"/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -81,6 +81,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 export EDITOR="nvim"
 
