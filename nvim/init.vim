@@ -3,8 +3,18 @@
 ""
 
 call plug#begin()
+Plug 'tomtom/tlib_vim' " dependecy
+Plug 'MarcWeber/vim-addon-mw-utils' " dependency
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'tpope/vim-commentary'
+Plug 'kchmck/vim-coffee-script'
+Plug 'digitaltoad/vim-jade'
+Plug 'leshill/vim-json'
+Plug 'slim-template/vim-slim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 ""
