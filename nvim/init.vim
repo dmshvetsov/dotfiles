@@ -19,6 +19,7 @@ Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'skalnik/vim-vroom'
 Plug 'mileszs/ack.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 ""
@@ -56,16 +57,8 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Unite
-noremap <Leader>f :Unite file<CR>
-noremap <Leader>o :Unite file_rec<CR>
-noremap <Leader>b :Unite buffer<CR>
-
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" CtrlP
+map <c-b> :CtrlPBuffer<CR>
 
 ""
 " Extensions
