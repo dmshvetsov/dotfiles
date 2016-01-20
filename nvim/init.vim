@@ -15,6 +15,7 @@ Plug 'leshill/vim-json'
 Plug 'slim-template/vim-slim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+Plug 'captbaritone/better-indent-support-for-php-with-html'
 " tryout
 Plug 'airblade/vim-gitgutter'
 Plug 'skalnik/vim-vroom'
