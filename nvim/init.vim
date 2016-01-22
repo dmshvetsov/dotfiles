@@ -16,10 +16,10 @@ Plug 'slim-template/vim-slim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'mileszs/ack.vim'
 " tryout
 Plug 'airblade/vim-gitgutter'
 Plug 'skalnik/vim-vroom'
-Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
