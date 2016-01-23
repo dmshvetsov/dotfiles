@@ -30,6 +30,10 @@ call plug#end()
 
 " Do not create swap files
 set noswapfile
+" Speed up editorconfig
+" require to install editorconfig
+" $ brew install editorconfig
+let g:EditorConfig_core_mode = 'external_command'
 
 ""
 " Visual preferences
