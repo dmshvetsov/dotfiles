@@ -34,6 +34,9 @@ set noswapfile
 " require to install editorconfig
 " $ brew install editorconfig
 let g:EditorConfig_core_mode = 'external_command'
+" Disable gitgutter realtime update
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 ""
 " Visual preferences
