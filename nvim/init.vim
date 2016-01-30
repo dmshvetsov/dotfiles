@@ -28,8 +28,9 @@ call plug#end()
 " Main configuration
 ""
 
-" Do not create swap files
+" Do not create swap files and backups
 set noswapfile
+set nobackup
 " Speed up editorconfig
 " require to install editorconfig
 " $ brew install editorconfig
