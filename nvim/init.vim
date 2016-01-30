@@ -22,6 +22,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'skalnik/vim-vroom'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'cohama/lexima.vim'
+Plug 'porqz/KeyboardLayoutSwitcher'
 call plug#end()
 
 ""
