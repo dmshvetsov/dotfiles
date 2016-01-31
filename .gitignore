@@ -7,3 +7,4 @@ nvim/plugged
 *.log
 
 ctags
+nvim/autoload/plug.vim.old
