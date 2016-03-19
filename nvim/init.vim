@@ -86,5 +86,8 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" Run open ruby script
+nmap <C-R> :!ruby -I %:p:h %<CR>
+
 " The sudo tee trick mappings
 cmap w!! w !sudo tee % >/dev/null
