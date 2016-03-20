@@ -45,8 +45,6 @@ let g:vroom_use_colors = 1
 " Visual preferences
 ""
 
-syntax enable
-filetype plugin indent on
 set background=light
 colorscheme PaperColor
 set list
