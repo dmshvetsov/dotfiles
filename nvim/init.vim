@@ -85,7 +85,7 @@ function! <SID>SynStack()
 endfunc
 
 " Run open ruby script
-nmap <C-R> :!ruby -I %:p:h %<CR>
+nmap <leader>e :!ruby -I %:p:h %<CR>
 
 " The sudo tee trick mappings
 cmap w!! w !sudo tee % >/dev/null
