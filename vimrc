@@ -11,6 +11,7 @@ set encoding=utf-8
 " Visual preferences
 ""
 
+set guifont=Menlo:h12
 syntax enable
 filetype plugin indent on
 set background=light
