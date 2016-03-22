@@ -61,12 +61,12 @@ export PATH=$PATH:"/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/b
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -86,7 +86,5 @@ export PATH=$PATH:"/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/b
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-export EDITOR="nvim"
 
 source /Users/shvetsovdm/.iterm2_shell_integration.zsh
