@@ -89,3 +89,11 @@ nmap <leader>e :!ruby -I %:p:h %<CR>
 
 " The sudo tee trick mappings
 cmap w!! w !sudo tee % >/dev/null
+
+" Working with init.vim
+if !exists(":EditInitvim")
+  command EditInitvim :e $MYVIMRC
+endif
+if !exists(":ReloadInitvim")
+  command ReloadInitvim :source $MYVIMRC
+endif
