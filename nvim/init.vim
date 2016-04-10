@@ -22,6 +22,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'skalnik/vim-vroom'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'porqz/KeyboardLayoutSwitcher'
+Plug 'gwutz/vim-materialtheme'
 call plug#end()
 
 ""
@@ -46,7 +47,7 @@ let g:vroom_use_colors = 1
 ""
 
 set background=light
-colorscheme PaperColor
+colorscheme papercolor
 set list
 set number
 set relativenumber
