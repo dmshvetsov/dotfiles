@@ -3,8 +3,6 @@
 ""
 
 call plug#begin()
-Plug 'tomtom/tlib_vim' " dependecy
-Plug 'MarcWeber/vim-addon-mw-utils' " dependency
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cakebaker/scss-syntax.vim'
@@ -17,12 +15,15 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'mileszs/ack.vim'
+Plug 'Shougo/unite.vim'
 " tryout
 Plug 'airblade/vim-gitgutter'
 Plug 'skalnik/vim-vroom'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'porqz/KeyboardLayoutSwitcher'
 Plug 'gwutz/vim-materialtheme'
+" dependency
+Plug 'tomtom/tlib_vim' 
+Plug 'MarcWeber/vim-addon-mw-utils'
 call plug#end()
 
 ""
