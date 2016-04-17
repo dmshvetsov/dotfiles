@@ -18,9 +18,9 @@ Plug 'mileszs/ack.vim'
 Plug 'Shougo/unite.vim'
 " tryout
 Plug 'airblade/vim-gitgutter'
-Plug 'skalnik/vim-vroom'
 Plug 'porqz/KeyboardLayoutSwitcher'
 Plug 'gwutz/vim-materialtheme'
+Plug 'janko-m/vim-test'
 " dependency
 Plug 'tomtom/tlib_vim' 
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -70,8 +70,16 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" CtrlP
-map <c-b> :CtrlPBuffer<CR>
+" vim-test
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+" unite
+nmap <C-t> :Unite file<CR>
+nmap <C-b> :Unite buffer<CR>
 
 ""
 " Extensions
