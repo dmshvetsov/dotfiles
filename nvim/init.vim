@@ -21,6 +21,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'porqz/KeyboardLayoutSwitcher'
 Plug 'gwutz/vim-materialtheme'
 Plug 'janko-m/vim-test'
+Plug 'vim-scripts/matchit.zip'
 " dependency
 Plug 'tomtom/tlib_vim' 
 Plug 'MarcWeber/vim-addon-mw-utils'
