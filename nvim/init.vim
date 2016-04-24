@@ -73,14 +73,14 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " vim-test
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>t :TestFile<CR>
+nmap <silent> <leader>T :TestNearest<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 " unite
-nmap <C-t> :Unite file<CR>
+nmap <C-t> :Unite -start-insert file_rec<CR>
 nmap <C-b> :Unite buffer<CR>
 
 ""
