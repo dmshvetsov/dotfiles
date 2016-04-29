@@ -109,3 +109,7 @@ endif
 if !exists(":ReloadInitvim")
   command ReloadInitvim :source $MYVIMRC
 endif
+
+" Solution for performance problem
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+autocmd BufWinLeave * call clearmatches()
