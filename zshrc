@@ -88,3 +88,6 @@ export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 source /Users/shvetsovdm/.iterm2_shell_integration.zsh
+
+# Disable auto cd into folders
+unsetopt AUTO_CD
