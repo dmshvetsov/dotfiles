@@ -16,16 +16,18 @@ Plug 'honza/vim-snippets'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'mileszs/ack.vim'
 Plug 'Shougo/unite.vim'
-" tryout
 Plug 'airblade/vim-gitgutter'
+" dependency
+Plug 'tomtom/tlib_vim' 
+Plug 'MarcWeber/vim-addon-mw-utils'
+" tryout
 Plug 'porqz/KeyboardLayoutSwitcher'
 Plug 'gwutz/vim-materialtheme'
 Plug 'janko-m/vim-test'
 Plug 'vim-scripts/matchit.zip'
 Plug 'christoomey/vim-system-copy'
-" dependency
-Plug 'tomtom/tlib_vim' 
-Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'reedes/vim-colors-pencil'
+Plug 'jacoborus/tender'
 call plug#end()
 
 ""
