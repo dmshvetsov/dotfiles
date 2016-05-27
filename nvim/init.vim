@@ -23,11 +23,20 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 " tryout
 Plug 'porqz/KeyboardLayoutSwitcher'
 Plug 'gwutz/vim-materialtheme'
+Plug 'jdkanani/vim-material-theme'
+Plug 'effkay/argonaut.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'mkarmona/colorsbox'
+Plug 'uu59/vim-herokudoc-theme'
+Plug 'larssmit/vim-getafe'
+Plug 'wellsjo/wellsokai.vim'
+Plug 'benjaminwhite/Benokai'
+Plug 'sickill/vim-monokai'
+Plug 'w0ng/vim-hybrid'
+Plug 'jacoborus/tender'
 Plug 'janko-m/vim-test'
 Plug 'vim-scripts/matchit.zip'
 Plug 'christoomey/vim-system-copy'
-Plug 'reedes/vim-colors-pencil'
-Plug 'jacoborus/tender'
 call plug#end()
 
 ""
