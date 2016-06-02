@@ -35,6 +35,7 @@ Plug 'jacoborus/tender'
 Plug 'janko-m/vim-test'
 Plug 'vim-scripts/matchit.zip'
 Plug 'christoomey/vim-system-copy'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 ""
@@ -70,6 +71,10 @@ set title
 " Use the same symbols as TextMate for tabs and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" lighline
+let g:lightline = { 'colorscheme': 'PaperColor' }
+set laststatus=2
 
 ""
 " Shortcuts and Mappings
