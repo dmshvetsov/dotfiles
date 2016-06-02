@@ -1,4 +1,13 @@
 ""
+" Plugins
+""
+
+call plug#begin('~/.vim/plugged')
+Plug 'jacoborus/tender.vim'
+Plug 'itchyny/lightline.vim'
+call plug#end()
+
+""
 " Main configuration
 ""
 
@@ -14,8 +23,8 @@ set encoding=utf-8
 set guifont=Menlo:h14
 syntax enable
 filetype plugin indent on
-set background=light
-colorscheme jellybeans
+set background=dark
+colorscheme tender
 set list
 set relativenumber
 set showcmd
@@ -23,6 +32,12 @@ set cursorline
 set hlsearch
 set lazyredraw
 set showmatch
+
+" enable tender lightline theme
+let g:tender_lightline = 1
+" set lighline theme
+let g:lightline = { 'colorscheme': 'tender' }
+set laststatus=2
 
 " Use the same symbols as TextMate for tabs and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
