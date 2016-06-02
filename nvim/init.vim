@@ -23,12 +23,6 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 " tryout
 Plug 'porqz/KeyboardLayoutSwitcher'
 Plug 'gwutz/vim-materialtheme'
-" Plug 'jdkanani/vim-material-theme'
-" Plug 'effkay/argonaut.vim'
-" Plug 'mhartington/oceanic-next'
-" Plug 'mkarmona/colorsbox'
-" Plug 'uu59/vim-herokudoc-theme'
-" Plug 'larssmit/vim-getafe'
 Plug 'sickill/vim-monokai'
 Plug 'w0ng/vim-hybrid'
 Plug 'jacoborus/tender'
@@ -59,8 +53,8 @@ let g:vroom_use_colors = 1
 " Visual preferences
 ""
 
-set background=dark
-colorscheme tender
+set background=light
+colorscheme PaperColor
 set list
 set number
 set relativenumber
