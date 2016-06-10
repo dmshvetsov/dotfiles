@@ -30,6 +30,7 @@ Plug 'janko-m/vim-test'
 Plug 'vim-scripts/matchit.zip'
 Plug 'christoomey/vim-system-copy'
 Plug 'itchyny/lightline.vim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 ""
