@@ -23,6 +23,7 @@ set encoding=utf-8
 set guifont=Fira\ Mono:h14
 syntax enable
 filetype plugin indent on
+let macvim_skip_colorscheme=1
 set background=dark
 colorscheme tender
 set list
