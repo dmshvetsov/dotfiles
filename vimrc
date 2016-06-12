@@ -20,7 +20,7 @@ set encoding=utf-8
 " Visual preferences
 ""
 
-set guifont=Menlo:h14
+set guifont=Fira\ Mono:h14
 syntax enable
 filetype plugin indent on
 set background=dark
