@@ -62,6 +62,7 @@ set relativenumber
 set cursorline
 set hlsearch
 set title
+set nofoldenable
 
 " Use the same symbols as TextMate for tabs and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
