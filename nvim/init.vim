@@ -30,6 +30,9 @@ Plug 'w0ng/vim-hybrid'
 Plug 'jacoborus/tender'
 Plug 'vim-scripts/matchit.zip'
 Plug 'christoomey/vim-system-copy'
+Plug 'tpope/vim-dispatch'
+Plug 'vim-ruby/vim-ruby'
+Plug 'elixir-lang/vim-elixir'
 call plug#end()
 
 ""
