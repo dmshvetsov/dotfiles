@@ -49,6 +49,8 @@ let g:EditorConfig_core_mode = 'external_command'
 " Disable gitgutter realtime update
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+" KeyboardLayoutSwitcher
+let g:kls_mappings = 0
 
 ""
 " Visual preferences
