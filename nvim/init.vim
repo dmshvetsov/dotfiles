@@ -17,20 +17,19 @@ Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'mileszs/ack.vim'
 Plug 'Shougo/unite.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'rust-lang/rust.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'porqz/KeyboardLayoutSwitcher'
 " dependency
 Plug 'tomtom/tlib_vim' 
 Plug 'MarcWeber/vim-addon-mw-utils'
 " tryout
-Plug 'porqz/KeyboardLayoutSwitcher'
 Plug 'gwutz/vim-materialtheme'
 Plug 'sickill/vim-monokai'
 Plug 'w0ng/vim-hybrid'
 Plug 'jacoborus/tender'
-Plug 'janko-m/vim-test'
 Plug 'vim-scripts/matchit.zip'
 Plug 'christoomey/vim-system-copy'
-Plug 'itchyny/lightline.vim'
-Plug 'rust-lang/rust.vim'
 call plug#end()
 
 ""
@@ -47,8 +46,6 @@ let g:EditorConfig_core_mode = 'external_command'
 " Disable gitgutter realtime update
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
-" Vroom test runner
-let g:vroom_use_colors = 1
 
 ""
 " Visual preferences
@@ -81,13 +78,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" vim-test
-nmap <silent> <leader>t :TestFile<CR>
-nmap <silent> <leader>T :TestNearest<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
 
 " unite
 nmap <C-t> :Unite -start-insert file_rec<CR>
