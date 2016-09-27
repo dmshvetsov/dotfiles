@@ -3,7 +3,6 @@
 ""
 
 call plug#begin()
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'tpope/vim-commentary'
@@ -33,6 +32,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-dispatch'
 Plug 'vim-ruby/vim-ruby'
 Plug 'elixir-lang/vim-elixir'
+Plug 'chriskempson/vim-tomorrow-theme'
 call plug#end()
 
 ""
@@ -57,7 +57,7 @@ let g:kls_mappings = 0
 ""
 
 set background=light
-colorscheme PaperColor
+colorscheme Tomorrow
 set list
 set number
 set relativenumber
