@@ -51,6 +51,11 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 " KeyboardLayoutSwitcher
 let g:kls_mappings = 0
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+" Display all matching files when we tab complete
+set wildmenu
 
 ""
 " Visual preferences
