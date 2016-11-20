@@ -54,8 +54,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:$PATH"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -83,6 +81,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+PATH="/usr/local/bin:$PATH"
+PATH=/Users/shvetsovdm/.themekit:$PATH
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
