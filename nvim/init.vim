@@ -33,6 +33,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'vim-ruby/vim-ruby'
 Plug 'elixir-lang/vim-elixir'
 Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'tpope/vim-liquid'
 call plug#end()
 
 ""
