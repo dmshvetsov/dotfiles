@@ -83,9 +83,15 @@ fi
 
 PATH="/usr/local/bin:$PATH"
 PATH=/Users/shvetsovdm/.themekit:$PATH
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$PATH"
 
+# VIM and NVIM
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+# Pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # Disable auto cd into folders
 unsetopt AUTO_CD
