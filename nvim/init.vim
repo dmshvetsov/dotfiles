@@ -113,6 +113,14 @@ nmap <leader>e :!ruby -I %:p:h %<CR>
 " The sudo tee trick mappings
 cmap w!! w !sudo tee % >/dev/null
 
+" Solution for performance problem
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+autocmd BufWinLeave * call clearmatches()
+
+""
+" Commands
+""
+
 " Working with init.vim
 if !exists(":EditInitvim")
   command EditInitvim :e $MYVIMRC
@@ -121,6 +129,8 @@ if !exists(":ReloadInitvim")
   command ReloadInitvim :source $MYVIMRC
 endif
 
-" Solution for performance problem
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-autocmd BufWinLeave * call clearmatches()
+" Create the `tags` file
+" require to install ctags
+" $ brew install ctags
+command! MakeTags !ctags -R .
+command! MakeRubyTags !ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
