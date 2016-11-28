@@ -4,6 +4,7 @@ vim/.netrwhist
 vim/plugged
 nvim/.netrwhist
 nvim/plugged
+nvim/spell
 
 *.log
 
