@@ -32,7 +32,6 @@ Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-dispatch'
 Plug 'vim-ruby/vim-ruby'
 Plug 'elixir-lang/vim-elixir'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'tpope/vim-liquid'
 call plug#end()
 
@@ -62,8 +61,8 @@ set wildmenu
 " Visual preferences
 ""
 
-set background=light
-colorscheme Tomorrow
+set background=dark
+colorscheme hybrid
 set list
 set number
 set relativenumber

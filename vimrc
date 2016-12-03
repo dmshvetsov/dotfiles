@@ -25,7 +25,7 @@ syntax enable
 filetype plugin indent on
 let macvim_skip_colorscheme=1
 set background=dark
-colorscheme tender
+colorscheme smyck
 set list
 set relativenumber
 set showcmd
@@ -37,7 +37,7 @@ set showmatch
 " enable tender lightline theme
 let g:tender_lightline = 1
 " set lighline theme
-let g:lightline = { 'colorscheme': 'tender' }
+" let g:lightline = { 'colorscheme': 'tender' }
 set laststatus=2
 
 " Use the same symbols as TextMate for tabs and EOLs
