@@ -2,42 +2,74 @@
 " Plugins
 ""
 
-call plug#begin('~/.vim/plugged')
-Plug 'jacoborus/tender.vim'
+call plug#begin()
+Plug 'editorconfig/editorconfig-vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'tpope/vim-commentary'
+Plug 'kchmck/vim-coffee-script'
+Plug 'digitaltoad/vim-jade'
+Plug 'leshill/vim-json'
+Plug 'slim-template/vim-slim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'mileszs/ack.vim'
+Plug 'Shougo/unite.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
+Plug 'christoomey/vim-system-copy'
+Plug 'porqz/KeyboardLayoutSwitcher'
+" dependency
+Plug 'tomtom/tlib_vim' 
+Plug 'MarcWeber/vim-addon-mw-utils'
+" tryout
+Plug 'vim-scripts/matchit.zip'
+Plug 'tpope/vim-dispatch'
+Plug 'vim-ruby/vim-ruby'
+Plug 'elixir-lang/vim-elixir'
+Plug 'rust-lang/rust.vim'
+Plug 'tpope/vim-liquid'
+" colorschemes
+Plug 'jacoborus/tender'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 ""
 " Main configuration
 ""
 
-" Do not create swap files
+" Do not create swap files and backups
 set noswapfile
-
-set encoding=utf-8
+set nobackup
+" Speed up editorconfig
+" require to install editorconfig
+" $ brew install editorconfig
+let g:EditorConfig_core_mode = 'external_command'
+" Disable gitgutter realtime update
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 ""
 " Visual preferences
 ""
 
-set guifont=Fira\ Mono:h14
 syntax enable
 filetype plugin indent on
-let macvim_skip_colorscheme=1
+
+set guifont=Fira\ Mono:h14
 set background=dark
-colorscheme smyck
+colorscheme nord
+set wildmenu
 set list
+set number
 set relativenumber
-set showcmd
 set cursorline
 set hlsearch
-set lazyredraw
-set showmatch
+set title
+set nofoldenable
 
-" enable tender lightline theme
-let g:tender_lightline = 1
 " set lighline theme
-" let g:lightline = { 'colorscheme': 'tender' }
+let g:lightline = { 'colorscheme': 'nord' }
 set laststatus=2
 
 " Use the same symbols as TextMate for tabs and EOLs
@@ -56,15 +88,8 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " Unite
-noremap <Leader>f :Unite file<CR>
-noremap <Leader>o :Unite file_rec<CR>
-noremap <Leader>b :Unite buffer<CR>
-
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+nmap <C-t> :Unite -start-insert file_rec<CR>
+nmap <C-b> :Unite buffer<CR>
 
 ""
 " Extensions
@@ -79,5 +104,30 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" Run open ruby script
+nmap <leader>e :!ruby -I %:p:h %<CR>
+
 " The sudo tee trick mappings
 cmap w!! w !sudo tee % >/dev/null
+
+" Solution for performance problem
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+autocmd BufWinLeave * call clearmatches()
+
+""
+" Commands
+""
+
+" Working with init.vim
+if !exists(":EditInitvim")
+  command EditInitvim :e $MYVIMRC
+endif
+if !exists(":ReloadInitvim")
+  command ReloadInitvim :source $MYVIMRC
+endif
+
+" Create the `tags` file
+" require to install ctags
+" $ brew install ctags
+command! MakeTags !ctags -R .
+command! MakeRubyTags !ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
