@@ -29,6 +29,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-liquid'
+Plug 'w0rp/ale'
 " colorschemes
 Plug 'jacoborus/tender'
 Plug 'arcticicestudio/nord-vim'
@@ -118,12 +119,12 @@ autocmd BufWinLeave * call clearmatches()
 " Commands
 ""
 
-" Working with init.vim
-if !exists(":EditInitvim")
-  command EditInitvim :e $MYVIMRC
+" Working with vimrc
+if !exists(":EditVimrc")
+  command EditVimrc :e $MYVIMRC
 endif
-if !exists(":ReloadInitvim")
-  command ReloadInitvim :source $MYVIMRC
+if !exists(":ReloadVimrc")
+  command ReloadVimrc :source $MYVIMRC
 endif
 
 " Create the `tags` file
