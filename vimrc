@@ -77,6 +77,8 @@ set laststatus=2
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
 " Spaces and Tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+" Allow backspace
+set backspace=indent,eol,start
 
 ""
 " Shortcuts and Mappings
