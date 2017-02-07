@@ -49,6 +49,10 @@ let g:EditorConfig_core_mode = 'external_command'
 " Disable gitgutter realtime update
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+" Asynchronous Lint Engine (ALE)
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = 'le'
+let g:ale_sign_warning = 'lw'
 
 ""
 " Visual preferences
