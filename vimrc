@@ -80,6 +80,7 @@ set laststatus=2
 
 " Use the same symbols as TextMate for tabs and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
+set showbreak=←
 " Spaces and Tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " Allow backspace
