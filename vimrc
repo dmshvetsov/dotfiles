@@ -53,6 +53,7 @@ let g:gitgutter_eager = 0
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = 'le'
 let g:ale_sign_warning = 'lw'
+let g:ale_javascript_eslint_use_global = 1
 
 ""
 " Visual preferences
