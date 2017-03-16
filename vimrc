@@ -85,6 +85,8 @@ set showbreak=←
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " Allow backspace
 set backspace=indent,eol,start
+" Auto reload file when changed
+set autoread
 
 ""
 " Shortcuts and Mappings
