@@ -80,10 +80,13 @@ export EDITOR='vim'
 PATH="/usr/local/bin:$PATH"
 PATH=/Users/shvetsovdm/.themekit:$PATH
 PATH="$PYENV_ROOT/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
 
 # VIM and NVIM
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+export GOPATH=$HOME/Projects/go
 
 # Pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
