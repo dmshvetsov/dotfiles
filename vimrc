@@ -30,6 +30,8 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-liquid'
 Plug 'w0rp/ale'
+Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
@@ -53,6 +55,15 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = 'le'
 let g:ale_sign_warning = 'lw'
 
+" wild menu
+set wildmenu
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=node_modules/*,bower_components/*
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+
 ""
 " Visual preferences
 ""
@@ -63,7 +74,6 @@ filetype plugin indent on
 set guifont=Fira\ Mono:h14
 set background=dark
 colorscheme nord
-set wildmenu
 set list
 set number
 set relativenumber
