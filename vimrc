@@ -113,6 +113,11 @@ noremap <Right> <NOP>
 nmap <C-t> :Unite -start-insert file_rec<CR>
 nmap <C-b> :Unite buffer<CR>
 
+" ALE
+" quick navigation between errors
+nmap <silent> <C-L> <Plug>(ale_previous_wrap)
+nmap <silent> <C-l> <Plug>(ale_next_wrap)
+
 ""
 " Extensions
 ""
