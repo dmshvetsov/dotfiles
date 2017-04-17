@@ -81,6 +81,9 @@ set cursorline
 set hlsearch
 set title
 set nofoldenable
+"remove scroll bar
+set guioptions-=r
+set guioptions-=L
 
 " set lighline theme
 let g:lightline = { 'colorscheme': 'nord' }
