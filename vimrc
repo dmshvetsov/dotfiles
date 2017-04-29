@@ -34,6 +34,10 @@ Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
+Plug 'nightsense/seabird'
+Plug 'rhysd/vim-color-spring-night'
+Plug 'davidklsn/vim-sialoquent'
+Plug 'zanglg/nova.vim'
 call plug#end()
 
 ""
