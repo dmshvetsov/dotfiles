@@ -38,6 +38,8 @@ Plug 'nightsense/seabird'
 Plug 'rhysd/vim-color-spring-night'
 Plug 'davidklsn/vim-sialoquent'
 Plug 'zanglg/nova.vim'
+Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 call plug#end()
 
 ""
@@ -77,7 +79,16 @@ filetype plugin indent on
 
 set guifont=Fira\ Mono:h14
 set background=dark
-colorscheme nord
+
+" OceanicNext theme settings
+" for vim 7
+set t_Co=256
+" for vim 8
+ if (has("termguicolors"))
+   set termguicolors
+ endif
+colorscheme OceanicNext
+
 set list
 set number
 set relativenumber
@@ -90,7 +101,7 @@ set guioptions-=r
 set guioptions-=L
 
 " set lighline theme
-let g:lightline = { 'colorscheme': 'nord' }
+let g:lightline = { 'colorscheme': 'oceanicnext' }
 set laststatus=2
 
 " Use the same symbols as TextMate for tabs and EOLs
