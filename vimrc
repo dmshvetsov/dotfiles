@@ -67,6 +67,10 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
 set wildignore+=node_modules/*,bower_components/*
 
+" undo/redo between sessions
+set undofile
+set undodir=~/.vim/undodir
+
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
