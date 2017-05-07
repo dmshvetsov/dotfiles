@@ -2,9 +2,11 @@
 
 vim/.netrwhist
 vim/plugged
+vim/undodir
 nvim/.netrwhist
 nvim/plugged
 nvim/spell
+nvim/undodir
 
 *.log
 
