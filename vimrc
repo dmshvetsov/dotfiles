@@ -64,8 +64,8 @@ set wildignore+=*.pdf,*.psd
 set wildignore+=node_modules/*,bower_components/*
 
 " undo/redo between sessions
+set undodir=$HOME/.vim/undodir
 set undofile
-set undodir=~/.vim/undodir
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1

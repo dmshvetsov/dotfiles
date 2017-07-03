@@ -2,13 +2,16 @@
 
 vim/.netrwhist
 vim/plugged
-vim/undodir
+vim/undodir/*
 nvim/.netrwhist
 nvim/plugged
 nvim/spell
-nvim/undodir
+nvim/undodir/*
 
 *.log
 
 ctags
 nvim/autoload/plug.vim.old
+
+!**/.gitkeep
+!**/.keep
