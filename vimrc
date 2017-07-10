@@ -114,6 +114,10 @@ set backspace=indent,eol,start
 " Auto reload file when changed
 set autoread
 
+" Fix for ^[<character> problem
+" https://github.com/vim/vim/issues/24
+set timeout timeoutlen=5000 ttimeoutlen=100
+
 ""
 " Shortcuts and Mappings
 ""
