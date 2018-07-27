@@ -4,6 +4,7 @@
 - install iterm
 - install zsh (brew install zsh?), and set it as default in iterm ($ chsh -s `which zsh`)
 - install soft
+  - asdf
   - homebrew
   - brew install git
   - brew install vim
