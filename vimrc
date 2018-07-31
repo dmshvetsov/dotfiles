@@ -18,7 +18,7 @@ Plug 'Shougo/unite.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'christoomey/vim-system-copy'
-Plug 'porqz/KeyboardLayoutSwitcher'
+Plug 'lyokha/vim-xkbswitch'
 " dependency
 Plug 'tomtom/tlib_vim' 
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -117,6 +117,13 @@ set autoread
 " Fix for ^[<character> problem
 " https://github.com/vim/vim/issues/24
 set timeout timeoutlen=5000 ttimeoutlen=100
+
+""
+" Keyboard layout switcher
+""
+
+let g:XkbSwitchEnabled = 1
+"let g:XkbSwitchIMappings = ['ru']
 
 ""
 " Shortcuts and Mappings
