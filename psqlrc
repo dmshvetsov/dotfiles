@@ -1,7 +1,11 @@
-\pset null 'NULL'
-\timing
-\x auto
+\set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
+\set ON_ERROR_STOP on
+\set ON_ERROR_ROLLBACK interactive
+
+\pset null '¤'
 \pset linestyle unicode
 \pset border 2
-\set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
 \pset format wrapped
+
+\x auto
+\timing
