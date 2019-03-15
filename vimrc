@@ -1,3 +1,6 @@
+scriptencoding utf-8
+set encoding=utf-8
+
 ""
 " Plugins
 ""
@@ -6,32 +9,33 @@ call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'tpope/vim-commentary'
-Plug 'kchmck/vim-coffee-script'
-Plug 'digitaltoad/vim-jade'
+" Plug 'digitaltoad/vim-jade'
 Plug 'leshill/vim-json'
 Plug 'slim-template/vim-slim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'captbaritone/better-indent-support-for-php-with-html'
+" until trying ultisnips, looks like 2 years abandoned Plug 'garbas/vim-snipmate'
+" until trying ultisnips Plug 'honza/vim-snippets'
+Plug 'epilande/vim-react-snippets'
+Plug 'SirVer/ultisnips'
+" Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'mileszs/ack.vim'
-Plug 'Shougo/unite.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'christoomey/vim-system-copy'
-Plug 'lyokha/vim-xkbswitch'
+Plug 'w0rp/ale'
 " dependency
 Plug 'tomtom/tlib_vim' 
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " tryout
-Plug 'vim-scripts/matchit.zip'
-Plug 'tpope/vim-dispatch'
-Plug 'vim-ruby/vim-ruby'
-Plug 'elixir-lang/vim-elixir'
+" Plug 'tpope/vim-dispatch'
+" Plug 'vim-ruby/vim-ruby'
 Plug 'rust-lang/rust.vim'
-Plug 'tpope/vim-liquid'
-Plug 'w0rp/ale'
-Plug 'posva/vim-vue'
+Plug 'elixir-editors/vim-elixir'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+" Plug 'posva/vim-vue'
+Plug 'kien/ctrlp.vim'
+Plug 'thoughtbot/vim-rspec'
 " colorschemes
 Plug 'arcticicestudio/nord-vim'
 Plug 'davidklsn/vim-sialoquent'
@@ -61,7 +65,7 @@ let g:ale_sign_warning = 'lw'
 set wildmenu
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
-set wildignore+=node_modules/*,bower_components/*
+set wildignore+=*/node_modules/*,*/bower_components/*
 
 " undo/redo between sessions
 set undodir=$HOME/.vim/undodir
@@ -80,33 +84,32 @@ filetype plugin indent on
 set guifont=Fira\ Mono:h14
 set background=dark
 
-" OceanicNext theme settings
-" for vim 7
-set t_Co=256
 " for vim 8
- if (has("termguicolors"))
-   set termguicolors
- endif
-colorscheme OceanicNext
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+colorscheme sialoquent
 
 set list
 set number
 set relativenumber
-set cursorline
 set hlsearch
 set title
 set nofoldenable
+set showcmd
+set wrap
 "remove scroll bar
 set guioptions-=r
 set guioptions-=L
 
 " set lighline theme
-let g:lightline = { 'colorscheme': 'oceanicnext' }
+let g:lightline = { 'colorscheme': 'sialoquent' }
 set laststatus=2
 
 " Use the same symbols as TextMate for tabs and EOLs
-set listchars=tab:▸\ ,eol:¬,trail:·,extends:>,precedes:<
-set showbreak=←
+let &showbreak="\u2190\ "
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<
 " Spaces and Tabs
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " Allow backspace
@@ -114,20 +117,29 @@ set backspace=indent,eol,start
 " Auto reload file when changed
 set autoread
 
+" Use the old vim regex engine (version 1, as opposed to version 2, which was
+" introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
+" slower with the new regex engine.
+" https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+set regexpengine=1
+
 " Fix for ^[<character> problem
 " https://github.com/vim/vim/issues/24
 set timeout timeoutlen=5000 ttimeoutlen=100
 
 ""
-" Keyboard layout switcher
+" Command-t
 ""
 
-let g:XkbSwitchEnabled = 1
-"let g:XkbSwitchIMappings = ['ru']
+" set wildignore+=project/backup
+
 
 ""
 " Shortcuts and Mappings
 ""
+
+" ultisnips trigger key
+let g:UltiSnipsExpandTrigger="<tab>"
 
 " Vim way
 noremap <Up> <NOP>
@@ -135,27 +147,45 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Unite
-nmap <C-t> :Unite -start-insert file_rec<CR>
-nmap <C-b> :Unite buffer<CR>
-
 " ALE
 " quick navigation between errors
 nmap <silent> <C-L> <Plug>(ale_previous_wrap)
 nmap <silent> <C-l> <Plug>(ale_next_wrap)
 
+let g:ale_linters = { 'javascript': ['eslint', 'flow'] }
+let g:ale_fixers = { 'javascript': ['eslint'] }
+let g:ale_fix_on_save = 1
+
+""
+" MISC
+""
+
+let g:jsx_ext_required = 1
+
 ""
 " Extensions
 ""
 
+" Jump to a previous file position when reopen a file
+au BufReadPost *
+   \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+   \ |   exe "normal! g`\""
+   \ | endif
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+" nmap <C-S-P> :call <SID>SynStack()<CR>
+" function! <SID>SynStack()
+"   if !exists("*synstack")
+"     return
+"   endif
+"   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+" endfunc
 
 " Run open ruby script
 nmap <leader>e :!ruby -I %:p:h %<CR>
