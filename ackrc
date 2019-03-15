@@ -4,3 +4,4 @@
 --ignore-dir=dist
 --ignore-dir=coverage
 --ignore-dir=tmp
+--ignore-dir=.next
