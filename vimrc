@@ -29,8 +29,8 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " tryout
 " Plug 'tpope/vim-dispatch'
 " Plug 'vim-ruby/vim-ruby'
-Plug 'rust-lang/rust.vim'
-Plug 'elixir-editors/vim-elixir'
+" Plug 'rust-lang/rust.vim'
+" Plug 'elixir-editors/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " Plug 'posva/vim-vue'
