@@ -16,7 +16,14 @@
   - brew install m-cli
   - docker
   - eslint
+- configure [bash completion for docker](https://docs.docker.com/compose/completion/)
 - install apps
   - kap
   - gif brewery
   - skype
+- install global gems
+  - rubocop
+  - rubycritic
+  - rubocop-thread_safety
+  - rubocop-rspec
+  - brakeman
