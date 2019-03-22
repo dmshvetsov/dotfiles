@@ -1,7 +1,9 @@
 cd ~
 ln -si dotfiles/ackrc .ackrc
+ln -si dotfiles/asdfrc .asdfrc
+ln -si dotfiles/gitconfig .gitrc
 ln -si dotfiles/gitconfig .gitconfig
 ln -si dotfiles/psqlrc .psqlrc
+ln -si dotfiles/vim .vim
 ln -si dotfiles/vimrc .vimrc
 ln -si dotfiles/zshrc .zshrc
-ln -si dotfiles/vim .vim
