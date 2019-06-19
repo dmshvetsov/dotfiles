@@ -1,7 +1,13 @@
-# ignore log files
---ignore-file=ext:log
 --ignore-dir=.nyc_output
+# Ignore log files
+--ignore-file=ext:log
+# Ingore directories with transpilation/compilation results
 --ignore-dir=dist
+# Ingonre test coverage directories
 --ignore-dir=coverage
+# Ignore temmporary directories
 --ignore-dir=tmp
+# Ignore Next.JS framework internals
 --ignore-dir=.next
+# Ignore Relay.JS internals directories
+--ignore-dir=__generated__
