@@ -7,7 +7,7 @@
 	autocrlf = input
 	safecrlf = false
 	editor = vim
-	excludesfile = /Users/dmitrijsvecov/.gitignoreglobal
+	excludesfile = ~/.gitignoreglobal
 [alias]
 	l = log --graph --oneline --branches --remotes --tags --graph --oneline --decorate --notes --decorate
 	ll = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --remotes --tags --graph --oneline --decorate --notes
