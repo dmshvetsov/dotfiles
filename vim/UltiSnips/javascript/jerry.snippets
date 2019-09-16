@@ -1,0 +1,30 @@
+snippet jei "Event log imports for Jerry app"
+import eventLogger from '../../utils/event_logger';
+import ACTION_TYPE from '../../../common/enums/user_event_action';
+endsnippet
+
+snippet jel "Event log block for Jerry app"
+const attributesBefore = eventLogger.modelAttributes(${1:model});
+const attributesAfter = eventLogger.modelAttributes($1);
+await eventLogger.logEvent(
+	${2:sessionUser},
+	{
+		action: ACTION_TYPE.${3:SOME_MODEL_ACTION},
+		object: $1,
+		attributesBefore,
+		attributesAfter,
+	},
+);
+endsnippet
+
+snippet jeld "Event log block using diff for Jerry app"
+const diff = eventLogger.diff(${1:model}, ${2:params});
+await eventLogger.logEvent(
+	${3:sessionAdmin},
+	{
+		action: ACTION_TYPE.${4:SOME_MODEL_ACTION},
+		object: $1,
+		...diff,
+	},
+);
+endsnippet
