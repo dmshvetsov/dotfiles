@@ -7,16 +7,10 @@ set encoding=utf-8
 
 call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'tpope/vim-commentary'
-" Plug 'digitaltoad/vim-jade'
-Plug 'leshill/vim-json'
 Plug 'slim-template/vim-slim'
-" until trying ultisnips, looks like 2 years abandoned Plug 'garbas/vim-snipmate'
-" until trying ultisnips Plug 'honza/vim-snippets'
-Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
-" Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'honza/vim-snippets'
 Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
@@ -26,20 +20,20 @@ Plug 'w0rp/ale'
 Plug 'tomtom/tlib_vim' 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'sheerun/vim-polyglot'
 " tryout
 " Plug 'tpope/vim-dispatch'
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'rust-lang/rust.vim'
-" Plug 'elixir-editors/vim-elixir'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-" Plug 'posva/vim-vue'
-Plug 'kien/ctrlp.vim'
+Plug 'mattn/emmet-vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+" CTags
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'thoughtbot/vim-rspec'
 " colorschemes
-Plug 'arcticicestudio/nord-vim'
 Plug 'davidklsn/vim-sialoquent'
-Plug 'mhartington/oceanic-next'
+Plug 'arcticicestudio/nord-vim'
+Plug 'fenetikm/falcon'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 ""
@@ -51,15 +45,18 @@ set noswapfile
 set nobackup
 " Speed up editorconfig
 " require to install editorconfig
-" $ brew install editorconfig
+" $ brew install editorconfig or similar linux command
 let g:EditorConfig_core_mode = 'external_command'
 " Disable gitgutter realtime update
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
+" let g:gitgutter_realtime = 0
+" let g:gitgutter_eager = 0
 " Asynchronous Lint Engine (ALE)
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = 'le'
 let g:ale_sign_warning = 'lw'
+" Trying to fix ale slow checks
+" https://github.com/w0rp/ale/issues/1176
+let g:ale_cache_executable_check_failures = 1
 
 " wild menu
 set wildmenu
@@ -71,9 +68,6 @@ set wildignore+=*/node_modules/*,*/bower_components/*
 set undodir=$HOME/.vim/undodir
 set undofile
 
-" vim-javascript
-let g:javascript_plugin_jsdoc = 1
-
 ""
 " Visual preferences
 ""
@@ -82,14 +76,17 @@ syntax enable
 filetype plugin indent on
 
 set guifont=Fira\ Mono:h14
-set background=dark
 
 " for vim 8
 if (has("termguicolors"))
   set termguicolors
+  " set Vim-specific sequences for RGB colors
+  let &t_ZH="\e[3m"
+  let &t_ZR="\e[23m"
 endif
 
-colorscheme sialoquent
+colorscheme nord
+set background=dark
 
 set list
 set number
@@ -99,13 +96,16 @@ set title
 set nofoldenable
 set showcmd
 set wrap
+set colorcolumn=100
 "remove scroll bar
 set guioptions-=r
 set guioptions-=L
 
 " set lighline theme
-let g:lightline = { 'colorscheme': 'sialoquent' }
+let g:lightline = { 'colorscheme': 'nord' }
 set laststatus=2
+" ctags
+" set statusline+=%{gutentags#statusline()}
 
 " Use the same symbols as TextMate for tabs and EOLs
 let &showbreak="\u2190\ "
@@ -127,19 +127,27 @@ set regexpengine=1
 " https://github.com/vim/vim/issues/24
 set timeout timeoutlen=5000 ttimeoutlen=100
 
-""
-" Command-t
-""
-
-" set wildignore+=project/backup
-
+" Fix for wrong syntax highlighting
+autocmd BufEnter * :syntax sync fromstart
 
 ""
-" Shortcuts and Mappings
+" fzf
 ""
 
-" ultisnips trigger key
-let g:UltiSnipsExpandTrigger="<tab>"
+nnoremap <C-p> :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>h :History<CR>
+
+""
+" Emmet
+""
+
+" let g:user_emmet_leader_key='<Tab>'
+" let g:user_emmet_settings = {
+"   \  'javascript.jsx' : {
+"     \      'extends' : 'jsx',
+"     \  },
+"   \}
 
 " Vim way
 noremap <Up> <NOP>
@@ -152,25 +160,22 @@ noremap <Right> <NOP>
 nmap <silent> <C-L> <Plug>(ale_previous_wrap)
 nmap <silent> <C-l> <Plug>(ale_next_wrap)
 
-let g:ale_linters = { 'javascript': ['eslint', 'flow'] }
-let g:ale_fixers = { 'javascript': ['eslint'] }
-let g:ale_fix_on_save = 1
+let g:ale_linters = { 'javascript': ['eslint'] }
+" let g:ale_fixers = { 'javascript': ['eslint'] }
+" let g:ale_fix_on_save = 1
 
 ""
 " MISC
 ""
 
 let g:jsx_ext_required = 1
+let g:nord_uniform_diff_background = 1
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
 
 ""
 " Extensions
 ""
-
-" Jump to a previous file position when reopen a file
-au BufReadPost *
-   \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-   \ |   exe "normal! g`\""
-   \ | endif
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -208,9 +213,3 @@ endif
 if !exists(":ReloadVimrc")
   command ReloadVimrc :source $MYVIMRC
 endif
-
-" Create the `tags` file
-" require to install ctags
-" $ brew install ctags
-command! MakeTags !ctags -R .
-command! MakeRubyTags !ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
