@@ -1,5 +1,5 @@
 [user]
-	name = Di
+	name = iamdi
 	email = helloiamdi@gmail.com
 [color]
 	ui = true
@@ -7,7 +7,8 @@
 	autocrlf = input
 	safecrlf = false
 	editor = vim
+	excludesfile = /Users/dmitrijsvecov/.gitignoreglobal
 [alias]
-	l = log --graph --oneline --all --decorate
-	ll = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	l = log --graph --oneline --branches --remotes --tags --graph --oneline --decorate --notes --decorate
+	ll = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --remotes --tags --graph --oneline --decorate --notes
 	context = blame
