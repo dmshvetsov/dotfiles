@@ -24,7 +24,7 @@ Plug 'sheerun/vim-polyglot'
 " tryout
 " Plug 'tpope/vim-dispatch'
 Plug 'mattn/emmet-vim'
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " CTags
 " Plug 'ludovicchabant/vim-gutentags'
