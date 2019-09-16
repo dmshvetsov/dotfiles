@@ -12,6 +12,7 @@ nvim/undodir/*
 
 ctags
 nvim/autoload/plug.vim.old
+vim/autoload/plug.vim.old
 
 !**/.gitkeep
 !**/.keep
