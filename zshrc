@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/dmitrijsvecov/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -68,14 +68,13 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node)
+plugins=(git node docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 source ~/.secrets
-source ~/.profile
 
 # ASDF
 autoload -Uz compinit && compinit
@@ -98,12 +97,7 @@ autoload -Uz compinit && compinit
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -119,3 +113,5 @@ autoload -Uz compinit && compinit
 
 export PATH=$PATH:~/Projects/git-scripts
 export PATH=$PATH:~/bin
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
