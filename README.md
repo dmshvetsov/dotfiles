@@ -14,14 +14,15 @@
   - brew install tree
   - brew install ccat
   - brew install m-cli
+  - brew install fzf
+  - brew install --HEAD universal-ctags/universal-ctags/universal-ctags
   - docker
   - eslint
 - configure [bash completion for docker](https://docs.docker.com/compose/completion/)
 - install apps
   - kap
   - gif brewery
-  - skype
-- install global gems
+- (if using ruby) install global gems
   - rubocop
   - rubycritic
   - rubocop-thread_safety
