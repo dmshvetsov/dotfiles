@@ -98,6 +98,7 @@ autoload -Uz compinit && compinit
 # export LANG=en_US.UTF-8
 
 export EDITOR='vim'
+# export LESS="-X"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -113,5 +114,15 @@ export EDITOR='vim'
 
 export PATH=$PATH:~/Projects/git-scripts
 export PATH=$PATH:~/bin
+# If you use Android studio on linux (MacOS just work)
+export PATH=$PATH:~/Android/Sdk/tools
+export PATH=$PATH:~/Android/Sdk/platform-tools
+export ANDROID_SDK_ROOT=~/Android/Sdk
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Tilix terminal emulatro fix
+# https://gnunn1.github.io/tilix-web/manual/vteconfig/
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi

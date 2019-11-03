@@ -1,5 +1,6 @@
 scriptencoding utf-8
 set encoding=utf-8
+set nocompatible
 
 ""
 " Plugins
@@ -8,27 +9,26 @@ set encoding=utf-8
 call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
-Plug 'slim-template/vim-slim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'christoomey/vim-system-copy'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " dependency
 Plug 'tomtom/tlib_vim' 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'sheerun/vim-polyglot'
 " tryout
 " Plug 'tpope/vim-dispatch'
 Plug 'mattn/emmet-vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'jparise/vim-graphql'
+" Plug 'sheerun/vim-polyglot'
 " CTags
 " Plug 'ludovicchabant/vim-gutentags'
-Plug 'thoughtbot/vim-rspec'
 " colorschemes
 Plug 'davidklsn/vim-sialoquent'
 Plug 'arcticicestudio/nord-vim'
@@ -160,7 +160,7 @@ noremap <Right> <NOP>
 nmap <silent> <C-L> <Plug>(ale_previous_wrap)
 nmap <silent> <C-l> <Plug>(ale_next_wrap)
 
-let g:ale_linters = { 'javascript': ['eslint'] }
+" let g:ale_linters = { 'javascript': ['eslint'] }
 " let g:ale_fixers = { 'javascript': ['eslint'] }
 " let g:ale_fix_on_save = 1
 
@@ -171,7 +171,7 @@ let g:ale_linters = { 'javascript': ['eslint'] }
 let g:jsx_ext_required = 1
 let g:nord_uniform_diff_background = 1
 let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow = 0 " tmp disabled, need to make ts and flow work well together
 
 ""
 " Extensions
