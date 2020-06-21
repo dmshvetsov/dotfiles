@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export LC_ALL=en_US.UTF-8
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -74,12 +76,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-source ~/.secrets
+source $HOME/.secrets
 
 # ASDF
-autoload -Uz compinit && compinit
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+. /usr/local/opt/asdf/asdf.sh
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -113,11 +113,16 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=$PATH:~/Projects/git-scripts
+export PATH=$PATH:~/Projects/utils
 export PATH=$PATH:~/bin
 # If you use Android studio on linux (MacOS just work)
 export PATH=$PATH:~/Android/Sdk/tools
 export PATH=$PATH:~/Android/Sdk/platform-tools
 export ANDROID_SDK_ROOT=~/Android/Sdk
+# Postgres libql & client
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/libpq/lib"
+export CPPFLAGS="-I/usr/local/opt/libpq/include"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
