@@ -15,18 +15,22 @@ Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'christoomey/vim-system-copy'
-" Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
 " dependency
 Plug 'tomtom/tlib_vim' 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " tryout
 " Plug 'tpope/vim-dispatch'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-fugitive'
 Plug 'jparise/vim-graphql'
-" Plug 'sheerun/vim-polyglot'
 " CTags
 " Plug 'ludovicchabant/vim-gutentags'
 " colorschemes
@@ -121,7 +125,7 @@ set autoread
 " introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
 " slower with the new regex engine.
 " https://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
-set regexpengine=1
+" set regexpengine=1
 
 " Fix for ^[<character> problem
 " https://github.com/vim/vim/issues/24
@@ -160,9 +164,14 @@ noremap <Right> <NOP>
 nmap <silent> <C-L> <Plug>(ale_previous_wrap)
 nmap <silent> <C-l> <Plug>(ale_next_wrap)
 
-" let g:ale_linters = { 'javascript': ['eslint'] }
-" let g:ale_fixers = { 'javascript': ['eslint'] }
-" let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'javascriptreact': ['prettier']
+      \}
+let g:ale_linters_ignore = {
+      \ 'javascript': ['tsserver'],
+      \ 'javascriptreact': ['tsserver']
+      \}
 
 ""
 " MISC
@@ -178,10 +187,10 @@ let g:javascript_plugin_flow = 0 " tmp disabled, need to make ts and flow work w
 ""
 
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 " Show syntax highlighting groups for word under cursor
 " nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -193,7 +202,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 " endfunc
 
 " Run open ruby script
-nmap <leader>e :!ruby -I %:p:h %<CR>
+" nmap <leader>e :!ruby -I %:p:h %<CR>
 
 " The sudo tee trick mappings
 cmap w!! w !sudo tee % >/dev/null
@@ -201,6 +210,18 @@ cmap w!! w !sudo tee % >/dev/null
 " Solution for performance problem
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 autocmd BufWinLeave * call clearmatches()
+
+" Solution for syntax highlight problem and hangup in typescript files
+autocmd BufEnter *.{jsx,tsx} :syntax sync fromstart
+autocmd BufLeave *.{jsx,tsx} :syntax sync clear
+
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 ""
 " Commands
