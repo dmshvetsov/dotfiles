@@ -1,8 +1,12 @@
 \set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
 \set ON_ERROR_STOP on
 \set ON_ERROR_ROLLBACK interactive
+\set VERBOSITY verbose
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
 
 \pset null '¤'
+\pset pager off
 \pset linestyle unicode
 \pset border 2
 \pset format wrapped
