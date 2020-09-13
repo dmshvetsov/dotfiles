@@ -131,3 +131,8 @@ export CPPFLAGS="-I/usr/local/opt/libpq/include"
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
+
+# For compilers to find mysql-client you may need to set:
+export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
+export CPPFLAGS="-I/usr/local/opt/mysql-client/include"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
