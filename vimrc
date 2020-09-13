@@ -34,6 +34,7 @@ Plug 'jparise/vim-graphql'
 " CTags
 " Plug 'ludovicchabant/vim-gutentags'
 " colorschemes
+Plug 'posva/vim-vue'
 Plug 'davidklsn/vim-sialoquent'
 Plug 'arcticicestudio/nord-vim'
 Plug 'fenetikm/falcon'
