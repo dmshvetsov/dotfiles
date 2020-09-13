@@ -48,10 +48,6 @@ call plug#end()
 " Do not create swap files and backups
 set noswapfile
 set nobackup
-" Speed up editorconfig
-" require to install editorconfig
-" $ brew install editorconfig or similar linux command
-let g:EditorConfig_core_mode = 'external_command'
 " Disable gitgutter realtime update
 " let g:gitgutter_realtime = 0
 " let g:gitgutter_eager = 0
