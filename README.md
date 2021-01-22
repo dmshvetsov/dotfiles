@@ -28,3 +28,13 @@
   - rubocop-thread_safety
   - rubocop-rspec
   - brakeman
+
+ Imptovements to work with multiple spaces:
+
+System Preferences > Mission Control > Uncheck "When switching to an application, switch to a Space with open windows for the application"
+
+and map to switching withing the space to different keys, `CMD + TAB` for example, and switching between spaces to `CTR + F4` (it iwll switch shortcuts between each other)
+
+OR
+
+System Preferences > Keyboard > Shortcuts > Keyboard > Disable "Move focus to active or next window"
