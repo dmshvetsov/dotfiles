@@ -1,6 +1,9 @@
 #!/bin/bash
 
 cd ~
+mkdir -p ./config/nvim/
+
+ln -si dotfiles/bin bin
 ln -si dotfiles/ackrc .ackrc
 ln -si dotfiles/asdfrc .asdfrc
 ln -si dotfiles/gitconfig .gitconfig
@@ -8,6 +11,8 @@ ln -si dotfiles/gitignoreglobal .gitignoreglobal
 ln -si dotfiles/psqlrc .psqlrc
 ln -si dotfiles/vim .vim
 ln -si dotfiles/vimrc .vimrc
+ln -si dotfiles/dotconfig/nvim/init.vim .config/nvim/init.vim
+ln -si dotfiles/dotconfig/nvim/coc-settings.json .config/nvim/coc-settings.json
 ln -si dotfiles/zshrc .zshrc
 ln -si dotfiles/ctagsignore .ctagsignore
 ln -si dotfiles/alacritty.yml .alacritty.yml
