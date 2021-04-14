@@ -1,3 +1,6 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"]
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"],
+  "javascript.validate.enable": false,
+  "coc.source.buffer.enable": true,
+  "sql.database": "postgresql"
 }

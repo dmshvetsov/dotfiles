@@ -13,16 +13,16 @@ set nocompatible
 call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
-Plug 'honza/vim-snippets'
 Plug 'mileszs/ack.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'  " tying lualine instead
 Plug 'christoomey/vim-system-copy'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" OR alternative
-" Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+"
+" languages and syntax
+"
 Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
 " Plug 'ollykel/v-vim'
@@ -30,23 +30,38 @@ Plug 'pangloss/vim-javascript'
 " Plug 'elixir-editors/vim-elixir'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
-" dependency
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-" tryout
-" Plug 'tpope/vim-dispatch'
-" Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'jparise/vim-graphql'
-" CTags
-" Plug 'ludovicchabant/vim-gutentags'
-" colorschemes
 Plug 'posva/vim-vue'
+"
+" colorschemes
+"
 Plug 'davidklsn/vim-sialoquent'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'embark-theme/vim'
+"
+" dependencies
+"
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'nvim-lua/plenary.nvim' " dependent: gitsigns.nvim
+"
+" tryout
+"
+" Plug 'tpope/vim-dispatch'
+" Plug 'mattn/emmet-vim'
+Plug 'AndrewRadev/splitjoin.vim'
+" Plug 'jparise/vim-graphql'
+Plug 'AndrewRadev/tagalong.vim'
+Plug 'hoob3rt/lualine.nvim'
+" Plug 'airblade/vim-gitgutter' " recomended for vim-js-file-import
+" after neovim 0.5.0 try gitsigns
+Plug 'lewis6991/gitsigns.nvim'
+" Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
+" Plug 'ludovicchabant/vim-gutentags' " for ctags, vim-js-file-import
+" Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kkvh/vim-docker-tools'
 call plug#end()
 
 ""
@@ -56,16 +71,10 @@ call plug#end()
 " Do not create swap files and backups
 set noswapfile
 set nobackup
+
 " Disable gitgutter realtime update
 " let g:gitgutter_realtime = 0
 " let g:gitgutter_eager = 0
-" Asynchronous Lint Engine (ALE)
-" let g:ale_sign_column_always = 1
-" let g:ale_sign_error = 'e'
-" let g:ale_sign_warning = 'w'
-" Trying to fix ale slow checks
-" https://github.com/w0rp/ale/issues/1176
-" let g:ale_cache_executable_check_failures = 1
 
 " wild menu
 set wildmenu
@@ -74,7 +83,7 @@ set wildignore+=*.pdf,*.psd
 set wildignore+=*/node_modules/*,*/bower_components/*
 
 " undo/redo between sessions
-set undodir=$HOME/.vim/undodir
+set undodir=$HOME/.config/nvim/undodir
 set undofile
 
 ""
@@ -86,17 +95,18 @@ filetype plugin indent on
 
 set guifont=Fira\ Mono:h14
 
-" for vim 8
-if (has("termguicolors"))
-  set termguicolors
-  " set Vim-specific sequences for RGB colors
-  let &t_ZH="\e[3m"
-  let &t_ZR="\e[23m"
-endif
+set termguicolors
+
+" show column for git, eslint and other signs
+" this removes columns shift between no sign or first signs added
+set signcolumn=yes:1
 
 " Color shceme setup
 
-colorscheme nord
+" colorscheme nord
+colorscheme embark
+let g:embark_terminal_italics = 1
+
 set background=dark
 let g:nord_uniform_diff_background = 1
 
@@ -108,14 +118,21 @@ set title
 set nofoldenable
 set showcmd
 set wrap
-set colorcolumn=100
 "remove scroll bar
 set guioptions-=r
 set guioptions-=L
 
+"
+" Status line
+"
+
 " set lighline theme
-let g:lightline = { 'colorscheme': 'nord' }
-set laststatus=2
+" let g:lightline = { 'colorscheme': 'nord' }
+
+let g:lualine = { 'options' : { 'theme' : 'auto', 'section_separators' : ['|', '|'], 'component_separators' : [ '|', '|' ], 'icons_enabled' : v:false }, 'extensions': ['fzf', 'fugitive'] }
+lua require('lualine').setup()
+
+" set laststatus=2
 " ctags
 " set statusline+=%{gutentags#statusline()}
 
@@ -149,6 +166,19 @@ autocmd BufEnter * :syntax sync fromstart
 nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
+nnoremap <Leader>c :Commands<CR>
+
+"
+" coc
+"
+
+let g:coc_global_extensions = ['coc-sql', 'coc-eslint', 'coc-prettier', 'coc-tsserver']
+
+" goto code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 ""
 " Emmet
@@ -160,6 +190,12 @@ nnoremap <Leader>h :History<CR>
 "     \      'extends' : 'jsx',
 "     \  },
 "   \}
+
+"
+" gitsigns
+"
+lua require('gitsigns').setup()
+" set statusline+=%{get(b:,'gitsigns_status','')}
 
 " Vim way
 noremap <Up> <NOP>
@@ -180,6 +216,19 @@ noremap <Right> <NOP>
 "       \ 'javascript': ['tsserver'],
 "       \ 'javascriptreact': ['tsserver']
 "       \}
+
+" COC-eslint quick navigattion
+nmap <C-l> <Plug>(coc-diagnostic-next)
+nmap <C-L> <Plug>(coc-diagnostic-prev)
+
+" coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f :Prettier<CR>
+
+" formatprg prettier
+" FIXME: not working
+" autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
 ""
 " MISC
@@ -225,27 +274,30 @@ autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 nmap <leader>r :! clear && printf '\e[3J' && rspec %<CR>
 " TODO: plugin to execute different programming languages files
 
-" Prettier setup
-
-" coc-prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f :Prettier<CR>
-
-" formatprg prettier
-" FIXME: not working
-" autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-
-" The sudo tee trick mappings
-cmap w!! w !sudo tee % >/dev/null
-
 " Solution for performance problem
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-autocmd BufWinLeave * call clearmatches()
+" autocmd BufWinLeave * call clearmatches()
 
 " Solution for syntax highlight problem and hangup in typescript files
-autocmd BufEnter *.{jsx,tsx} :syntax sync fromstart
-autocmd BufLeave *.{jsx,tsx} :syntax sync clear
+" autocmd BufEnter *.{jsx,tsx} :syntax sync fromstart
+" autocmd BufLeave *.{jsx,tsx} :syntax sync clear
+
+""
+" Commands
+""
+
+" Working with vimrc
+if !exists(":EditVimInit")
+  command EditVimInit :e $MYVIMRC
+endif
+if !exists(":ReloadVimInit")
+  command ReloadVimInit :source $MYVIMRC
+endif
+
+"
+" Shortcuts
+"
+nmap <leader>d :Ex<CR>
 
 nmap <leader>sp :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -255,14 +307,6 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-""
-" Commands
-""
+" The sudo tee trick mappings
+cmap w!! w !sudo tee % >/dev/null
 
-" Working with vimrc
-if !exists(":EditVimrc")
-  command EditVimrc :e $MYVIMRC
-endif
-if !exists(":ReloadVimrc")
-  command ReloadVimrc :source $MYVIMRC
-endif
