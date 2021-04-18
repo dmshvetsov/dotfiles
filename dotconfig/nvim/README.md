@@ -80,3 +80,13 @@ Open indexed version of a file:
 or currently opened file:
 
     :Gedit :0
+
+Open readonly buffer with a file from another branch
+
+    :Gedit otherbranch:path/to/file
+
+or if you want to see currently opened file
+
+    :Gedit otherbranch:%
+
+note autocompletion works for the branch name and the path to a file. `:Gvsplit` and `:Gsplit` wokrs like `:Gedit` but opens a file in a split buffer. You can open commit, tag, blob, or tree with these commands.
