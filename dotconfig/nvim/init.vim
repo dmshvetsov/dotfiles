@@ -14,11 +14,12 @@ call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
 Plug 'mileszs/ack.vim'
-" Plug 'itchyny/lightline.vim'  " tying lualine instead
+Plug 'hoob3rt/lualine.nvim'
 Plug 'christoomey/vim-system-copy'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" telescope in tryout
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 "
 " languages and syntax
@@ -31,6 +32,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'posva/vim-vue'
+Plug 'mustache/vim-mustache-handlebars'
 "
 " colorschemes
 "
@@ -54,7 +56,6 @@ Plug 'nvim-lua/plenary.nvim' " dependent: gitsigns.nvim
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'jparise/vim-graphql'
 Plug 'AndrewRadev/tagalong.vim'
-Plug 'hoob3rt/lualine.nvim'
 " Plug 'airblade/vim-gitgutter' " recomended for vim-js-file-import
 " after neovim 0.5.0 try gitsigns
 Plug 'lewis6991/gitsigns.nvim'
@@ -62,6 +63,10 @@ Plug 'lewis6991/gitsigns.nvim'
 " Plug 'ludovicchabant/vim-gutentags' " for ctags, vim-js-file-import
 " Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kkvh/vim-docker-tools'
+" telescope tryout
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 ""
@@ -86,6 +91,9 @@ set wildignore+=*/node_modules/*,*/bower_components/*
 set undodir=$HOME/.config/nvim/undodir
 set undofile
 
+" allow unsaved changes in buffer switches
+set hidden
+
 ""
 " Visual preferences
 ""
@@ -104,7 +112,7 @@ set signcolumn=yes:1
 " Color shceme setup
 
 " colorscheme nord
-colorscheme embark
+colorscheme material
 let g:embark_terminal_italics = 1
 
 set background=dark
@@ -129,7 +137,7 @@ set guioptions-=L
 " set lighline theme
 " let g:lightline = { 'colorscheme': 'nord' }
 
-let g:lualine = { 'options' : { 'theme' : 'auto', 'section_separators' : ['|', '|'], 'component_separators' : [ '|', '|' ], 'icons_enabled' : v:false }, 'extensions': ['fzf', 'fugitive'] }
+let g:lualine = { 'options' : { 'theme' : 'auto', 'section_separators' : ['|', '|'], 'component_separators' : [ '|', '|' ], 'icons_enabled' : v:false }, 'extensions': ['fugitive'] }
 lua require('lualine').setup()
 
 " set laststatus=2
@@ -163,10 +171,10 @@ autocmd BufEnter * :syntax sync fromstart
 " fzf
 ""
 
-nnoremap <C-p> :GFiles<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>h :History<CR>
-nnoremap <Leader>c :Commands<CR>
+" nnoremap <C-p> :GFiles<CR>
+" nnoremap <Leader>b :Buffers<CR>
+" nnoremap <Leader>h :History<CR>
+" nnoremap <Leader>c :Commands<CR>
 
 "
 " coc
@@ -174,11 +182,55 @@ nnoremap <Leader>c :Commands<CR>
 
 let g:coc_global_extensions = ['coc-sql', 'coc-eslint', 'coc-prettier', 'coc-tsserver']
 
+" coc-eslint quick navigattion
+nmap <C-l> <Plug>(coc-diagnostic-next)
+nmap <C-L> <Plug>(coc-diagnostic-prev)
+
+" coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>p <Plug>(coc-format-selected)
+nmap <leader>p :Prettier<CR>
+
+" formatprg prettier
+" FIXME: not working
+" autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+
+"
+" navigation
+"
+
+" paragraph movements without jumnmarks
+nnoremap } :keepjumps normal! }<cr>
+nnoremap { :keepjumps normal! {<cr>
+xnoremap } :<C-u>keepjumps normal! gv}<cr>
+xnoremap { :<C-u>keepjumps normal! gv{<cr>
+
 " goto code navigation
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" telescope
+" https://github.com/nvim-telescope/telescope.nvim#getting-started
+"
+" Find files using Telescope command-line sugar.
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    file_ignore_patterns = {'node_modules', 'bower_components', '.cache', 'cache'}
+  }
+}
+EOF
 
 ""
 " Emmet
@@ -216,19 +268,6 @@ noremap <Right> <NOP>
 "       \ 'javascript': ['tsserver'],
 "       \ 'javascriptreact': ['tsserver']
 "       \}
-
-" COC-eslint quick navigattion
-nmap <C-l> <Plug>(coc-diagnostic-next)
-nmap <C-L> <Plug>(coc-diagnostic-prev)
-
-" coc-prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f :Prettier<CR>
-
-" formatprg prettier
-" FIXME: not working
-" autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
 ""
 " MISC
@@ -298,6 +337,8 @@ endif
 " Shortcuts
 "
 nmap <leader>d :Ex<CR>
+
+nmap <leader>l :!./node_modules/.bin/eslint --no-ignore %<CR>
 
 nmap <leader>sp :call <SID>SynStack()<CR>
 function! <SID>SynStack()
