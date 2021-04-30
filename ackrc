@@ -11,3 +11,5 @@
 --ignore-dir=.next
 # Ignore Relay.JS internals directories
 --ignore-dir=__generated__
+# Ignore Ctags and alike files
+--ignore-file=is:tags
