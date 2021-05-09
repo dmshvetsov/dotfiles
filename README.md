@@ -15,6 +15,7 @@
   - brew install ccat
   - brew install m-cli
   - brew install fzf
+  - brew install fd
   - brew install --HEAD universal-ctags/universal-ctags/universal-ctags
   - docker
   - eslint

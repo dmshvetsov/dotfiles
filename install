@@ -3,18 +3,18 @@
 cd ~
 mkdir -p ./config/nvim/
 
-ln -si dotfiles/bin bin
-ln -si dotfiles/ackrc .ackrc
-ln -si dotfiles/asdfrc .asdfrc
-ln -si dotfiles/gitconfig .gitconfig
-ln -si dotfiles/gitignoreglobal .gitignoreglobal
-ln -si dotfiles/psqlrc .psqlrc
-ln -si dotfiles/vim .vim
-ln -si dotfiles/vimrc .vimrc
-ln -si dotfiles/dotconfig/nvim/init.vim .config/nvim/init.vim
-ln -si dotfiles/dotconfig/nvim/coc-settings.json .config/nvim/coc-settings.json
-ln -si dotfiles/zshrc .zshrc
-ln -si dotfiles/ctagsignore .ctagsignore
-ln -si dotfiles/alacritty.yml .alacritty.yml
+ln -si $HOME/dotfiles/bin bin
+ln -si $HOME/dotfiles/ackrc .ackrc
+ln -si $HOME/dotfiles/asdfrc .asdfrc
+ln -si $HOME/dotfiles/gitconfig .gitconfig
+ln -si $HOME/dotfiles/gitignoreglobal .gitignoreglobal
+ln -si $HOME/dotfiles/psqlrc .psqlrc
+ln -si $HOME/dotfiles/vim .vim
+ln -si $HOME/dotfiles/vimrc .vimrc
+ln -si $HOME/dotfiles/dotconfig/nvim/init.vim .config/nvim/init.vim
+ln -si $HOME/dotfiles/dotconfig/nvim/coc-settings.json .config/nvim/coc-settings.json
+ln -si $HOME/dotfiles/zshrc .zshrc
+ln -si $HOME/dotfiles/ctagsignore .ctagsignore
+ln -si $HOME/dotfiles/alacritty.yml .alacritty.yml
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
