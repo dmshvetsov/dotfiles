@@ -9,7 +9,7 @@
 \pset pager off
 \pset linestyle unicode
 \pset border 2
-\pset format wrapped
+\pset format aligned
 
 \x auto
 \timing
