@@ -17,5 +17,6 @@ ln -si $HOME/dotfiles/dotconfig/nvim/coc-settings.json .config/nvim/coc-settings
 ln -si $HOME/dotfiles/zshrc .zshrc
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
+ln -si $HOME/dotfiles/tmux.conf .tmux.conf
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
