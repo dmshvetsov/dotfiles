@@ -2,6 +2,7 @@
 
 cd ~
 mkdir -p ./config/nvim/
+mkdir -p ./config/alacritty/
 
 ln -si $HOME/dotfiles/bin bin
 ln -si $HOME/dotfiles/ackrc .ackrc
@@ -15,6 +16,6 @@ ln -si $HOME/dotfiles/dotconfig/nvim/init.vim .config/nvim/init.vim
 ln -si $HOME/dotfiles/dotconfig/nvim/coc-settings.json .config/nvim/coc-settings.json
 ln -si $HOME/dotfiles/zshrc .zshrc
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
-ln -si $HOME/dotfiles/alacritty.yml .alacritty.yml
+ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
