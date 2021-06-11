@@ -66,6 +66,8 @@ Plug 'kkvh/vim-docker-tools'
 Plug 'akinsho/nvim-bufferline.lua'
 " Plug 'kyazdani42/nvim-web-devicons' " nvim-bufferline -> Recommended (for coloured icons)
 " Plug 'ryanoasis/vim-devicons' " nvim-bufferline -> Icons without colours 
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 call plug#end()
 
 ""
@@ -182,6 +184,13 @@ require('lualine').setup{
   extensions = {'fzf', 'fugitive'}
 }
 EOF
+
+"
+" Distraction free editor
+"
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+nmap <leader>g :Goyo<cr>
 
 " Use the same symbols as TextMate for tabs and EOLs
 let &showbreak="\u2190\ "
