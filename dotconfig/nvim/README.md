@@ -13,9 +13,9 @@ Read glosarry to understadn the bellow content.
 
 ## Usage guide
 
-### Searching and openening files
+### Navigating and openening files
 
-`<C-p>` – open fzf search
+`<leader>ff` – open fzf search
 `:ex` or `<leader>d` – open netrw file explorer in the current directory
 
 In fzf:
@@ -31,6 +31,21 @@ in netrw file explorer:
 `t` – open fie under the cursor in a new tab
 `s` – open fie under the cursor in a horizontal split panel
 `v` – open fie under the cursor in a vertiacal split panel
+
+`gd` – go to where functiona or variable or class is defined
+`gr` – show quick list of references where function, variable, or class is defined
+
+`<C-o>` – go back
+
+### Distraction free UI
+
+`<leader>g` - toggle on and off simplifyed UI for reading and editing a buffer
+
+### Project-wide search
+
+`:Ack <pattern> [<search folder>]`
+
+Use `:Ack!` to disable auto-open the first found result
 
 ### Working with Git
 
@@ -90,3 +105,7 @@ or if you want to see currently opened file
     :Gedit otherbranch:%
 
 note autocompletion works for the branch name and the path to a file. `:Gvsplit` and `:Gsplit` wokrs like `:Gedit` but opens a file in a split buffer. You can open commit, tag, blob, or tree with these commands.
+
+## Useful links
+
+`:help :lua-heredoc` to learn how to use Lua from your `init.vim`.
