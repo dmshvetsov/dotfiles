@@ -3,6 +3,7 @@
 vim/.netrwhist
 vim/plugged
 vim/undodir/*
+vim/undodir.bak
 nvim/.netrwhist
 nvim/plugged
 nvim/spell
