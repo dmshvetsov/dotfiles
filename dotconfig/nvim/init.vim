@@ -38,7 +38,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 "
 Plug 'davidklsn/vim-sialoquent'
 Plug 'arcticicestudio/nord-vim'
-Plug 'tomasiser/vim-code-dark'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'RohanPoojary/pleasant.vim'
 Plug 'embark-theme/vim'
 "
 " dependencies
@@ -110,14 +111,29 @@ set termguicolors
 set signcolumn=yes:1
 
 "
-" Color shceme setup
+" theme (color shceme and related) setup
 "
 
+" nord theme
 " colorscheme nord
 " let g:nord_uniform_diff_background = 1
+
+" embark theme
 " colorscheme embark
-colorscheme embark
-let g:embark_terminal_italics = 1
+" let g:embark_terminal_italics = 1
+
+" pleasant theme
+" Uncomment to enable bold.
+" let g:pleasant_bold = 1
+" Uncomment to enable italic.
+" let g:pleasant_italic = 1
+" colorscheme pleasant
+
+" palenight theme
+" Italics for my favorite color scheme
+let g:palenight_terminal_italics=1
+colorscheme palenight
+
 
 set background=dark
 
