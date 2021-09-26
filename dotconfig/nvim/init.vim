@@ -138,6 +138,9 @@ source $HOME/dotfiles/dotconfig/nvim/fzf.config.vim
 source $HOME/dotfiles/dotconfig/nvim/lsp.config.vim
 luafile $HOME/dotfiles/dotconfig/nvim/autocompletion.config.lua
 
+" Highlight on yank
+au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=329, on_visual=true}
+
 "
 " buffline
 " https://github.com/akinsho/nvim-bufferline.lua#readme
