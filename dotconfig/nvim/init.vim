@@ -38,9 +38,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 "
 Plug 'davidklsn/vim-sialoquent'
 Plug 'arcticicestudio/nord-vim'
+Plug 'tomasiser/vim-code-dark'
 Plug 'embark-theme/vim'
-Plug 'shaunsingh/moonlight.nvim'
-Plug 'ayu-theme/ayu-vim'
 "
 " dependencies
 "
@@ -117,22 +116,8 @@ set signcolumn=yes:1
 " colorscheme nord
 " let g:nord_uniform_diff_background = 1
 " colorscheme embark
-" let g:embark_terminal_italics = 1
-" colorscheme moonlight
-lua <<EOF
--- vim.g.moonlight_style = "moonlight"
--- vim.g.moonlight_italic_comments = true
--- vim.g.moonlight_italic_keywords = false
--- vim.g.moonlight_italic_functions = false
--- vim.g.moonlight_italic_variables = false
--- vim.g.moonlight_contrast = true
--- vim.g.moonlight_borders = false
--- vim.g.moonlight_disable_background = false
--- Load the colorscheme
--- require('moonlight').set()
-EOF
-colorscheme ayu
-let ayucolor="mirage"
+colorscheme embark
+let g:embark_terminal_italics = 1
 
 set background=dark
 
