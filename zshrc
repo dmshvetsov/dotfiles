@@ -103,17 +103,14 @@ export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# fzf configuration
+#
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 export PATH=$PATH:~/Projects/git-scripts
 export PATH=$PATH:~/Projects/utils
+export PATH=$PATH:~/Projects/jana-journal/bin
 export PATH=$PATH:~/bin
 # If you use Android studio on linux (MacOS just work)
 export PATH=$PATH:~/Android/Sdk/tools
@@ -121,6 +118,7 @@ export PATH=$PATH:~/Android/Sdk/platform-tools
 export ANDROID_SDK_ROOT=~/Android/Sdk
 # Postgres libql & client
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="/usr/local/opt/solana/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/libpq/lib"
 export CPPFLAGS="-I/usr/local/opt/libpq/include"
 
@@ -136,3 +134,31 @@ fi
 export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
 export CPPFLAGS="-I/usr/local/opt/mysql-client/include"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# Include Vlang repo in to the PATH
+export PATH="/Users/d24v/Projects/v:$PATH"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/d24v/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/d24v/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/d24v/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/d24v/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

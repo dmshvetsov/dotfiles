@@ -1,8 +1,10 @@
 #!/bin/bash
 
 cd ~
-mkdir -p ./config/nvim/
-mkdir -p ./config/alacritty/
+mkdir -p .config/nvim/
+mkdir -p .config/alacritty/
+mkdir -p .config/zellij/
+mkdir -p .config/fd/
 
 ln -si $HOME/dotfiles/bin bin
 ln -si $HOME/dotfiles/ackrc .ackrc
@@ -13,10 +15,11 @@ ln -si $HOME/dotfiles/psqlrc .psqlrc
 ln -si $HOME/dotfiles/vim .vim
 ln -si $HOME/dotfiles/vimrc .vimrc
 ln -si $HOME/dotfiles/dotconfig/nvim/init.vim .config/nvim/init.vim
-ln -si $HOME/dotfiles/dotconfig/nvim/coc-settings.json .config/nvim/coc-settings.json
+ln -si $HOME/dotfiles/dotconfig/fd/ignore .config/fd/ignore
 ln -si $HOME/dotfiles/zshrc .zshrc
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
+ln -si $HOME/dotfiles/dotconfig/zellij/config.yaml .config/zellij/config.yaml
 ln -si $HOME/dotfiles/tmux.conf .tmux.conf
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal

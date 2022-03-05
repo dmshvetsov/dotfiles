@@ -1,14 +1,18 @@
-[user]
-	name = iamdi
-	email = shvetsovdm@gmail.com
+[includeIf "gitdir:~/Projects/personal/"]
+  path = ~/Projects/personal/.gitconfig.personal
+[includeIf "gitdir:~/Projects/magiceden"]
+  path = ~/Projects/magiceden/.gitconfig.magiceden
+
 [color]
 	ui = true
 [core]
 	autocrlf = input
 	safecrlf = false
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignoreglobal
 [alias]
 	l = log --graph --oneline --branches --remotes --tags --graph --oneline --decorate --notes --decorate
 	ll = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --remotes --tags --graph --oneline --decorate --notes
 	context = blame
+[pull]
+	ff = only

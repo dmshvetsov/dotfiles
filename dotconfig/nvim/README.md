@@ -18,19 +18,24 @@ Read glosarry to understadn the bellow content.
 `<leader>ff` – open fzf search
 `:ex` or `<leader>d` – open netrw file explorer in the current directory
 
+`<C-h>` - switch to the buffer on the left
+`<C-j>` - switch to the buffer below
+`<C-k>` - switch to the buffer a// bowe
+`<C-l>` - switch to the buffer on the right
+
+`]c` - previous change not staged in git
+`[c` - next change not staged in git
+
+`<leader>[` - previous buffer, the same as `:bp`
+`<leader>]` - next buffer, the same as `:bn`
+`<leader>x` - close current buffer, the same as `:bd` and open a previous buffer, if in a split window the window will be preserved
+
 In fzf:
 
 `<CR>` – open file under the cursor in a new buffer
 `<C-t>` – open file under the cursor in a new Vim tab
 `<C-s>` – open file under the cursor in a horizontal split panel
 `<C-v>` – open file under the cursor in a vertiacal split panel
-
-in netrw file explorer:
-
-`<CR>` open file under the cursor in a new buffer
-`t` – open fie under the cursor in a new tab
-`s` – open fie under the cursor in a horizontal split panel
-`v` – open fie under the cursor in a vertiacal split panel
 
 `gd` – go to where functiona or variable or class is defined
 `gr` – show quick list of references where function, variable, or class is defined
@@ -46,6 +51,12 @@ in netrw file explorer:
 `:Ack <pattern> [<search folder>]`
 
 Use `:Ack!` to disable auto-open the first found result
+
+### Manipulating content
+
+`<leader>p` - to format current buffer in normal mode and selected lines in visual mode with [prettier](https://prettier.io/) and [vim-prettier plugin](https://github.com/prettier/vim-prettier)
+`<leader>r` - rename symbol and all it usage in the projects
+`<leader>a` - show code actions on current symbol under the cursor
 
 ### Working with Git
 
@@ -64,7 +75,7 @@ Open git status:
 
     :Gstatus
 
-Use `<C-p>` and `<C-n>` to move betwee lines with files in the git status output.  Press minus key `-` to add or remove file under the cursor from the git index. You can use vim visual mode to add multiple files with single `-` key press.
+Use `<C-p>` and `<C-n>` to move betwee lines with files in the git status output. Press minus key `-` to add or remove file under the cursor from the git index. You can use vim visual mode to add multiple files with single `-` key press.
 
 If you want to add all of the files you might want to use:
 

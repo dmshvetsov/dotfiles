@@ -3,6 +3,8 @@
 --ignore-file=ext:log
 # Ingore directories with transpilation/compilation results
 --ignore-dir=dist
+# Ingore build tools directories
+--ignore-dir=build
 # Ingonre test coverage directories
 --ignore-dir=coverage
 # Ignore temmporary directories
@@ -13,3 +15,7 @@
 --ignore-dir=__generated__
 # Ignore Ctags and alike files
 --ignore-file=is:tags
+# Ignore typescript build info file
+--ignore-file=is:tsconfig.tsbuildinfo
+# Ignore yarn.lock
+--ignore-file=is:yarn.lock

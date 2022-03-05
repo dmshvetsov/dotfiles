@@ -20,6 +20,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
+" Plug 'ollykel/v-vim'
+" Plug 'dart-lang/dart-vim-plugin'
+" Plug 'elixir-editors/vim-elixir'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 " dependency
@@ -30,6 +33,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " Plug 'tpope/vim-dispatch'
 " Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'jparise/vim-graphql'
 " CTags
 " Plug 'ludovicchabant/vim-gutentags'
@@ -53,8 +57,8 @@ set nobackup
 " let g:gitgutter_eager = 0
 " Asynchronous Lint Engine (ALE)
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = 'le'
-let g:ale_sign_warning = 'lw'
+let g:ale_sign_error = 'e'
+let g:ale_sign_warning = 'w'
 " Trying to fix ale slow checks
 " https://github.com/w0rp/ale/issues/1176
 let g:ale_cache_executable_check_failures = 1
@@ -97,7 +101,6 @@ set title
 set nofoldenable
 set showcmd
 set wrap
-set colorcolumn=100
 "remove scroll bar
 set guioptions-=r
 set guioptions-=L
@@ -117,6 +120,8 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set backspace=indent,eol,start
 " Auto reload file when changed
 set autoread
+
+set hidden
 
 " Use the old vim regex engine (version 1, as opposed to version 2, which was
 " introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
@@ -198,8 +203,20 @@ let g:javascript_plugin_flow = 0 " tmp disabled, need to make ts and flow work w
 "   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 " endfunc
 
-" Run open ruby script
-" nmap <leader>e :!ruby -I %:p:h %<CR>
+" Execute current file
+" nmap <leader>r :!ruby -I %:p:h %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && v run %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && elixir %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && lua %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && rustc -o main % && ./main<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && ./run %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && ruby -rpry -I %:p:h %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && clojure %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && scala %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && dart --disable-analytics run %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && escript %<CR>
+nmap <leader>r :! clear && printf '\e[3J' && rspec %<CR>
+
 
 " The sudo tee trick mappings
 cmap w!! w !sudo tee % >/dev/null

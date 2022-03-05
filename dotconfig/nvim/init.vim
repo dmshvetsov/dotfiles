@@ -19,28 +19,34 @@ Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'L3MON4D3/LuaSnip'
+"
+" LSP
+"
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'hrsh7th/nvim-compe'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 "
 " languages and syntax
 "
-Plug 'vim-ruby/vim-ruby'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'vim-ruby/vim-ruby'
 " Plug 'ollykel/v-vim'
 " Plug 'dart-lang/dart-vim-plugin'
 " Plug 'elixir-editors/vim-elixir'
-" Plug 'MaxMEllon/vim-jsx-pretty'
 " Plug 'posva/vim-vue'
 "
 " colorschemes
 "
 Plug 'davidklsn/vim-sialoquent'
-Plug 'arcticicestudio/nord-vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'RohanPoojary/pleasant.vim'
+" Plug 'arcticicestudio/nord-vim' " original
+Plug 'shaunsingh/nord.nvim' " alternative nord vim colorscheme with LSP, treesitter support and mare
 Plug 'embark-theme/vim'
+Plug 'savq/melange'
 "
 " dependencies
 "
@@ -63,16 +69,29 @@ Plug 'lewis6991/gitsigns.nvim'
 " Plug 'ludovicchabant/vim-gutentags' " for ctags, vim-js-file-import
 " Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kkvh/vim-docker-tools'
-Plug 'akinsho/nvim-bufferline.lua'
-" Plug 'kyazdani42/nvim-web-devicons' " nvim-bufferline -> Recommended (for coloured icons)
-" Plug 'ryanoasis/vim-devicons' " nvim-bufferline -> Icons without colours 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
+" Plug 'kyazdani42/nvim-tree.lua'
+" Plug 'earthly/earthly.vim', { 'branch': 'main' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 call plug#end()
 
 ""
 " Main configuration
 ""
+
+" allow unsaved changes in buffer switches
+" disable netrw
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
+" with `set hidden` netrw hidden buffers appear in buffers list
+set hidden
 
 " Do not create swap files and backups
 set noswapfile
@@ -91,9 +110,6 @@ set wildignore+=*/node_modules/*,*/bower_components/*
 " undo/redo between sessions
 set undodir=$HOME/.config/nvim/undodir
 set undofile
-
-" allow unsaved changes in buffer switches
-set hidden
 
 ""
 " Visual preferences
@@ -114,26 +130,19 @@ set signcolumn=yes:1
 " theme (color shceme and related) setup
 "
 
-" nord theme
+" lua nord theme
+colorscheme nord
+
+" original nord theme
 " colorscheme nord
-" let g:nord_uniform_diff_background = 1
+" let g:nord_bold = 1
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
+" let g:nord_underline = 1
 
 " embark theme
-" colorscheme embark
 " let g:embark_terminal_italics = 1
-
-" pleasant theme
-" Uncomment to enable bold.
-" let g:pleasant_bold = 1
-" Uncomment to enable italic.
-" let g:pleasant_italic = 1
-" colorscheme pleasant
-
-" palenight theme
-" Italics for my favorite color scheme
-let g:palenight_terminal_italics=1
-colorscheme palenight
-
+" colorscheme embark
 
 set background=dark
 
@@ -152,25 +161,11 @@ set guioptions-=L
 
 source $HOME/dotfiles/dotconfig/nvim/fzf.config.vim
 source $HOME/dotfiles/dotconfig/nvim/lsp.config.vim
-luafile $HOME/dotfiles/dotconfig/nvim/autocompletion.config.lua
+" source $HOME/dotfiles/dotconfig/nvim/nvim-tree.config.vim
+" source $HOME/dotfiles/dotconfig/nvim/orgmode.config.vim
 
 " Highlight on yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=329, on_visual=true}
-
-"
-" buffline
-" https://github.com/akinsho/nvim-bufferline.lua#readme
-"
-
-lua <<EOF
-require('bufferline').setup{
-  options = {
-    show_buffer_close_icons = false,
-    show_close_icon = false,
-    always_show_bufferline = false
-  }
-}
-EOF
 
 "
 " status line
@@ -180,12 +175,45 @@ EOF
 lua <<EOF
 require('lualine').setup{
   options = {
-    theme = 'auto',
+    theme = 'nord',
     section_separators = {'|', '|'},
     component_separators = {'|', '|'},
     icons_enabled = true,
   },
-  extensions = {'fzf', 'fugitive'}
+  -- extensions = {'fzf', 'fugitive'}
+  --   options = {
+  --   icons_enabled = true,
+  --   theme = 'auto',
+  --   component_separators = { left = '>', right = '<'},
+  --   section_separators = { left = '>', right = '<'},
+  --   disabled_filetypes = {},
+  --   always_divide_middle = true,
+  -- },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {
+      'branch',
+      'diff',
+      {
+        'diagnostics',
+        symbols = {error = 'e', warn = 'w', info = 'i', hint = 'h'},
+      }
+    },
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  -- inactive_sections = {
+  --   lualine_a = {},
+  --   lualine_b = {},
+  --   lualine_c = {'filename'},
+  --   lualine_x = {'location'},
+  --   lualine_y = {},
+  --   lualine_z = {}
+  -- },
+  -- tabline = {},
+  -- extensions = {}
 }
 EOF
 
@@ -238,6 +266,11 @@ xnoremap { :<C-u>keepjumps normal! gv{<cr>
 nmap <leader>[ :bprevious<cr>
 nmap <leader>] :bnext<cr>
 
+" close current buffer and open previous
+" works with neovim split windows
+" https://stackoverflow.com/a/19619038/6317812
+nmap <leader>x :b#<bar>bd#<CR>
+
 ""
 " Emmet
 ""
@@ -268,11 +301,35 @@ let g:jsx_ext_required = 1
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 0 " tmp disabled, need to make ts and flow work well together
 
-autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-
 ""
 " Extensions
 ""
+
+" vim-commentary
+" setting up .jsx and .tsx
+if exists('g:context#commentstring#table')
+  " TODO not sure if it works
+  let g:context#commentstring#table['javascript.jsx'] = {
+        \ 'jsComment' : '// %s',
+        \ 'jsImport' : '// %s',
+        \ 'jsxStatment' : '// %s',
+        \ 'jsxRegion' : '{/*%s*/}',
+        \}
+  " TODO doesn't work
+  let g:context#commentstring#table['typescriptreact'] = {
+        \ 'tsComment' : '// %s',
+        \ 'tsImport' : '// %s',
+        \ 'tsxStatment' : '// %s',
+        \ 'tsxRegion' : '{/*%s*/}',
+        \}
+endif
+
+" Prettier
+let g:prettier#autoformat = 0
+" what is it?
+" autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+nmap <leader>p  <Plug>(Prettier)
+vmap <leader>p  :PrettierFragment<cr>
 
 " Show syntax highlighting groups for word under cursor
 " nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -295,8 +352,10 @@ autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 " nmap <leader>r :! clear && printf '\e[3J' && scala %<CR>
 " nmap <leader>r :! clear && printf '\e[3J' && dart --disable-analytics run %<CR>
 " nmap <leader>r :! clear && printf '\e[3J' && escript %<CR>
-nmap <leader>r :! clear && printf '\e[3J' && rspec %<CR>
+" nmap <leader>r :! clear && printf '\e[3J' && rspec %<CR>
 " TODO: plugin to execute different programming languages files
+
+nmap <leader>t :! clear && yarn test<CR>
 
 " Solution for performance problem
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
@@ -321,8 +380,7 @@ endif
 "
 " Shortcuts
 "
-nmap <leader>d :Ex<CR>
-
+" TODO only in JS/TS files
 nmap <leader>l :!./node_modules/.bin/eslint --no-ignore %<CR>
 
 nmap <leader>sp :call <SID>SynStack()<CR>
