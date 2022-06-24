@@ -2,6 +2,9 @@
 " let &packpath = &runtimepath
 " source ~/.vimrc
 
+" external dependencies, need to install manually:
+" brew install fd code-minimap
+
 scriptencoding utf-8
 set encoding=utf-8
 set nocompatible
@@ -71,7 +74,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'kkvh/vim-docker-tools'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
+Plug 'wfxr/minimap.vim'
 " Plug 'kyazdani42/nvim-tree.lua'
 " Plug 'earthly/earthly.vim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -131,7 +134,7 @@ set signcolumn=yes:1
 "
 
 " lua nord theme
-colorscheme nord
+" colorscheme nord
 
 " original nord theme
 " colorscheme nord
@@ -141,8 +144,8 @@ colorscheme nord
 " let g:nord_underline = 1
 
 " embark theme
-" let g:embark_terminal_italics = 1
-" colorscheme embark
+let g:embark_terminal_italics = 1
+colorscheme embark
 
 set background=dark
 
@@ -175,7 +178,7 @@ au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=329, o
 lua <<EOF
 require('lualine').setup{
   options = {
-    theme = 'nord',
+    theme = 'auto',
     section_separators = {'|', '|'},
     component_separators = {'|', '|'},
     icons_enabled = true,
@@ -216,6 +219,13 @@ require('lualine').setup{
   -- extensions = {}
 }
 EOF
+
+"
+" Minimap
+"
+
+let g:minimap_auto_start = 1
+let g:minimap_close_filetypes = ['', 'startify', 'netrw', 'vim-plug']
 
 "
 " Distraction free editor
