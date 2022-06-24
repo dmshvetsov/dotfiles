@@ -9,8 +9,6 @@ set nocompatible
 call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
