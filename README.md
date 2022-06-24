@@ -1,23 +1,10 @@
+# Dmitry Shvetsov software configuration files
+
 ## TODO
 
 - automaticaly install all vim plugins utility dependencies
 - install zsh (brew install zsh?), and set it as default in iterm ($ chsh -s `which zsh`)
 - install xkbswitch-macosx from this [repo](https://github.com/myshov/xkbswitch-macosx) and this [repo](https://github.com/myshov/libxkbswitch-macosx) for vim-xkbswitch
-- install soft
-  - asdf
-  - homebrew
-  - brew install git
-  - brew install nvim
-  - brew install alacritty
-  - brew install ack
-  - brew install editorconfig
-  - brew install tree
-  - brew install ccat
-  - brew install m-cli
-  - brew install fzf
-  - brew install fd
-  - docker
-  - eslint
 - configure [bash completion for docker](https://docs.docker.com/compose/completion/)
 
 Imptovements to work with multiple spaces:

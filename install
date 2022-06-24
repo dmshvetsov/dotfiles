@@ -1,5 +1,73 @@
 #!/bin/bash
 
+set -e
+
+ssh -q git@github.com | true
+if [ $? -eq 0 ]; then
+    echo "SSH to github OK"
+else
+    echo "Cannot connect to github via SSH. Are you added your SSH key to your github account?"
+    exit
+fi
+
+# TODO: take a look at https://github.com/MarioCatuogno/Clean-macOS
+
+# Remove unused packages
+# TODO
+# Update OS
+# TODO
+echo "Installing homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/magicdima/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+echo "Installing packages using homebrew"
+# Install chrome browser
+brew cask install google-chrome
+# Install VScode
+# brew cask install visual-studio-code
+echo "Installing packages using homebrew"
+brew tap ethereum/ethereum
+brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum
+# Postgres libs & client
+# brew install libpq
+# Install docker
+brew install docker
+echo "Install programming languages using asdf"
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+cd ~
+mkdir Projects
+mkdir ~/Projects/personal
+echo "Install my git scripts"
+git clone git@github.com:dmshvetsov/git-scripts.git ~/Projects/personal/git-scripts
+echo "Install my utils"
+git clone git@github.com:dmshvetsov/utils.git ~/Projects/personal/utils
+echo "Get docker receipes"
+git clone git@github.com:dmshvetsov/docker-recipes.git ~/Projects/personal/docker-recipes
+echo "Install plug vim plugin manager"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+
+# Fix for watchers of big projects (if needed)
+# echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+# TODO auto answer "no" to prompt to switch shell to zsh (or find another way to install zsh)
+
+echo "Install custom dotfiles"
+git clone git@github.com:dmshvetsov/dotfiles.git ~/dotfiles
+~/dotfiles/install
+
+# Copy devdocs profile
+# TODO
+
+# Tweak Mac OS
+## Remove all apps from Mac OS dock (relogin required)
+defaults write com.apple.dock persistent-apps -array
+## Show date, percentage of battery power, add russian input source, speed of track pad, speed of keyboard
+# TODO
+
+echo "Done!"
+
 cd ~
 mkdir -p .config/nvim/
 mkdir -p .config/alacritty/
