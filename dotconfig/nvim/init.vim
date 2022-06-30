@@ -314,7 +314,7 @@ noremap <Right> <NOP>
 
 let g:jsx_ext_required = 1
 let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 0 " tmp disabled, need to make ts and flow work well together
+let g:javascript_plugin_flow = 0 " no longer using flow
 
 ""
 " Extensions
