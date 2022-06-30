@@ -256,7 +256,11 @@ set autoread
 set timeout timeoutlen=5000 ttimeoutlen=100
 
 " Fix for wrong syntax highlighting
-autocmd BufEnter * :syntax sync fromstart
+" TODO: before using again the solution below read about possible alternaives
+" from
+" - commetns here https://vim.fandom.com/wiki/Fix_syntax_highlighting
+" - https://github.com/vim/vim/issues/2790
+" autocmd BufEnter * :syntax sync fromstart
 
 "
 " fugutive
