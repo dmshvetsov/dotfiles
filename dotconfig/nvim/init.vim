@@ -23,6 +23,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 "
 " LSP
 "
@@ -71,16 +74,14 @@ Plug 'lewis6991/gitsigns.nvim'
 " Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 " Plug 'ludovicchabant/vim-gutentags' " for ctags, vim-js-file-import
 " Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kkvh/vim-docker-tools'
+" Plug 'kkvh/vim-docker-tools'
+" focus mode goyo and limelight
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'wfxr/minimap.vim'
 " Plug 'kyazdani42/nvim-tree.lua'
 " Plug 'earthly/earthly.vim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 call plug#end()
 
 ""
