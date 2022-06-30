@@ -130,6 +130,18 @@ lsp_installer.on_server_ready(function(server)
         description = "Organize Imports"
       }
     }
+    opts.init_options = {
+      hostInfo = "neovim",
+      preferences = {
+        importModuleSpecifierPreference = 'relative',
+        includeCompletionsForModuleExports = true,
+        includeCompletionsForImportStatements = true,
+        includeCompletionsWithSnippetText = true,
+        includeCompletionsWithSnippetText = true,
+        includeCompletionsWithClassMemberSnippets = true,
+        importModuleSpecifierEnding = 'auto',
+      }
+    }
   end
 
   --
