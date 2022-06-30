@@ -226,7 +226,7 @@ EOF
 "
 
 let g:minimap_auto_start = 1
-let g:minimap_close_filetypes = ['', 'startify', 'netrw', 'vim-plug']
+let g:minimap_close_filetypes = ['', 'startify', 'netrw', 'vim-plug', 'json'] " json is disabled because I often open extreamly large json files with vim and minimap is blocking content rendering
 
 "
 " Distraction free editor
