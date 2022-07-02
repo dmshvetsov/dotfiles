@@ -203,7 +203,13 @@ require('lualine').setup{
         symbols = {error = 'e', warn = 'w', info = 'i', hint = 'h'},
       }
     },
-    lualine_c = {'filename'},
+    lualine_c = {
+      {
+        'filename',
+        file_status = true,
+        path = 1
+      }
+    },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
