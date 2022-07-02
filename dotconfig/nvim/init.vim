@@ -2,9 +2,6 @@
 " let &packpath = &runtimepath
 " source ~/.vimrc
 
-" external dependencies, need to install manually:
-" brew install fd code-minimap
-
 scriptencoding utf-8
 set encoding=utf-8
 set nocompatible
@@ -78,7 +75,6 @@ Plug 'lewis6991/gitsigns.nvim'
 " focus mode goyo and limelight
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'wfxr/minimap.vim'
 " Plug 'kyazdani42/nvim-tree.lua'
 " Plug 'earthly/earthly.vim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -226,13 +222,6 @@ require('lualine').setup{
   -- extensions = {}
 }
 EOF
-
-"
-" Minimap
-"
-
-let g:minimap_auto_start = 1
-let g:minimap_close_filetypes = ['', 'startify', 'netrw', 'vim-plug', 'json'] " json is disabled because I often open extreamly large json files with vim and minimap is blocking content rendering
 
 "
 " Distraction free editor
