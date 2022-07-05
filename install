@@ -65,6 +65,9 @@ defaults write com.apple.dock persistent-apps -array
 ## Show date, percentage of battery power, add russian input source, speed of track pad, speed of keyboard
 # TODO
 
+# Install solana tools
+sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+
 echo "Done!"
 
 cd ~
