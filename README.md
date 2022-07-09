@@ -1,5 +1,15 @@
 # Dmitry Shvetsov software configuration files
 
+## Shell
+
+avaliable configuration files:
+
+- $HOME/.zshenv - for env files
+- $HOME/.zprofile - commands to run on login
+- $HOME/.zshrc - shell configuration
+- $HOME/.zlogin - same as zprofile but read after .zshrc
+- $HOME/.zlogout - execute command on shell exit
+
 ## TODO
 
 - automaticaly install all vim plugins utility dependencies

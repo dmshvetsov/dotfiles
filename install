@@ -86,7 +86,9 @@ ln -si $HOME/dotfiles/vim .vim
 ln -si $HOME/dotfiles/vimrc .vimrc
 ln -si $HOME/dotfiles/dotconfig/nvim/init.vim .config/nvim/init.vim
 ln -si $HOME/dotfiles/dotconfig/fd/ignore .config/fd/ignore
+ln -si $HOME/dotfiles/zshenv .zshenv
 ln -si $HOME/dotfiles/zshrc .zshrc
+ln -si $HOME/dotfiles/p10k.zsh .p10k.zsh
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
 ln -si $HOME/dotfiles/dotconfig/zellij/config.yaml .config/zellij/config.yaml
