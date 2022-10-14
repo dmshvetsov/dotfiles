@@ -18,7 +18,7 @@ fi
 # TODO
 echo "Installing homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/magicdima/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "Installing packages using homebrew"
 # Install chrome browser
@@ -37,11 +37,11 @@ cd ~
 mkdir Projects
 mkdir ~/Projects/personal
 echo "Install my git scripts"
-git clone git@github.com:dmshvetsov/git-scripts.git ~/Projects/personal/git-scripts
+git clone https://github.com/dmshvetsov/git-scripts.git ~/Projects/personal/git-scripts
 echo "Install my utils"
-git clone git@github.com:dmshvetsov/utils.git ~/Projects/personal/utils
+git clone https://github.com/dmshvetsov/utils.git ~/Projects/personal/utils
 echo "Get docker receipes"
-git clone git@github.com:dmshvetsov/docker-recipes.git ~/Projects/personal/docker-recipes
+git clone https://github.com/dmshvetsov/docker-recipes.git ~/Projects/personal/docker-recipes
 echo "Install plug vim plugin manager"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -51,10 +51,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # Fix for watchers of big projects (if needed)
 # echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 # TODO auto answer "no" to prompt to switch shell to zsh (or find another way to install zsh)
-
-echo "Install custom dotfiles"
-git clone git@github.com:dmshvetsov/dotfiles.git ~/dotfiles
-~/dotfiles/install
 
 # Copy devdocs profile
 # TODO
@@ -68,7 +64,7 @@ defaults write com.apple.dock persistent-apps -array
 # Install solana tools
 sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
 
-echo "Done!"
+echo "linking configs files from dotfiles"
 
 cd ~
 mkdir -p .config/nvim/
@@ -94,3 +90,6 @@ ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacri
 ln -si $HOME/dotfiles/dotconfig/zellij/config.yaml .config/zellij/config.yaml
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
+
+echo "Done!"
+
