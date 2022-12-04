@@ -1,8 +1,8 @@
 local wezterm = require 'wezterm'
 
 return {
-  color_scheme = 'embark'
-  font = wezterm.font 'JetBrains Mono'
+  color_scheme = 'embark',
+  font = wezterm.font 'JetBrains Mono',
   font_size = 13,
   widow_padding = {
     left = 0,
