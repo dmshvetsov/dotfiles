@@ -73,7 +73,8 @@ echo "linking configs files from dotfiles"
 cd ~
 mkdir -p .config/nvim/
 mkdir -p .config/alacritty/
-mkdir -p .config/zellij/
+mkdir -p .config/wezterm/
+mkdir -p .config/wezterm/colors
 mkdir -p .config/fd/
 
 ln -si $HOME/dotfiles/bin bin
@@ -91,9 +92,12 @@ ln -si $HOME/dotfiles/zshrc .zshrc
 ln -si $HOME/dotfiles/p10k.zsh .p10k.zsh
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
-ln -si $HOME/dotfiles/dotconfig/zellij/config.yaml .config/zellij/config.yaml
+ln -si $HOME/dotfiles/dotconfig/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
+
+# install wezterm embark theme
+curl -O ~/.config/wezterm/colors/embark.toml https://raw.githubusercontent.com/dmshvetsov/wezterm-embark-theme/main/colors/embark.toml
 
 echo "Done!"
 
