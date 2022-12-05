@@ -1,3 +1,6 @@
+-- NOTE: this file no longer used
+-- config moved to main lsp.config file
+--
 -- nvim-cmp setup
 -- a completion plugin for neovim
 local cmp = require'cmp'
@@ -16,8 +19,6 @@ cmp.setup({
   },
 
   sources = {
-    { name = 'buffer' },
-
     -- { name = 'nvim_lsp' },
     -- nvim-cmp source for neovim builtin LSP client
     -- https://github.com/hrsh7th/cmp-nvim-lsp

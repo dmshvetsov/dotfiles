@@ -19,17 +19,20 @@ Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'L3MON4D3/LuaSnip'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 "
-" LSP
+" LSP + IDE features
 "
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 "
 " languages and syntax
 "
@@ -56,7 +59,7 @@ Plug 'savq/melange'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'nvim-lua/plenary.nvim' " dependent: gitsigns.nvim
+Plug 'nvim-lua/plenary.nvim' " dependent: gitsigns.nvim, null-ls
 "
 " tryout
 "
@@ -72,9 +75,6 @@ Plug 'lewis6991/gitsigns.nvim'
 " Plug 'ludovicchabant/vim-gutentags' " for ctags, vim-js-file-import
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'kkvh/vim-docker-tools'
-" focus mode goyo and limelight
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 " Plug 'kyazdani42/nvim-tree.lua'
 " Plug 'earthly/earthly.vim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -160,7 +160,12 @@ set guioptions-=r
 set guioptions-=L
 
 source $HOME/dotfiles/dotconfig/nvim/fzf.config.vim
-source $HOME/dotfiles/dotconfig/nvim/lsp.config.vim
+:luafile ~/dotfiles/dotconfig/nvim/lsp_config.lua
+" old config nvin-lsp + nvin-lsp-installer (no longer maintained)
+" remove backup when lsp is configured
+" source $HOME/dotfiles/dotconfig/nvim/lsp.config_bak_20221009.vim
+" remove legacy config when lsp is configured
+" source $HOME/dotfiles/dotconfig/nvim/lsp.config.vim
 " source $HOME/dotfiles/dotconfig/nvim/nvim-tree.config.vim
 " source $HOME/dotfiles/dotconfig/nvim/orgmode.config.vim
 
@@ -219,16 +224,9 @@ require('lualine').setup{
   --   lualine_z = {}
   -- },
   -- tabline = {},
-  -- extensions = {}
+  extensions = {'fzf', 'quickfix', 'toggleterm'}
 }
 EOF
-
-"
-" Distraction free editor
-"
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-nmap <leader>g :Goyo<cr>
 
 " Use the same symbols as TextMate for tabs and EOLs
 let &showbreak="\u2190\ "
