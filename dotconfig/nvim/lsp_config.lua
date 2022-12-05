@@ -78,7 +78,7 @@ null_ls.setup({
         null_ls.builtins.formatting.prettier,
         -- code actions for eslint
         null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.completion.spell,
+        -- null_ls.builtins.completion.spell,
         -- code actions for gitsigns plugin
         null_ls.builtins.code_actions.gitsigns,
         -- code actions for english prose linter
@@ -89,7 +89,7 @@ null_ls.setup({
     }
 })
 
--- # cmp language autocompletion
+-- # cmp language specific and other autocompletions
 local ls = require("luasnip")
 local cmp = require("cmp")
 
@@ -100,43 +100,39 @@ cmp.setup({
     snippet = {
         expand = function(args) ls.lsp_expand(args.body) end
     },
-    mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    }),
-    -- mapping = {
-    --     ['<C-Space>'] = cmp.mapping.complete(),
-    --     ['<CR>'] = cmp.mapping.confirm({select = false}),
-    --     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    --     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    --     ['<C-n>'] = cmp.mapping.select_next_item({
-    --         behavior = cmp.SelectBehavior.Insert
-    --     }),
-    --     ['<C-p>'] = cmp.mapping.select_prev_item({
-    --         behavior = cmp.SelectBehavior.Insert
-    --     }),
-    --     ["<Tab>"] = cmp.mapping(function(fallback)
-    --         if ls.expand_or_jumpable() then
-    --             ls.expand_or_jump()
-    --         else
-    --             fallback()
-    --         end
-    --     end, {"i", "s"}),
-
-    --     ["<S-Tab>"] = cmp.mapping(function(fallback)
-    --         if ls.jumpable(-1) then
-    --             ls.jump(-1)
-    --         else
-    --             fallback()
-    --         end
-    --     end, {"i", "s"})
-    -- },
+    mapping = {
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-u>'] = cmp.mapping.scroll_docs(4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-n>'] = cmp.mapping.select_next_item({
+            behavior = cmp.SelectBehavior.Insert
+        }),
+        ['<C-p>'] = cmp.mapping.select_prev_item({
+            behavior = cmp.SelectBehavior.Insert
+        }),
+    },
     sources = {
+        -- consider https://github.com/f3fora/cmp-spell
         { name = 'nvim_lsp' },
-        { name = 'buffer' },
+        { 
+          -- https://github.com/hrsh7th/cmp-buffer
+          -- may take a lot of memory when many large buffers are open
+          -- because cmp-buffer build indecies of buffers returned by options.get_bufnrs
+          name = 'buffer',
+          options = {
+            -- The number of characters that need to be typed to trigger auto-completion.
+            keyword_length = 3,
+            get_bufnrs = function()
+              -- may include autocompletion suggestion from unlisted buffers
+              -- see :h nvim_list_bufs
+              return vim.api.nvim_list_bufs()
+            end
+          } 
+        },
         { name = 'luasnip' },
     }
-    -- formatting = {
-    --   format = lspkind.cmp_format({with_text = false, maxwidth = 50})
-    -- }
+        -- formatting = {
+        --   format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+        -- }
 })
 
