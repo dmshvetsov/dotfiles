@@ -24,15 +24,34 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 "
 " LSP + IDE features
+" NOTE: use either manual or lsp-zero, not bothe
 "
+" OPTIONS 1: MANUAL LSP config dependencies
+" Plug 'williamboman/mason.nvim'
+" Plug 'williamboman/mason-lspconfig.nvim'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/nvim-cmp'
+" Plug 'L3MON4D3/LuaSnip'
+" Plug 'jose-elias-alvarez/null-ls.nvim'
+" OPTIONS 2: LSP-ZERO config dependencies
+Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
+" Autocompletion
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+"  Snippets
 Plug 'L3MON4D3/LuaSnip'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+" Snippet collection (Optional)
+Plug 'rafamadriz/friendly-snippets'
+" lsp-zero itself
+Plug 'VonHeikemen/lsp-zero.nvim'
 "
 " languages and syntax
 "
@@ -160,7 +179,8 @@ set guioptions-=r
 set guioptions-=L
 
 source $HOME/dotfiles/dotconfig/nvim/fzf.config.vim
-:luafile ~/dotfiles/dotconfig/nvim/lsp_config.lua
+" :luafile ~/dotfiles/dotconfig/nvim/lsp_config.lua
+:luafile ~/dotfiles/dotconfig/nvim/zero_lsp_config.lua
 " old config nvin-lsp + nvin-lsp-installer (no longer maintained)
 " remove backup when lsp is configured
 " source $HOME/dotfiles/dotconfig/nvim/lsp.config_bak_20221009.vim

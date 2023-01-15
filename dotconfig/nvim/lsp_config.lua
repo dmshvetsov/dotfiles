@@ -1,3 +1,5 @@
+error("manual config deprecated and should not be required, check the neovim config and remove require statements for this file")
+
 -- # nvim-lspconfig 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
