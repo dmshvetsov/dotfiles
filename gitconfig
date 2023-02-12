@@ -1,7 +1,8 @@
-[includeIf "gitdir:~/Projects/personal/"]
-  path = ~/Projects/personal/.gitconfig.personal
-[includeIf "gitdir:~/Projects/magiceden"]
-  path = ~/Projects/magiceden/.gitconfig.magiceden
+[user]
+	name = dmshvetsov
+	email = shvetsovdm@gmail.com
+[core]
+	sshCommand = "ssh -i ~/.ssh/id_rsa"
 
 [color]
 	ui = true
