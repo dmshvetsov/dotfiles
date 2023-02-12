@@ -20,7 +20,7 @@ echo "Installing homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
-echo "Installing packages using homebrew"
+echo "Installing applications using homebrew"
 # Install chrome browser
 brew cask install google-chrome
 # Install VScode
@@ -36,6 +36,8 @@ asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 cd ~
 mkdir Projects
 mkdir ~/Projects/personal
+mkdir ~/Projects/open-source/
+mkdir ~/Projects/temporary
 echo "Install my git scripts"
 git clone https://github.com/dmshvetsov/git-scripts.git ~/Projects/personal/git-scripts
 echo "Install my utils"
