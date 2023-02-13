@@ -1,3 +1,4 @@
+-- not in use at the moment, left for reference
 error("manual config deprecated and should not be required, check the neovim config and remove require statements for this file")
 
 -- # nvim-lspconfig 
@@ -46,10 +47,9 @@ require("mason-lspconfig").setup({
     automatic_installation = true
 })
 
--- After setting up mason-lspconfig you may set up servers via lspconfig
--- require("lspconfig").sumneko_lua.setup {}
--- require("lspconfig").rust_analyzer.setup {}
--- ...
+--
+-- After setting up mason-lspconfig set up servers via lspconfig
+--
 require('lspconfig').tsserver.setup{
     on_attach = on_attach,
     flags = lsp_flags,
@@ -76,6 +76,7 @@ local null_ls = require("null-ls")
 null_ls.setup({
     -- available built in configs https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
     sources = {
+        null_ls.builtins.code_actions.refactoring,
         -- also prettierd and prettier_d_slim and prettier_standard available
         null_ls.builtins.formatting.prettier,
         -- code actions for eslint
@@ -85,8 +86,6 @@ null_ls.setup({
         null_ls.builtins.code_actions.gitsigns,
         -- code actions for english prose linter
         -- null_ls.builtins.code_actions.proselint,
-        -- code actions for refactoring plugin
-        -- null_ls.builtins.code_actions.refactoring
         -- ... more built ins available, check the link above
     }
 })
