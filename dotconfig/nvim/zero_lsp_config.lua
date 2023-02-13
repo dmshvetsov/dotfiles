@@ -5,6 +5,7 @@
 
 local lsp = require('lsp-zero').preset({
   name = 'recommended',
+  suggest_lsp_servers = false,
   sign_icons = {
     error = 'e',
     warn = 'w',
