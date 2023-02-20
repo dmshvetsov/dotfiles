@@ -33,7 +33,7 @@ autoload -U compinit; compinit
 # fi
 
 # ASDF
-. /usr/local/opt/asdf/libexec/asdf.sh
+echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
