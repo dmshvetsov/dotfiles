@@ -5,9 +5,9 @@ return {
   font = wezterm.font 'JetBrains Mono',
   font_size = 13,
   window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
+    left = '0.5cell',
+    right = '0.5cell',
+    top = '0.1cell',
     bottom  = 0,
   }
 }
