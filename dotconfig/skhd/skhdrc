@@ -5,8 +5,8 @@ cmd + ctrl - r : yabai -m space --rotate 270
 
 # focus window in direction of focused window (options: north, east, south, west)
 cmd + ctrl - h : yabai -m window --focus west
-cmd + ctrl - j : yabai -m window --focus north
-cmd + ctrl - k : yabai -m window --focus south
+cmd + ctrl - k : yabai -m window --focus north
+cmd + ctrl - j : yabai -m window --focus south
 cmd + ctrl - l : yabai -m window --focus east
 
 # rebalance windows on current space
