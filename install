@@ -36,7 +36,7 @@ brew install --cask wez/wezterm/wezterm
 echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
-brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd
+brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai
 
 # Postgres libs & client
 # brew install libpq
@@ -120,12 +120,15 @@ ln -si $HOME/dotfiles/dotconfig/skhd/skhdrc .config/skhd/skhdrc
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
 
-# start skhd hotkey daemon
-echo "start skhd"
-skhd --start-service
-
 # install wezterm embark theme
 curl -O ~/.config/wezterm/colors/embark.toml https://raw.githubusercontent.com/dmshvetsov/wezterm-embark-theme/main/colors/embark.toml
+
+# start skhd hotkey daemon
+echo "start skhd, note it will require Mac OS Privacy Accessibility abilities to controll this computer"
+skhd --start-service
+
+echo "start yabai, note it will require Mac OS Privacy Accessibility abilities to controll this computer"
+yabai --start-service
 
 echo "Done! ::<>"
 
