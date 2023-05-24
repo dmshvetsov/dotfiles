@@ -17,36 +17,50 @@ echo "Installing homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
 echo "Installing applications using homebrew"
+
 # Install chrome browser
 brew install --cask google-chrome
+
 # Install raycast https://raycast.com
 brew install --cask raycast
+
 # Install wezterm
 brew tap wez/wezterm
 brew install --cask wez/wezterm/wezterm
+
 # Install VScode
 # brew install --cask visual-studio-code
+
 echo "Installing packages using homebrew"
+
 brew tap ethereum/ethereum
 brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh
+
 # Postgres libs & client
 # brew install libpq
+
 # Install docker desktop or TODO find automated options maybe brew cask
 echo "Install programming languages using asdf"
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf plugin add rust
+
 cd ~
 mkdir Projects
 mkdir ~/Projects/personal
 mkdir ~/Projects/open-source/
 mkdir ~/Projects/temporary
+
 echo "Install my git scripts"
 git clone https://github.com/dmshvetsov/git-scripts.git ~/Projects/personal/git-scripts
+
 echo "Install my utils"
 git clone https://github.com/dmshvetsov/utils.git ~/Projects/personal/utils
+
 echo "Get docker receipes"
 git clone https://github.com/dmshvetsov/docker-recipes.git ~/Projects/personal/docker-recipes
+
 echo "Install plug vim plugin manager"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -62,11 +76,14 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # Tweak Mac OS
 ## Remove all apps from Mac OS dock (relogin required)
+echo "remove all apps from Mac OS dock bar"
 defaults write com.apple.dock persistent-apps -array
+
 ## Show date, percentage of battery power, add russian input source, speed of track pad, speed of keyboard
 # TODO
 
 # Install solana tools
+echo "install Solana CLI"
 sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
 
 echo "installing zsh and powerlevel10k"
@@ -104,5 +121,5 @@ git config --global core.excludesfile ~/.gitignoreglobal
 # install wezterm embark theme
 curl -O ~/.config/wezterm/colors/embark.toml https://raw.githubusercontent.com/dmshvetsov/wezterm-embark-theme/main/colors/embark.toml
 
-echo "Done!"
+echo "Done! ::<>"
 
