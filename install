@@ -36,7 +36,7 @@ brew install --cask wez/wezterm/wezterm
 echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
-brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh
+brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd
 
 # Postgres libs & client
 # brew install libpq
@@ -97,6 +97,7 @@ mkdir -p .config/nvim/
 mkdir -p .config/alacritty/
 mkdir -p .config/wezterm/
 mkdir -p .config/wezterm/colors
+mkdir -p .config/skhd
 mkdir -p .config/fd/
 
 ln -si $HOME/dotfiles/bin bin
@@ -115,8 +116,13 @@ ln -si $HOME/dotfiles/p10k.zsh .p10k.zsh
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
 ln -si $HOME/dotfiles/dotconfig/wezterm/wezterm.lua .config/wezterm/wezterm.lua
+ln -si $HOME/dotfiles/dotconfig/skhd/skhdrc .config/skhd/skhdrc
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
+
+# start skhd hotkey daemon
+echo "start skhd"
+skhd --start-service
 
 # install wezterm embark theme
 curl -O ~/.config/wezterm/colors/embark.toml https://raw.githubusercontent.com/dmshvetsov/wezterm-embark-theme/main/colors/embark.toml
