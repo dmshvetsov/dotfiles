@@ -23,6 +23,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "Installing applications using homebrew"
 # Install chrome browser
 brew cask install google-chrome
+# Install raycast https://raycast.com
+brew install --cask raycast
 # Install VScode
 # brew cask install visual-studio-code
 echo "Installing packages using homebrew"

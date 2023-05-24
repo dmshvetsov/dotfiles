@@ -13,7 +13,6 @@ avaliable configuration files:
 ## TODO
 
 - automaticaly install all vim plugins utility dependencies
-- intall raycast
 - install zsh (brew install zsh?), and set it as default in iterm ($ chsh -s `which zsh`)
 - install xkbswitch-macosx from this [repo](https://github.com/myshov/xkbswitch-macosx) and this [repo](https://github.com/myshov/libxkbswitch-macosx) for vim-xkbswitch
 - configure [bash completion for docker](https://docs.docker.com/compose/completion/)
