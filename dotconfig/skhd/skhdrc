@@ -11,3 +11,6 @@ cmd + ctrl - l : yabai -m window --focus east
 
 # rebalance windows on current space
 cmd + ctrl - 0x18 : yabai -m space --balance
+
+# toggle window full screen
+cmd + ctrl - f : yabai -m window --toggle zoom-fullscreen
