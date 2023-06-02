@@ -56,5 +56,6 @@ require'nvim-treesitter.configs'.setup {
   -- extend for complex comment.nvim & nvim-ts-context-commentstring cases like .tsx and .jsx files
   context_commentstring = {
     enable = true,
+    enable_autocmd = false,
   },
 }
