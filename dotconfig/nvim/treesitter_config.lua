@@ -13,6 +13,11 @@ require'nvim-treesitter.configs'.setup {
     "html",
   },
 
+  -- use treesitter for indentation rules
+  indent = {
+    enable = true
+  },
+
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
