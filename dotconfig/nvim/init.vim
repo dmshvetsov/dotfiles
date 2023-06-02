@@ -12,7 +12,8 @@ set nocompatible
 
 call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-commentary'
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring' " extension for comment.nvim
 Plug 'mileszs/ack.vim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'christoomey/vim-system-copy'
@@ -79,6 +80,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'nvim-lua/plenary.nvim' " dependent: gitsigns.nvim, null-ls
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "
 " tryout
 "
@@ -181,6 +183,8 @@ set guioptions-=L
 source $HOME/dotfiles/dotconfig/nvim/fzf.config.vim
 " :luafile ~/dotfiles/dotconfig/nvim/lsp_config.lua
 :luafile ~/dotfiles/dotconfig/nvim/zero_lsp_config.lua
+:luafile ~/dotfiles/dotconfig/nvim/treesitter_config.lua
+:luafile ~/dotfiles/dotconfig/nvim/comment_config.lua
 " old config nvin-lsp + nvin-lsp-installer (no longer maintained)
 " remove backup when lsp is configured
 " source $HOME/dotfiles/dotconfig/nvim/lsp.config_bak_20221009.vim
