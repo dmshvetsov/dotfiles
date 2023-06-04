@@ -53,13 +53,13 @@ mkdir ~/Projects/open-source/
 mkdir ~/Projects/temporary
 
 echo "Install my git scripts"
-git clone https://github.com/dmshvetsov/git-scripts.git ~/Projects/personal/git-scripts
+git clone git@github.com:dmshvetsov/git-scripts.git ~/Projects/personal/git-scripts
 
 echo "Install my utils"
-git clone https://github.com/dmshvetsov/utils.git ~/Projects/personal/utils
+git clone git@github.com:dmshvetsov/utils.git ~/Projects/personal/utils
 
 echo "Get docker receipes"
-git clone https://github.com/dmshvetsov/docker-recipes.git ~/Projects/personal/docker-recipes
+git clone git@github.com:dmshvetsov/docker-recipes.git ~/Projects/personal/docker-recipes
 
 echo "Install plug vim plugin manager"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
