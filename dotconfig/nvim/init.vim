@@ -88,7 +88,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'mattn/emmet-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'jparise/vim-graphql'
-Plug 'AndrewRadev/tagalong.vim'
+" Plug 'AndrewRadev/tagalong.vim' has issues with react fragments it replaces
+" openeing react fragment when you replace an opening tag inside this fragment
 " Plug 'airblade/vim-gitgutter' " recomended for vim-js-file-import
 " after neovim 0.5.0 try gitsigns
 Plug 'lewis6991/gitsigns.nvim'
