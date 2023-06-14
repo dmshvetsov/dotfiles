@@ -33,7 +33,7 @@ autoload -U compinit; compinit
 # fi
 
 # ASDF
-echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -103,7 +103,7 @@ function open_command() {
 }
 
 # Open the node api for your current version to the optional section.
-function node-docs {
+function nodejsdocs {
   local section=${1:-all}
   open_command "https://nodejs.org/docs/$(node --version)/api/$section.html"
 }
