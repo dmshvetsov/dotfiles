@@ -36,10 +36,7 @@ brew install --cask wez/wezterm/wezterm
 echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
-brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai
-
-# Postgres libs & client
-# brew install libpq
+brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq
 
 # Install docker desktop or TODO find automated options maybe brew cask
 echo "Install programming languages using asdf"
