@@ -65,7 +65,7 @@ export PATH=$PATH:~/Projects/personal/utils
 export PATH=$PATH:~/Projects/personal/jana-journal/bin
 export PATH=$PATH:~/bin
 # Postgres libql & client
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 export PATH="/usr/local/opt/solana/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/libpq/lib"
