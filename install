@@ -37,6 +37,7 @@ echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
 brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq cmake
+# cmake required by: sui cli
 
 # Install docker desktop or TODO find automated options maybe brew cask
 echo "Install programming languages using asdf"
@@ -98,7 +99,6 @@ mkdir -p .config/skhd
 mkdir -p .config/yabai
 mkdir -p .config/fd/
 
-ln -si $HOME/dotfiles/bin bin
 ln -si $HOME/dotfiles/ackrc .ackrc
 ln -si $HOME/dotfiles/asdfrc .asdfrc
 ln -si $HOME/dotfiles/gitconfig .gitconfig
