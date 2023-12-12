@@ -1,16 +1,17 @@
 --ignore-dir=.nyc_output
 # Ignore log files
 --ignore-file=ext:log
-# Ingore directories with transpilation/compilation results
+# Ignore directories with transpilation/compilation results
 --ignore-dir=dist
-# Ingore build tools directories
+# Ignore build tools directories
 --ignore-dir=build
 # Ingonre test coverage directories
 --ignore-dir=coverage
-# Ignore temmporary directories
+# Ignore temporary directories
 --ignore-dir=tmp
 # Ignore Next.JS framework internals
 --ignore-dir=.next
+--ignore-dir=.vercel
 # Ignore Relay.JS internals directories
 --ignore-dir=__generated__
 # Ignore Ctags and alike files
