@@ -54,7 +54,7 @@ Use `:Ack!` to disable auto-open the first found result
 
 ### Manipulating content
 
-`<leader>f` - to format current buffer in normal mode and selected lines in visual mode
+`<leader>p` - to format current buffer in normal mode and selected lines in visual mode
 `<leader>r` - rename symbol and all it usage in the projects
 `<leader>a` - show code actions on current symbol under the cursor
 
