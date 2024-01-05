@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = {
     "typescript",
@@ -57,10 +57,9 @@ require'nvim-treesitter.configs'.setup {
   playground = {
     enable = true
   },
-
-  -- extend for complex comment.nvim & nvim-ts-context-commentstring cases like .tsx and .jsx files
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
 }
+
+-- require('ts_context_commentstring').setup {
+--   -- extend for complex comment.nvim & nvim-ts-context-commentstring cases like .tsx and .jsx files
+--   enable_autocmd = false,
+-- }
