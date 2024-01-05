@@ -1,9 +1,3 @@
-[user]
-	name = dmshvetsov
-	email = shvetsovdm@gmail.com
-[core]
-	sshCommand = "ssh -i ~/.ssh/id_rsa"
-
 [color]
 	ui = true
 [core]
