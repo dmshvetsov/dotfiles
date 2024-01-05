@@ -19,6 +19,8 @@ lsp.ensure_installed({
   'eslint',
   'lua_ls',
   'rust_analyzer',
+  'move_analyzer',
+  'tailwindcss',
 })
 
 -- Autocompletion mappings
@@ -60,11 +62,44 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<leader>p', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 lsp.on_attach(on_attach)
 
+local lsp_config = require('lspconfig')
+lsp_config.move_analyzer.setup({
+  server = {
+    -- move and move-analyzer support different account address lengths,
+    -- make sure to use binary that compiled for specific length
+    -- e.g. Sui and Aptos uses different lengths for accounts and the same move-analyzer binary cannot be used to
+    -- as a lsp server
+    --
+    -- aptos move analyzer path:
+    path = '/Users/dima/.asdf/shims/move-analyzer'
+  }
+})
+
 lsp.setup()
+
+-- Formatters configuration
+
+local null_ls = require('null-ls')
+
+null_ls.setup({
+  sources = {
+    -- general
+    -- ensure dependencies installed:
+    -- brew install typos-cli
+    null_ls.builtins.diagnostics.typos,
+    -- js, ts, vue
+    -- ensure dependencies installed:
+    -- projects have esling and prettier installed
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.diagnostics.eslint,
+    -- lua
+    null_ls.builtins.formatting.stylua,
+  }
+})

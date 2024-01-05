@@ -17,15 +17,12 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring' " extension for comment.nvim
 Plug 'mileszs/ack.vim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'christoomey/vim-system-copy'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" ctlspace tryout to replace fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 "
 " LSP + IDE features
-" NOTE: use either manual or lsp-zero, not bothe
+" NOTE: use either manual or lsp-zero, not both
 "
 " OPTIONS 1: MANUAL LSP config dependencies
 " Plug 'williamboman/mason.nvim'
@@ -46,41 +43,54 @@ Plug 'hrsh7th/cmp-path'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
-"  LSP-ZERO Snippets
+" LSP-ZERO Snippets
 Plug 'L3MON4D3/LuaSnip'
+" FORMATTERS
+Plug 'jose-elias-alvarez/null-ls.nvim'
 " Snippet collection (Optional)
 Plug 'rafamadriz/friendly-snippets'
 " lsp-zero itself
 Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v1.x'}
+" git plugins
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'NeogitOrg/neogit' " make sure it does not conflict with gitsigns
+Plug 'sindrets/diffview.nvim'
 "
-" languages and syntax
+" languages and syntax, only add if treesitter does not support it
 "
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'pangloss/vim-javascript'
-Plug 'rvmelkonian/move.vim'
+" Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
+" Plug 'pangloss/vim-javascript'
+" Plug 'rvmelkonian/move.vim'
 " Plug 'vim-ruby/vim-ruby'
 " Plug 'ollykel/v-vim'
 " Plug 'dart-lang/dart-vim-plugin'
 " Plug 'elixir-editors/vim-elixir'
 " Plug 'posva/vim-vue'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "
 " colorschemes
 "
-Plug 'davidklsn/vim-sialoquent'
+Plug '~/Projects/open-source/neo-colorscheme.nvim'
 " Plug 'arcticicestudio/nord-vim' " original
 Plug 'shaunsingh/nord.nvim' " alternative nord vim colorscheme with LSP, treesitter support and mare
 Plug 'embark-theme/vim'
 Plug 'savq/melange'
+Plug 'cocopon/iceberg.vim', {'as': 'iceberg'}
+Plug 'rebelot/kanagawa.nvim'
+Plug 'rose-pine/neovim', {'as': 'rose-pine'}
+Plug 'nyoom-engineering/oxocarbon.nvim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'folke/tokyonight.nvim'
 "
 " dependencies
 "
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'nvim-lua/plenary.nvim' " dependent: gitsigns.nvim, null-ls
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim' " dependent: gitsigns.nvim, null-ls, neo-tree
+Plug 'MunifTanjim/nui.nvim' " dependent: neo-tree
 "
 " tryout
 "
@@ -89,17 +99,20 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'jparise/vim-graphql'
 " Plug 'AndrewRadev/tagalong.vim' has issues with react fragments it replaces
-" openeing react fragment when you replace an opening tag inside this fragment
-" Plug 'airblade/vim-gitgutter' " recomended for vim-js-file-import
+" opening react fragment when you replace an opening tag inside this fragment
+" Plug 'airblade/vim-gitgutter' " recommended for vim-js-file-import
 " after neovim 0.5.0 try gitsigns
-Plug 'lewis6991/gitsigns.nvim'
 " Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 " Plug 'ludovicchabant/vim-gutentags' " for ctags, vim-js-file-import
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'kkvh/vim-docker-tools'
 " Plug 'kyazdani42/nvim-tree.lua'
 " Plug 'earthly/earthly.vim', { 'branch': 'main' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'nvim-treesitter/playground' " is it included in neovim 8+?
+Plug 'nvim-neo-tree/neo-tree.nvim'
+" Plug 'vim-ctrlspace/vim-ctrlspace' " a replacement for fzf
+" Plug 'github/copilot.vim'
 call plug#end()
 
 ""
@@ -163,8 +176,64 @@ set signcolumn=yes:1
 " let g:nord_underline = 1
 
 " embark theme
-let g:embark_terminal_italics = 1
-colorscheme embark
+" let g:embark_terminal_italics = 1
+" colorscheme embark
+colorschem neo
+" colorscheme rose-pine
+" require('rose-pine').setup({
+"   --- @usage 'auto'|'main'|'moon'|'dawn'
+"   variant = 'auto',
+"   --- @usage 'main'|'moon'|'dawn'
+"   dark_variant = 'main',
+"   bold_vert_split = false,
+"   dim_nc_background = false,
+"   disable_background = false,
+"   disable_float_background = false,
+"   disable_italics = false,
+"
+"   --- @usage string hex value or named color from rosepinetheme.com/palette
+"   groups = {
+"     background = 'base',
+"     background_nc = '_experimental_nc',
+"     panel = 'surface',
+"     panel_nc = 'base',
+"     border = 'highlight_med',
+"     comment = 'muted',
+"     link = 'iris',
+"     punctuation = 'subtle',
+"
+"     error = 'love',
+"     hint = 'iris',
+"     info = 'foam',
+"     warn = 'gold',
+"
+"     headings = {
+"       h1 = 'iris',
+"       h2 = 'foam',
+"       h3 = 'rose',
+"       h4 = 'gold',
+"       h5 = 'pine',
+"       h6 = 'foam',
+"     }
+"     -- or set all headings at once
+"     -- headings = 'subtle'
+"   },
+"
+"   -- Change specific vim highlight groups
+"   -- https://github.com/rose-pine/neovim/wiki/Recipes
+"   highlight_groups = {
+"     ColorColumn = { bg = 'rose' },
+"
+"     -- Blend colours against the "base" background
+"     CursorLine = { bg = 'foam', blend = 10 },
+"     StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+"
+"     -- By default each group adds to the existing config.
+"     -- If you only want to set what is written in this config exactly,
+"     -- you can set the inherit option:
+"     Search = { bg = 'gold', inherit = false },
+"   }
+" })
 
 set background=dark
 
@@ -181,11 +250,17 @@ set wrap
 set guioptions-=r
 set guioptions-=L
 
+" hex codes colorizer plugin on tryout
+lua require('colorizer').setup()
+
 source $HOME/dotfiles/dotconfig/nvim/fzf.config.vim
+" source $HOME/dotfiles/dotconfig/nvim/ctrlspace_config.vim
 " :luafile ~/dotfiles/dotconfig/nvim/lsp_config.lua
 :luafile ~/dotfiles/dotconfig/nvim/zero_lsp_config.lua
+:luafile ~/dotfiles/dotconfig/nvim/status_line_config.lua
 :luafile ~/dotfiles/dotconfig/nvim/treesitter_config.lua
 :luafile ~/dotfiles/dotconfig/nvim/comment_config.lua
+:luafile ~/dotfiles/dotconfig/nvim/neogit.lua
 " old config nvin-lsp + nvin-lsp-installer (no longer maintained)
 " remove backup when lsp is configured
 " source $HOME/dotfiles/dotconfig/nvim/lsp.config_bak_20221009.vim
@@ -201,57 +276,6 @@ au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=329, o
 " status line
 " https://github.com/hoob3rt/lualine.nvim
 "
-
-lua <<EOF
-require('lualine').setup{
-  options = {
-    theme = 'auto',
-    section_separators = {'|', '|'},
-    component_separators = {'|', '|'},
-    icons_enabled = true,
-  },
-  -- extensions = {'fzf', 'fugitive'}
-  --   options = {
-  --   icons_enabled = true,
-  --   theme = 'auto',
-  --   component_separators = { left = '>', right = '<'},
-  --   section_separators = { left = '>', right = '<'},
-  --   disabled_filetypes = {},
-  --   always_divide_middle = true,
-  -- },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {
-      'branch',
-      'diff',
-      {
-        'diagnostics',
-        symbols = {error = 'e', warn = 'w', info = 'i', hint = 'h'},
-      }
-    },
-    lualine_c = {
-      {
-        'filename',
-        file_status = true,
-        path = 1
-      }
-    },
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  -- inactive_sections = {
-  --   lualine_a = {},
-  --   lualine_b = {},
-  --   lualine_c = {'filename'},
-  --   lualine_x = {'location'},
-  --   lualine_y = {},
-  --   lualine_z = {}
-  -- },
-  -- tabline = {},
-  extensions = {'fzf', 'quickfix', 'toggleterm'}
-}
-EOF
 
 " Use the same symbols as TextMate for tabs and EOLs
 let &showbreak="\u2190\ "
@@ -279,11 +303,6 @@ set timeout timeoutlen=5000 ttimeoutlen=100
 " - commetns here https://vim.fandom.com/wiki/Fix_syntax_highlighting
 " - https://github.com/vim/vim/issues/2790
 " autocmd BufEnter * :syntax sync fromstart
-
-"
-" fugutive
-"
-command Gcontext Gblame
 
 "
 " navigation
@@ -318,7 +337,25 @@ nmap <leader>x :b#<bar>bd#<CR>
 "
 " gitsigns
 "
-lua require('gitsigns').setup()
+lua require('gitsigns').setup({ current_line_blame_opts = { virt_text = true, virt_text_pos = 'eol', delay = 1000, ignore_whitespace = false }, current_line_blame_formatter = '<abbrev_sha> <author> <author_time:%Y-%m-%d> - <summary>' })
+
+"
+" neogit
+"
+" command Gcontext Gblame
+command G Neogit
+
+"
+" diffview
+"
+" command D DiffviewOpen
+
+
+"
+" neo-tree
+" 
+let g:neo_tree_remove_legacy_commands = 1
+nmap <leader>ft :Neotree float<CR>
 
 " Vim way
 noremap <Up> <NOP>
@@ -388,7 +425,7 @@ vmap <leader>p  :PrettierFragment<cr>
 " nmap <leader>r :! clear && printf '\e[3J' && rspec %<CR>
 " TODO: plugin to execute different programming languages files
 
-nmap <leader>t :! clear && yarn test<CR>
+nmap <leader>gt :! clear && yarn test<CR>
 
 " Solution for performance problem
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
@@ -416,13 +453,8 @@ endif
 " TODO only in JS/TS files
 nmap <leader>l :!./node_modules/.bin/eslint --no-ignore %<CR>
 
-nmap <leader>sp :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+" use treesitter playground to display highlight under the cursor
+nmap <leader>hg :TSHighlightCapturesUnderCursor<CR>
 
 " The sudo tee trick mappings
 cmap w!! w !sudo tee % >/dev/null
