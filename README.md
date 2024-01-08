@@ -12,6 +12,7 @@ avaliable configuration files:
 
 ## TODO
 
+- create .gitconfig in Projects folder or inform to do so manually
 - automaticaly install all vim plugins utility dependencies
 - install zsh (brew install zsh?), and set it as default in iterm ($ chsh -s `which zsh`)
 - install xkbswitch-macosx from this [repo](https://github.com/myshov/xkbswitch-macosx) and this [repo](https://github.com/myshov/libxkbswitch-macosx) for vim-xkbswitch
