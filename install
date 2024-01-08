@@ -36,7 +36,7 @@ brew install --cask wez/wezterm/wezterm
 echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
-brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq cmake
+brew install fd git gnupg ack editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq cmake
 # cmake required by: sui cli
 
 # Install docker desktop or TODO find automated options maybe brew cask
