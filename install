@@ -4,10 +4,10 @@ set -e
 
 ssh -q git@github.com | true
 if [ $? -eq 0 ]; then
-    echo "SSH to github OK"
+	echo "SSH to github OK"
 else
-    echo "Cannot connect to github via SSH. Are you added your SSH key to your github account?"
-    exit
+	echo "Cannot connect to github via SSH. Are you added your SSH key to your github account?"
+	exit
 fi
 
 # TODO: take a look at https://github.com/MarioCatuogno/Clean-macOS
@@ -15,7 +15,7 @@ fi
 echo "Installing homebrew"
 # TODO add autoconfirm flag if exists
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>$HOME/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Installing applications using homebrew"
@@ -64,7 +64,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-
 # Fix for watchers of big projects (if needed)
 # echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 # TODO auto answer "no" to prompt to switch shell to zsh (or find another way to install zsh)
@@ -106,7 +105,7 @@ ln -si $HOME/dotfiles/gitignoreglobal .gitignoreglobal
 ln -si $HOME/dotfiles/psqlrc .psqlrc
 ln -si $HOME/dotfiles/vim .vim
 ln -si $HOME/dotfiles/vimrc .vimrc
-ln -si $HOME/dotfiles/dotconfig/nvim/init.vim .config/nvim/init.vim
+ln -si $HOME/dotfiles/dotconfig/nvim .config/nvim
 ln -si $HOME/dotfiles/dotconfig/fd/ignore .config/fd/ignore
 ln -si $HOME/dotfiles/zshenv .zshenv
 ln -si $HOME/dotfiles/zshrc .zshrc
@@ -130,4 +129,3 @@ echo "start yabai, note it will require Mac OS Privacy Accessibility abilities t
 yabai --start-service
 
 echo "Done! ::<>"
-
