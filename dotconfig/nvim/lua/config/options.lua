@@ -8,6 +8,10 @@ vim.g.maplocalleader = " "
 -- disable default vim file tree navigator
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
+vim.g.loaded_netrwSettings = 1
+vim.g.loaded_netrwFileHandlers = 1
 -- show column for git, eslint and other signs
 -- this removes columns shift between no sign or first signs added
 vim.g.signbooleancolumn = "yes:1"
+-- disabable conceal syntax vim feature
+vim.opt.conceallevel = 0
