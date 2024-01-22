@@ -5,7 +5,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "neo",
+      colorscheme = "embark",
       icons = {
         misc = {
           dots = "..",
@@ -71,10 +71,6 @@ return {
         },
       },
     },
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    opts = { enabled = false },
   },
 
   {
