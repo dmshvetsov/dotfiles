@@ -1,6 +1,10 @@
 return {
   {
     "NeogitOrg/neogit",
+    keys = {
+      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit (root dir)", mode = "n" },
+      { "<leader>gG", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Neogit (cwd)", mode = "n" },
+    },
     opts = {
       integrations = {
         -- Neogit only provides inline diffs. If you want a more traditional way to look at diffs, you can use `sindrets/diffview.nvim`.
@@ -24,6 +28,23 @@ return {
           -- ["c"] = "Commit --verbose",
         },
       },
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "LazyFile",
+    opts = {
+      signs = {
+        add = { text = "│" },
+        change = { text = "│" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "┆" },
+      },
+    },
+    keys = {
+      { "<S-b>", "<cmd>Gitsigns blame_line<cr>", desc = "Gitsigns show blame line popup", mode = "n" },
     },
   },
 }
