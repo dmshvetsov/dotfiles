@@ -15,3 +15,5 @@ vim.g.loaded_netrwFileHandlers = 1
 vim.g.signbooleancolumn = "yes:1"
 -- disabable conceal syntax vim feature
 vim.opt.conceallevel = 0
+-- disable layzvim auto formating of buffers on write (save)
+vim.g.autoformat = false

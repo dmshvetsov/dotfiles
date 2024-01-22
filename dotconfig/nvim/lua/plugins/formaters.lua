@@ -1,7 +1,4 @@
+-- NOTE: autoformat is disabled in options.lua
 return {
   "neovim/nvim-lspconfig",
-  opts = {
-    -- disable format on buffer write (save)
-    autoformat = false,
-  }
 }
