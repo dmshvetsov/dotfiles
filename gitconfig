@@ -1,3 +1,5 @@
+[include]
+	path = ~/Projects/.gitconfig
 [color]
 	ui = true
 [core]
