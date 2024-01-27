@@ -82,6 +82,9 @@ return {
       messages = {
         enabled = false,
       },
+      popupmenu = {
+        enabled = false,
+      },
     },
   },
 
