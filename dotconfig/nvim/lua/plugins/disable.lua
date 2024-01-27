@@ -1,4 +1,4 @@
--- disabled lazyvim plugins
+-- disabled lazyvim builtin plugins
 return {
   {
     -- do not like that it opens on nvim start
@@ -13,6 +13,11 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+  {
+    -- do not like flash jump feature in vim search
+    "folke/flash.nvim",
     enabled = false,
   },
 }
