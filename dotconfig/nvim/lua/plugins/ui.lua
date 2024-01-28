@@ -77,8 +77,6 @@ return {
     "nvim-telescope/telescope.nvim",
     opts = {
       defaults = {
-        width = 0.98,
-        height = 0.98,
         border = false,
         prompt_prefix = "> ",
         prompt_title = false,
