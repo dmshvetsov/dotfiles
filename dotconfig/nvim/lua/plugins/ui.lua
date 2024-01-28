@@ -74,6 +74,34 @@ return {
   },
 
   {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        width = 0.98,
+        height = 0.98,
+        border = false,
+        prompt_prefix = "> ",
+        prompt_title = false,
+        results_title = false,
+        preview_title = false,
+        layout_strategy = "flex",
+        layout_config = {
+          horizontal = {
+            width = 0.98,
+            height = 0.98,
+            preview_width = 0.33,
+          },
+          vertical = {
+            prompt_position = "top",
+            width = 0.98,
+            height = 0.98,
+          },
+        },
+      },
+    },
+  },
+
+  {
     "folke/noice.nvim",
     opts = {
       cmdline = {
