@@ -77,10 +77,8 @@ return {
     "nvim-telescope/telescope.nvim",
     opts = {
       defaults = {
-        border = false,
+        borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
         prompt_prefix = "> ",
-        prompt_title = false,
-        results_title = false,
         preview_title = false,
         layout_strategy = "flex",
         layout_config = {
