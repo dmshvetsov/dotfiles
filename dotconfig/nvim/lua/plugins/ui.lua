@@ -83,14 +83,18 @@ return {
         layout_strategy = "flex",
         layout_config = {
           horizontal = {
-            width = 0.98,
-            height = 0.98,
+            width = function(_, max_columns, _)
+              return max_columns
+            end,
+            height = function(_, _, max_lines)
+              return max_lines
+            end,
             preview_width = 0.33,
           },
           vertical = {
             prompt_position = "top",
-            width = 0.98,
-            height = 0.98,
+            width = 0.9999,
+            height = 0.9999,
           },
         },
       },
