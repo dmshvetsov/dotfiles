@@ -1,5 +1,8 @@
 # Docs https://github.com/koekeishiya/skhd#configuration
 
+# signs cheatsheat
+# 0x18 is +
+
 # Rotate the window tree clock-wise (options: 90, 180, 270 degree)
 cmd + ctrl - r : yabai -m space --rotate 270
 
