@@ -13,8 +13,6 @@ vim.g.loaded_netrwFileHandlers = 1
 -- show column for git, eslint and other signs
 -- this removes columns shift between no sign or first signs added
 vim.g.signbooleancolumn = "yes:1"
--- disabable conceal syntax vim feature
-vim.opt.conceallevel = 0
 -- disable layzvim auto formating of buffers on write (save)
 vim.g.autoformat = false
 
@@ -24,3 +22,8 @@ vim.g.autoformat = false
 --
 -- why it is happening and explanation of the solution below https://github.com/LazyVim/LazyVim/discussions/2150#discussioncomment-7787591
 vim.g.root_spec = {"cwd"}
+
+-- disabable conceal syntax vim feature
+vim.opt.conceallevel = 0
+-- wrap line when it is longer that current neovim window width
+vim.opt.wrap = true
