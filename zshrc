@@ -62,7 +62,6 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 
 export PATH=$PATH:~/Projects/personal/git-scripts
 export PATH=$PATH:~/Projects/personal/utils
-export PATH=$PATH:~/Projects/personal/jana-journal/bin
 export PATH=$PATH:~/bin
 # Postgres libql & client
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
