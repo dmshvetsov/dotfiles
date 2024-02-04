@@ -9,6 +9,8 @@ local disabled_plugins = {
   "akinsho/bufferline.nvim",
   -- do not like flash jump feature in vim search
   "folke/flash.nvim",
+  -- do not like devicons and nerd font combination
+  "nvim-tree/nvim-web-devicons",
 }
 
 local conf = {}
