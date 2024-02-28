@@ -1,0 +1,5 @@
+--colors=match:fg:yellow
+--colors=path:fg:white
+--colors=path:style:bold
+
+--max-columns=100
