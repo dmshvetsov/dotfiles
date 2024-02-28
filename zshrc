@@ -54,6 +54,32 @@ autoload -U compinit; compinit
 # export ARCHFLAGS="-arch x86_64"
 
 #
+# Bindings ZSH and ZLE
+# custom bindings are made to mimic readline/bash experience
+# more info https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html
+#
+# ^ char - control key
+# ^[ seq - option key
+
+# CTRL + right-arrow
+bindkey '^[[1;5C' forward-word
+bindkey '^[f' forward-word
+# CTRL + left-arrow
+bindkey '^[[1;5D' backward-word
+bindkey '^[b' backward-word
+bindkey '^A' beginning-of-line
+bindkey '^[[D' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^[[C' end-of-line
+bindkey '^K' kill-line
+bindkey '^X' backward-kill-line
+bindkey '^A' beginning-of-line
+bindkey '^W' backward-kill-word
+bindkey '^[d' delete-word
+# discard the whole line
+# bindkey '^U' already predefined binding in ZLE
+
+#
 # fzf configuration
 #
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
