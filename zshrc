@@ -61,23 +61,28 @@ autoload -U compinit; compinit
 # ^ char - control key
 # ^[ seq - option key
 
-# CTRL + right-arrow
-bindkey '^[[1;5C' forward-word
-bindkey '^[f' forward-word
-# CTRL + left-arrow
-bindkey '^[[1;5D' backward-word
-bindkey '^[b' backward-word
 bindkey '^A' beginning-of-line
-bindkey '^[[D' beginning-of-line
+# CRTL + right-arrow
+bindkey '^[[1;5C' end-of-line
 bindkey '^E' end-of-line
-bindkey '^[[C' end-of-line
+# CRTL + left-arrow
+bindkey '^[[1;5D' beginning-of-line
 bindkey '^K' kill-line
-bindkey '^X' backward-kill-line
 bindkey '^A' beginning-of-line
 bindkey '^W' backward-kill-word
 bindkey '^[d' delete-word
-# discard the whole line
-# bindkey '^U' already predefined binding in ZLE
+bindkey '^U' kill-whole-line
+# OPT + right-arrow
+bindkey '^[[1;3C' forward-word
+bindkey '^[f' forward-word
+# OPT + left-arrow
+bindkey '^[[1;3D' backward-word
+bindkey '^[b' backward-word
+
+# Enable CRTL+x CRTL+e combination to continue editing line in the $EDITOR
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
 
 #
 # fzf configuration
