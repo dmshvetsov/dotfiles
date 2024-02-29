@@ -107,6 +107,7 @@ ln -si $HOME/dotfiles/vim .vim
 ln -si $HOME/dotfiles/vimrc .vimrc
 ln -si $HOME/dotfiles/dotconfig/nvim .config/nvim
 ln -si $HOME/dotfiles/dotconfig/fd/ignore .config/fd/ignore
+ln -si $HOME/dotfiles/fzf.zsh .fzf.zsh
 ln -si $HOME/dotfiles/zshenv .zshenv
 ln -si $HOME/dotfiles/zshrc .zshrc
 ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
