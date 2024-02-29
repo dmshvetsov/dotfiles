@@ -110,6 +110,7 @@ ln -si $HOME/dotfiles/dotconfig/fd/ignore .config/fd/ignore
 ln -si $HOME/dotfiles/fzf.zsh .fzf.zsh
 ln -si $HOME/dotfiles/zshenv .zshenv
 ln -si $HOME/dotfiles/zshrc .zshrc
+ln -si $HOME/dotfiles/zprofile .zprofile
 ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
 ln -si $HOME/dotfiles/p10k.zsh .p10k.zsh
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
