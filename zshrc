@@ -1,6 +1,5 @@
-export LC_ALL=en_US.UTF-8
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -8,6 +7,10 @@ export LC_ALL=en_US.UTF-8
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
+
+export LC_ALL=en_US.UTF-8
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
 # Shell theme
 source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -137,3 +140,6 @@ function nodejsdocs {
   local section=${1:-all}
   open_command "https://nodejs.org/docs/$(node --version)/api/$section.html"
 }
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
