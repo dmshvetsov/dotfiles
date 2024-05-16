@@ -27,3 +27,7 @@ and map to switching withing the space to different keys, `CMD + TAB` for exampl
 OR
 
 System Preferences > Keyboard > Shortcuts > Keyboard > Disable "Move focus to active or next window"
+
+## Inspiration
+
+- Solving the Dotfiles Problem (And Learning Bash) https://www.youtube.com/watch?v=mSXOYhfDFYo
