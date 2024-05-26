@@ -1,6 +1,7 @@
 return {
   { "dmshvetsov/neo-colorscheme.nvim" },
   { "embark-theme/vim" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   {
     "LazyVim/LazyVim",
