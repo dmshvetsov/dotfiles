@@ -85,6 +85,7 @@ sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
 
 echo "installing zsh and powerlevel10k"
 git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/powerlevel10k
+brew install zsh-autocomplete
 # configurations is already included in zshrc
 
 echo "linking configs files from dotfiles"
