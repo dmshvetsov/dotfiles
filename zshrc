@@ -86,10 +86,21 @@ bindkey "^X^E" edit-command-line
 
 #
 # fzf configuration
+# make sure it is installed with homebrew `brew install fzf`
 #
 export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#
+# Atuin configuration
+# make sure it is installed with homebrew `brew install atuin`
+# https://docs.atuin.sh/
+#
+# must be after `fzf` configuration to keep CTRL-R keybing for Atuin
+#
+
+eval "$(atuin init zsh)"
 
 export PATH=$PATH:~/Projects/personal/git-scripts
 export PATH=$PATH:~/Projects/personal/utils
