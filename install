@@ -36,7 +36,7 @@ brew install --cask wez/wezterm/wezterm
 echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
-brew install httpie fd git gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq cmake
+brew install zsh zsh-autocomplete starship httpie fd git gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq cmake
 # cmake required by: sui cli
 
 # Install docker desktop or TODO find automated options maybe brew cask
@@ -83,11 +83,6 @@ defaults write com.apple.dock persistent-apps -array
 echo "install Solana CLI"
 sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
 
-echo "installing zsh and powerlevel10k"
-git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ~/powerlevel10k
-brew install zsh-autocomplete
-# configurations is already included in zshrc
-
 echo "linking configs files from dotfiles"
 
 cd ~
@@ -113,7 +108,7 @@ ln -si $HOME/dotfiles/zshenv .zshenv
 ln -si $HOME/dotfiles/zshrc .zshrc
 ln -si $HOME/dotfiles/zprofile .zprofile
 ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
-ln -si $HOME/dotfiles/p10k.zsh .p10k.zsh
+ln -si $HOME/dotfiles/starship.toml .config/starship.toml
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
 ln -si $HOME/dotfiles/dotconfig/wezterm/wezterm.lua .config/wezterm/wezterm.lua
