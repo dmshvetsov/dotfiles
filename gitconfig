@@ -1,14 +1,17 @@
-[user]
-	name = iamdi
-	email = shvetsovdm@gmail.com
+[include]
+	path = ~/Projects/.gitconfig
 [color]
 	ui = true
 [core]
 	autocrlf = input
 	safecrlf = false
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignoreglobal
 [alias]
 	l = log --graph --oneline --branches --remotes --tags --graph --oneline --decorate --notes --decorate
 	ll = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --remotes --tags --graph --oneline --decorate --notes
 	context = blame
+[pull]
+	ff = only
+[init]
+	defaultBranch = main

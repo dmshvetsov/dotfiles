@@ -1,22 +1,130 @@
 #!/bin/bash
 
-cd ~
-mkdir -p ./config/nvim/
-mkdir -p ./config/alacritty/
+set -e
 
-ln -si $HOME/dotfiles/bin bin
-ln -si $HOME/dotfiles/ackrc .ackrc
+ssh -q git@github.com | true
+if [ $? -eq 0 ]; then
+	echo "SSH to github OK"
+else
+	echo "Cannot connect to github via SSH. Are you added your SSH key to your github account?"
+	exit
+fi
+
+# TODO: take a look at https://github.com/MarioCatuogno/Clean-macOS
+
+echo "Installing homebrew"
+# TODO add autoconfirm flag if exists
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>$HOME/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+echo "Installing applications using homebrew"
+
+# Install chrome browser
+brew install --cask google-chrome
+
+# Install raycast https://raycast.com
+brew install --cask raycast
+
+# Install wezterm
+brew tap wez/wezterm
+brew install --cask wez/wezterm/wezterm
+
+# Install VScode
+# brew install --cask visual-studio-code
+
+echo "Installing packages using homebrew"
+
+brew tap ethereum/ethereum
+brew install zsh zsh-autocomplete starship httpie fd git gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf colordiff code-minimap htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq cmake
+# cmake required by: sui cli
+
+# Install docker desktop or TODO find automated options maybe brew cask
+echo "Install programming languages using asdf"
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add rust
+
+cd ~
+mkdir Projects
+mkdir ~/Projects/personal
+mkdir ~/Projects/open-source/
+mkdir ~/Projects/temporary
+
+echo "Install my git scripts"
+git clone git@github.com:dmshvetsov/git-scripts.git ~/Projects/personal/git-scripts
+
+echo "Install my utils"
+git clone git@github.com:dmshvetsov/utils.git ~/Projects/personal/utils
+
+echo "Get docker receipes"
+git clone git@github.com:dmshvetsov/docker-recipes.git ~/Projects/personal/docker-recipes
+
+echo "Install plug vim plugin manager"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Fix for watchers of big projects (if needed)
+# echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+# TODO auto answer "no" to prompt to switch shell to zsh (or find another way to install zsh)
+
+# Copy devdocs profile
+# TODO
+
+# Tweak Mac OS
+## Remove all apps from Mac OS dock (relogin required)
+echo "remove all apps from Mac OS dock bar"
+defaults write com.apple.dock persistent-apps -array
+
+## Show date, percentage of battery power, add russian input source, speed of track pad, speed of keyboard
+# TODO
+
+# Install solana tools
+echo "install Solana CLI"
+sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+
+echo "linking configs files from dotfiles"
+
+cd ~
+mkdir -p .config/nvim/
+mkdir -p .config/alacritty/
+mkdir -p .config/wezterm/
+mkdir -p .config/wezterm/colors
+mkdir -p .config/skhd
+mkdir -p .config/yabai
+mkdir -p .config/fd/
+mkdir -p .config/ripgrep/
+
 ln -si $HOME/dotfiles/asdfrc .asdfrc
 ln -si $HOME/dotfiles/gitconfig .gitconfig
 ln -si $HOME/dotfiles/gitignoreglobal .gitignoreglobal
 ln -si $HOME/dotfiles/psqlrc .psqlrc
 ln -si $HOME/dotfiles/vim .vim
 ln -si $HOME/dotfiles/vimrc .vimrc
-ln -si $HOME/dotfiles/dotconfig/nvim/init.vim .config/nvim/init.vim
-ln -si $HOME/dotfiles/dotconfig/nvim/coc-settings.json .config/nvim/coc-settings.json
+ln -si $HOME/dotfiles/dotconfig/nvim .config/nvim
+ln -si $HOME/dotfiles/dotconfig/fd/ignore .config/fd/ignore
+ln -si $HOME/dotfiles/fzf.zsh .fzf.zsh
+ln -si $HOME/dotfiles/zshenv .zshenv
 ln -si $HOME/dotfiles/zshrc .zshrc
+ln -si $HOME/dotfiles/zprofile .zprofile
+ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
+ln -si $HOME/dotfiles/starship.toml .config/starship.toml
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
-ln -si $HOME/dotfiles/tmux.conf .tmux.conf
+ln -si $HOME/dotfiles/dotconfig/wezterm/wezterm.lua .config/wezterm/wezterm.lua
+ln -si $HOME/dotfiles/dotconfig/skhd/skhdrc .config/skhd/skhdrc
+ln -si $HOME/dotfiles/dotconfig/yabai/yabairc .config/yabai/yabairc
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
+
+# install wezterm embark theme
+curl -O ~/.config/wezterm/colors/embark.toml https://raw.githubusercontent.com/dmshvetsov/wezterm-embark-theme/main/colors/embark.toml
+
+# start skhd hotkey daemon
+echo "start skhd, note it will require Mac OS Privacy Accessibility abilities to controll this computer"
+skhd --start-service
+
+echo "start yabai, note it will require Mac OS Privacy Accessibility abilities to controll this computer"
+yabai --start-service
+
+echo "Done! ::<>"

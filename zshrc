@@ -1,85 +1,27 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
+export LC_ALL=en_US.UTF-8
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Shell theme
+eval "$(starship init zsh)"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export LC_ALL=en_US.UTF-8
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="clean"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git node docker docker-compose)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-source $HOME/.secrets
+# Add at or near the top of your .zshrc file (before any calls to compdef)
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# use either zsh-autocomplete or compinit
+# autoload -U compinit; compinit
 
 # ASDF
-. /usr/local/opt/asdf/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -94,14 +36,69 @@ source $HOME/.secrets
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export EDITOR='vim'
 # export LESS="-X"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
+#
+# Bindings ZSH and ZLE
+# custom bindings are made to mimic readline/bash experience
+# more info https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html
+#
+# ^ char - control key
+# ^[ seq - option key
+
+bindkey '^A' beginning-of-line
+# CRTL + right-arrow
+bindkey '^[[1;5C' end-of-line
+bindkey '^E' end-of-line
+# CRTL + left-arrow
+bindkey '^[[1;5D' beginning-of-line
+bindkey '^K' kill-line
+bindkey '^A' beginning-of-line
+bindkey '^W' backward-kill-word
+bindkey '^[d' delete-word
+bindkey '^U' kill-whole-line
+# OPT + right-arrow
+bindkey '^[[1;3C' forward-word
+bindkey '^[f' forward-word
+# OPT + left-arrow
+bindkey '^[[1;3D' backward-word
+bindkey '^[b' backward-word
+
+# Enable CRTL+x CRTL+e combination to continue editing line in the $EDITOR
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
+#
+# fzf configuration
+# make sure it is installed with homebrew `brew install fzf`
+#
+export FZF_DEFAULT_COMMAND='fd --type f --hidden'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#
+# Atuin configuration
+# make sure it is installed with homebrew `brew install atuin`
+# https://docs.atuin.sh/
+#
+# must be after `fzf` configuration to keep CTRL-R keybing for Atuin
+#
+
+eval "$(atuin init zsh)"
+
+export PATH=$PATH:~/Projects/personal/git-scripts
+export PATH=$PATH:~/Projects/personal/utils
+export PATH=$PATH:~/bin
+# Postgres libql & client
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+export PATH="/usr/local/opt/solana/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/libpq/lib"
+export CPPFLAGS="-I/usr/local/opt/libpq/include"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -112,27 +109,30 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=$PATH:~/Projects/git-scripts
-export PATH=$PATH:~/Projects/utils
-export PATH=$PATH:~/bin
-# If you use Android studio on linux (MacOS just work)
-export PATH=$PATH:~/Android/Sdk/tools
-export PATH=$PATH:~/Android/Sdk/platform-tools
-export ANDROID_SDK_ROOT=~/Android/Sdk
-# Postgres libql & client
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/libpq/lib"
-export CPPFLAGS="-I/usr/local/opt/libpq/include"
+#
+# Shell extensions
+#
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function open_command() {
+  local open_cmd
+  # define the open command
+  case "$OSTYPE" in
+    darwin*)  open_cmd='open' ;;
+    cygwin*)  open_cmd='cygstart' ;;
+    linux*)   [[ "$(uname -r)" != *icrosoft* ]] && open_cmd='nohup xdg-open' || {
+                open_cmd='cmd.exe /c start ""'
+                [[ -e "$1" ]] && { 1="$(wslpath -w "${1:a}")" || return 1 }
+              } ;;
+    msys*)    open_cmd='start ""' ;;
+    *)        echo "Platform $OSTYPE not supported"
+              return 1
+              ;;
+  esac
+  ${=open_cmd} "$@" &>/dev/null
+}
 
-# Tilix terminal emulatro fix
-# https://gnunn1.github.io/tilix-web/manual/vteconfig/
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-  source /etc/profile.d/vte.sh
-fi
-
-# For compilers to find mysql-client you may need to set:
-export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
-export CPPFLAGS="-I/usr/local/opt/mysql-client/include"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+# Open the node api for your current version to the optional section.
+function nodejsdocs {
+  local section=${1:-all}
+  open_command "https://nodejs.org/docs/$(node --version)/api/$section.html"
+}
