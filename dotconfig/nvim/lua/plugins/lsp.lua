@@ -5,7 +5,7 @@ return {
       ensure_installed = {
         "stylua",
         "move-analyzer",
-        "cspell",
+        "typos-lsp",
         "tailwindcss-language-server",
       },
     },
@@ -18,6 +18,14 @@ return {
       -- provide the inlay hints.
       inlay_hints = {
         enabled = false,
+      },
+      servers = {
+        -- Typos spell checker config https://github.com/tekumara/typos-lsp/blob/main/docs/neovim-lsp-config.md
+        typos_lsp = {
+          init_options = {
+            diagnosticSeverity = "Hint",
+          },
+        },
       },
     },
   },
