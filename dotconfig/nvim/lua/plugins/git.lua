@@ -1,6 +1,10 @@
 return {
   {
     "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
     keys = {
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit (root dir)", mode = "n" },
       { "<leader>gG", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Neogit (cwd)", mode = "n" },
