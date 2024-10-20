@@ -110,6 +110,14 @@ export CPPFLAGS="-I/usr/local/opt/libpq/include"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #
+# pkgx shell integration
+#
+
+if which pkgx &> /dev/null; then
+  source <(pkgx --shellcode)
+fi
+
+#
 # Shell extensions
 #
 
