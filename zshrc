@@ -94,7 +94,7 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
   echo "[INFO] atuin is disabled in Warp terminal"
 else
-  eval "$(atuin init zsh)"
+  eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
 export PATH=$PATH:~/Projects/personal/git-scripts
