@@ -2,4 +2,4 @@
 --colors=path:fg:white
 --colors=path:style:bold
 
---max-columns=100
+--max-columns=250
