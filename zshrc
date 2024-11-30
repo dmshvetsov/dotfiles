@@ -9,8 +9,12 @@ export LC_ALL=en_US.UTF-8
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Shell theme
-eval "$(starship init zsh)"
+# Shell prompt
+if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
+  echo "[INFO] starship prompt is disabled in Warp terminal"
+else
+  eval "$(starship init zsh)"
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -87,8 +91,11 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 #
 # must be after `fzf` configuration to keep CTRL-R keybing for Atuin
 #
-
-eval "$(atuin init zsh)"
+if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
+  echo "[INFO] atuin is disabled in Warp terminal"
+else
+  eval "$(atuin init zsh)"
+fi
 
 export PATH=$PATH:~/Projects/personal/git-scripts
 export PATH=$PATH:~/Projects/personal/utils
