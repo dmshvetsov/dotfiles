@@ -26,6 +26,8 @@ return {
             diagnosticSeverity = "Hint",
           },
         },
+        -- Deno
+        denols = {}
       },
     },
   },
