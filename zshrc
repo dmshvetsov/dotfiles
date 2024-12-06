@@ -125,6 +125,12 @@ if which pkgx &> /dev/null; then
 fi
 
 #
+# lazyvim config
+#
+# FIXME: does not work
+LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
+
+#
 # Shell extensions
 #
 
