@@ -1,3 +1,8 @@
+local function is_deno_project()
+  local cwd = vim.fn.getcwd()
+  return vim.fn.filereadable(cwd .. "/deno.json") == 1 or vim.fn.filereadable(cwd .. "/deno.jsonc") == 1
+end
+
 return {
   {
     "williamboman/mason.nvim",
@@ -26,8 +31,13 @@ return {
             diagnosticSeverity = "Hint",
           },
         },
+        vtsls = {
+          enabled = not is_deno_project(),
+        },
         -- Deno
-        denols = {}
+        denols = {
+          enabled = is_deno_project(),
+        },
       },
     },
   },
