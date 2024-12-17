@@ -9,8 +9,6 @@ local disabled_plugins = {
   "folke/flash.nvim",
   -- do not like devicons and nerd font combination
   "nvim-tree/nvim-web-devicons",
-  -- in favour natecraddock/telescope-zf-native.nvim, zf prioritize filenames in results sorting algorithm
-  "nvim-telescope/telescope-fzf-native.nvim"
 }
 
 local conf = {}

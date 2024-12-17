@@ -4,7 +4,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
     },
     keys = {
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit (root dir)", mode = "n" },

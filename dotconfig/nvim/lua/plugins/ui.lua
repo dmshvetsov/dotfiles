@@ -75,47 +75,56 @@ return {
   },
 
   {
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
-        prompt_prefix = "> ",
-        preview_title = false,
-        layout_strategy = "flex",
-        layout_config = {
-          horizontal = {
-            width = function(_, max_columns, _)
-              return max_columns
-            end,
-            height = function(_, _, max_lines)
-              return max_lines
-            end,
-            preview_width = 0.33,
-          },
-          vertical = {
-            prompt_position = "top",
-            width = 0.9999,
-            height = 0.9999,
-          },
-        },
-      },
-    },
+    "fzf-lua",
+  -- TODO: views does not work,
+    -- opts = {
+    --   { winopts = { fullscreen = true, border = "none" } },
+    -- },
   },
 
-  {
-    "folke/noice.nvim",
-    opts = {
-      cmdline = {
-        enabled = false,
-      },
-      messages = {
-        enabled = false,
-      },
-      popupmenu = {
-        enabled = false,
-      },
-    },
-  },
+  -- TODO: views does not work,
+  -- {
+  --   "folke/noice.nvim",
+  --   opts = {
+  --     cmdline = {
+  --       enabled = false,
+  --       format = {
+  --         cmdline = { icon = ">" },
+  --         search_down = { icon = "🔍⌄" },
+  --         search_up = { icon = "🔍⌃" },
+  --         filter = { icon = "$" },
+  --         lua = { icon = "☾" },
+  --         help = { icon = "?" },
+  --       },
+  --     },
+  --     messages = {
+  --       enabled = false,
+  --     },
+  --     popupmenu = {
+  --       kind_icons = false,
+  --       enabled = false,
+  --     },
+  --     inc_rename = {
+  --       cmdline = {
+  --         format = {
+  --           IncRename = { icon = "⟳" },
+  --         },
+  --       },
+  --     },
+  --     ---@type NoiceFormatOptions
+  --     format = {
+  --       level = {
+  --         icons = {
+  --           error = "✖",
+  --           warn = "▼",
+  --           info = "●",
+  --         },
+  --       },
+  --     },
+  --     ---@type NoiceConfigViews
+  --     views = { popupmenu = { border = { style = "none" } }, popup = { border = { style = "none" } } },
+  --   },
+  -- },
 
   {
     "folke/which-key.nvim",
