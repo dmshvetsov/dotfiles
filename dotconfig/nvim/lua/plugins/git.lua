@@ -25,6 +25,7 @@ return {
         --
         diffview = true,
       },
+      commit_editor = { show_staged_diff = false },
       mappings = {
         status = {
           -- Adds a mapping with "B" as key that does the "BranchPopup" command
