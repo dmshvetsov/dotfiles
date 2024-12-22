@@ -1,6 +1,6 @@
 -- disabled lazyvim builtin plugins
 local disabled_plugins = {
-  -- do not likea when it inserts pair of quotes befor string start or end
+  -- do not likea when it inserts pair of quotes before string start or end
   -- can be fixed with config
   "echasnovski/mini.pairs",
   -- do not use it and it takes spance and resources
@@ -9,6 +9,8 @@ local disabled_plugins = {
   "folke/flash.nvim",
   -- do not like devicons and nerd font combination
   "nvim-tree/nvim-web-devicons",
+  -- temp, until i fix the config issue
+   "saghen/blink.cmp",
 }
 
 local conf = {}
