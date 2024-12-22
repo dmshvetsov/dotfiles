@@ -9,8 +9,6 @@ local disabled_plugins = {
   "folke/flash.nvim",
   -- do not like devicons and nerd font combination
   "nvim-tree/nvim-web-devicons",
-  -- temp, until i fix the config issue
-   "saghen/blink.cmp",
 }
 
 local conf = {}

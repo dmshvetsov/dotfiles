@@ -1,6 +1,6 @@
 -- override built in plugins and extras plugins configs
 return {
-  { "LazyVim/LazyVim", pin = true, commit = "447e260a62ffd50b0113c20db0e63108baf44b44" },
+  { "LazyVim/LazyVim", commit = "d0c366e4d861b848bdc710696d5311dca2c6d540" },
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {

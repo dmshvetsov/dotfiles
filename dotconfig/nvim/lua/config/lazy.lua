@@ -31,8 +31,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
-    -- temp until i fix the blink.cmp config issue
-    { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
     -- import/override with your plugins
     { import = "plugins" },
   },
