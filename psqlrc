@@ -8,8 +8,9 @@
 \pset null '¤'
 \pset pager off
 \pset linestyle unicode
-\pset border 2
+\pset border 1
 \pset format aligned
+\pset format wrapped
 
 \x auto
 \timing
