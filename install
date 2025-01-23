@@ -121,10 +121,10 @@ git config --global core.excludesfile ~/.gitignoreglobal
 curl -O ~/.config/wezterm/colors/embark.toml https://raw.githubusercontent.com/dmshvetsov/wezterm-embark-theme/main/colors/embark.toml
 
 # start skhd hotkey daemon
-echo "start skhd, note it will require Mac OS Privacy Accessibility abilities to controll this computer"
+echo "start skhd, note it will require Mac OS Privacy Accessibility abilities to control this computer"
 skhd --start-service
 
-echo "start yabai, note it will require Mac OS Privacy Accessibility abilities to controll this computer"
+echo "start yabai, note it will require Mac OS Privacy Accessibility abilities to control this computer"
 yabai --start-service
 
 echo "Done! ::<>"
