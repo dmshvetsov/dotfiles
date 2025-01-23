@@ -39,6 +39,9 @@ brew tap ethereum/ethereum
 brew install zsh zsh-autocomplete starship httpie fd git gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf pkgxdev/made/pkgx colordiff htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq cmake
 # cmake required by: sui cli
 
+# install util to contoll logi MX3 mouse
+brew install --cask mos
+
 # Install docker desktop or TODO find automated options maybe brew cask
 echo "Install programming languages using asdf"
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -114,6 +117,7 @@ ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacri
 ln -si $HOME/dotfiles/dotconfig/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 ln -si $HOME/dotfiles/dotconfig/skhd/skhdrc .config/skhd/skhdrc
 ln -si $HOME/dotfiles/dotconfig/yabai/yabairc .config/yabai/yabairc
+ln -si $HOME/dotfiles/dotconfig/atuin .config/atuin
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
 
