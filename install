@@ -26,10 +26,6 @@ brew install --cask google-chrome
 # Install raycast https://raycast.com
 brew install --cask raycast
 
-# Install wezterm
-brew tap wez/wezterm
-brew install --cask wez/wezterm/wezterm
-
 # Install VScode
 # brew install --cask visual-studio-code
 
@@ -91,8 +87,6 @@ echo "linking configs files from dotfiles"
 cd ~
 mkdir -p .config/nvim/
 mkdir -p .config/alacritty/
-mkdir -p .config/wezterm/
-mkdir -p .config/wezterm/colors
 mkdir -p .config/skhd
 mkdir -p .config/yabai
 mkdir -p .config/fd/
@@ -114,15 +108,11 @@ ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
 ln -si $HOME/dotfiles/starship.toml .config/starship.toml
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
-ln -si $HOME/dotfiles/dotconfig/wezterm/wezterm.lua .config/wezterm/wezterm.lua
 ln -si $HOME/dotfiles/dotconfig/skhd/skhdrc .config/skhd/skhdrc
 ln -si $HOME/dotfiles/dotconfig/yabai/yabairc .config/yabai/yabairc
 ln -si $HOME/dotfiles/dotconfig/atuin .config/atuin
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
-
-# install wezterm embark theme
-curl -O ~/.config/wezterm/colors/embark.toml https://raw.githubusercontent.com/dmshvetsov/wezterm-embark-theme/main/colors/embark.toml
 
 # start skhd hotkey daemon
 echo "start skhd, note it will require Mac OS Privacy Accessibility abilities to control this computer"
