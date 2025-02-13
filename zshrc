@@ -113,8 +113,8 @@ export CPPFLAGS="-I/usr/local/opt/libpq/include"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ngit="nvim -c \"lua require('neogit').open(); vim.api.nvim_buf_delete(1, { force = true })\""
 
 #
 # pkgx shell integration
