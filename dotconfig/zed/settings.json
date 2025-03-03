@@ -7,28 +7,23 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "assistant": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
-    },
-    "version": "2"
-  },
   "base_keymap": "VSCode",
   "telemetry": {
     "metrics": false,
     "diagnostics": false
   },
   "vim_mode": true,
-  "ui_font_size": 13,
+  "ui_font_size": 16,
   "buffer_font_size": 14,
+  "buffer_font_family": "JetBrains Mono",
   "theme": {
     "mode": "system",
     "light": "Blankeos Zen Dark",
-    "dark": "pBlankeos Zen"
+    "dark": "Blankeos Zen"
   },
   "soft_wrap": "editor_width",
   "terminal": {
-    "dock": "left"
+    "dock": "left",
+    "font_size": 14
   }
 }
