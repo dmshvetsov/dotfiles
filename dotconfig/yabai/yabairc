@@ -13,3 +13,10 @@ yabai -m config window_gap     10
 yabai -m rule --add app=PrivadoVPN manage=off sticky=on
 yabai -m rule --add app=Loom manage=off
 yabai -m rule --add app="Google Chrome" title="[W|w]allet" manage=off
+
+# temporary fix for native tabs
+# read about the issue https://github.com/koekeishiya/yabai/issues/68
+yabai -m signal --add app='^Ghostty$' event=window_created action='yabai -m space --focus next; sleep 0.01; yabai -m space --focus prev'
+yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --focus next; sleep 0.01; yabai -m space --focus prev'
+yabai -m signal --add app='^Finder$' event=window_created action='yabai -m space --focus next; sleep 0.01; yabai -m space --focus prev'
+yabai -m signal --add app='^Finder$' event=window_destroyed action='yabai -m space --focus next; sleep 0.01; yabai -m space --focus prev'
