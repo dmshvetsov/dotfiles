@@ -11,6 +11,7 @@ return {
         "stylua",
         "move-analyzer",
         "typos-lsp",
+        "harper-ls",
         "tailwindcss-language-server",
       },
     },
@@ -25,12 +26,24 @@ return {
         enabled = false,
       },
       servers = {
+        -- NOTE: `harper-ls` and `typos-lsp` may provide duplicate or even conflicting warnings/suggestions
         -- Typos spell checker config https://github.com/tekumara/typos-lsp/blob/main/docs/neovim-lsp-config.md
         typos_lsp = {
           init_options = {
             diagnosticSeverity = "Hint",
           },
         },
+        -- configuration docs https://writewithharper.com/docs/integrations/neovim
+        harper_ls = {
+          settings = {
+            ["harper-ls"] = {
+              linters = {
+                SentenceCapitalization = false,
+              },
+            },
+          },
+        },
+        -- end of `harper-ls` and `typos-lsp` NOTE
         vtsls = {
           enabled = not is_deno_project(),
         },
