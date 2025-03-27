@@ -97,6 +97,11 @@ else
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
+# PNPM configuration
+export PNPM_HOME="/Users/dima/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# PNPM end
+
 export PATH=$PATH:~/Projects/personal/git-scripts
 export PATH=$PATH:~/Projects/personal/utils
 export PATH=$PATH:~/bin
