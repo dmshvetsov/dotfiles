@@ -19,11 +19,6 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Add at or near the top of your .zshrc file (before any calls to compdef)
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# use either zsh-autocomplete or compinit
-# autoload -U compinit; compinit
-
 # ASDF
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
