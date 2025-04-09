@@ -72,6 +72,8 @@ bindkey '^[f' forward-word
 # OPT + left-arrow
 bindkey '^[[1;3D' backward-word
 bindkey '^[b' backward-word
+# fix back-delete after re-entering insert vi-mode in a terminal
+bindkey -v '^?' backward-delete-char
 
 # Enable CRTL+x CRTL+e combination to continue editing line in the $EDITOR
 autoload -z edit-command-line
