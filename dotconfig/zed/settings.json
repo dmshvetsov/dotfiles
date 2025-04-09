@@ -18,8 +18,8 @@
   "buffer_font_family": "JetBrains Mono",
   "theme": {
     "mode": "system",
-    "light": "Blankeos Zen Dark",
-    "dark": "Blankeos Zen"
+    "light": "Blankeos Zen",
+    "dark": "Blankeos Zen Dark"
   },
   "soft_wrap": "editor_width",
   "terminal": {
