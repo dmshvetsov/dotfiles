@@ -9,6 +9,13 @@ export LC_ALL=en_US.UTF-8
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+# command autocomplition for homebrew installed packages
+#
+# You must manually configure your shell to enable its completion support. This is because the Homebrew-managed completions are stored under HOMEBREW_PREFIX which your system shell may not be aware of, and since it is difficult to automatically configure bash and zsh completions in a robust manner, the Homebrew installer does not do it for you.
+# for more details https://docs.brew.sh/Shell-Completion
+autoload -Uz compinit
+compinit
+
 # Shell prompt
 if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
   echo "[INFO] starship prompt is disabled in Warp terminal"
