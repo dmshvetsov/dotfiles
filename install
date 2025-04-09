@@ -32,7 +32,7 @@ brew install --cask raycast
 echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
-brew install zsh starship httpie fd git gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf pkgxdev/made/pkgx colordiff htop neovim ethereum mongosh koekeishiya/formulae/skhd koekeishiya/formulae/yabai libpq cmake
+brew install zsh starship httpie fd git gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf pkgxdev/made/pkgx colordiff htop neovim ethereum mongosh libpq cmake
 # cmake required by: sui cli
 
 # install util to contoll logi MX3 mouse
@@ -87,8 +87,6 @@ echo "linking configs files from dotfiles"
 cd ~
 mkdir -p .config/nvim/
 mkdir -p .config/zed/
-mkdir -p .config/skhd
-mkdir -p .config/yabai
 mkdir -p .config/fd/
 mkdir -p .config/ripgrep/
 
@@ -109,17 +107,8 @@ ln -si $HOME/dotfiles/zprofile .zprofile
 ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
 ln -si $HOME/dotfiles/starship.toml .config/starship.toml
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
-ln -si $HOME/dotfiles/dotconfig/skhd/skhdrc .config/skhd/skhdrc
-ln -si $HOME/dotfiles/dotconfig/yabai/yabairc .config/yabai/yabairc
 ln -si $HOME/dotfiles/dotconfig/atuin .config/atuin
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
-
-# start skhd hotkey daemon
-echo "start skhd, note it will require Mac OS Privacy Accessibility abilities to control this computer"
-skhd --start-service
-
-echo "start yabai, note it will require Mac OS Privacy Accessibility abilities to control this computer"
-yabai --start-service
 
 echo "Done! ::<>"
