@@ -1,18 +1,19 @@
 return {
-  {
-    "David-Kunz/gen.nvim",
-    opts = {
-      model = "llama3.1:8b",
-    },
-    keys = {
-      {
-        "<leader>cg",
-        ":Gen<CR>",
-        desc = "ollama generate code",
-        mode = { "n", "v" },
-      },
-    },
-  },
+  'augmentcode/augment.vim',
+  -- {
+  --   "David-Kunz/gen.nvim",
+  --   opts = {
+  --     model = "llama3.1:8b",
+  --   },
+  --   keys = {
+  --     {
+  --       "<leader>cg",
+  --       ":Gen<CR>",
+  --       desc = "ollama generate code",
+  --       mode = { "n", "v" },
+  --     },
+  --   },
+  -- },
   -- ALTERNATIVE 
   -- {
   --  'jpmcb/nvim-llama'
