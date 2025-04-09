@@ -87,7 +87,6 @@ echo "linking configs files from dotfiles"
 cd ~
 mkdir -p .config/nvim/
 mkdir -p .config/zed/
-mkdir -p .config/alacritty/
 mkdir -p .config/skhd
 mkdir -p .config/yabai
 mkdir -p .config/fd/
@@ -110,7 +109,6 @@ ln -si $HOME/dotfiles/zprofile .zprofile
 ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
 ln -si $HOME/dotfiles/starship.toml .config/starship.toml
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
-ln -si $HOME/dotfiles/dotconfig/alacritty/alacritty.yml .config/alacritty/alacritty.yml
 ln -si $HOME/dotfiles/dotconfig/skhd/skhdrc .config/skhd/skhdrc
 ln -si $HOME/dotfiles/dotconfig/yabai/yabairc .config/yabai/yabairc
 ln -si $HOME/dotfiles/dotconfig/atuin .config/atuin
