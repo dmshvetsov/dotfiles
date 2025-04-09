@@ -37,6 +37,8 @@ brew install zsh starship httpie fd git gnupg rg atuin editorconfig tree cloc wa
 
 # install util to contoll logi MX3 mouse
 brew install --cask mos
+# AeroSpace is an i3-like tiling window manager for macOS
+brew install --cask nikitabobko/tap/aerospace
 
 # Install docker desktop or TODO find automated options maybe brew cask
 echo "Install programming languages using asdf"
@@ -89,6 +91,7 @@ mkdir -p .config/nvim/
 mkdir -p .config/zed/
 mkdir -p .config/fd/
 mkdir -p .config/ripgrep/
+mkdir -p .config/aerospace/
 
 ln -si $HOME/dotfiles/asdfrc .asdfrc
 ln -si $HOME/dotfiles/gitconfig .gitconfig
@@ -108,6 +111,7 @@ ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
 ln -si $HOME/dotfiles/starship.toml .config/starship.toml
 ln -si $HOME/dotfiles/ctagsignore .ctagsignore
 ln -si $HOME/dotfiles/dotconfig/atuin .config/atuin
+ln -si $HOME/dotfiles/dotconfig/aerospace/aerospace.toml .config/aerospace/aerospace.toml
 # used for update path to excludesfile in gitconfig file
 git config --global core.excludesfile ~/.gitignoreglobal
 
