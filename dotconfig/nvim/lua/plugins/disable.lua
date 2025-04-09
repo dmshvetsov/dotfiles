@@ -7,8 +7,11 @@ local disabled_plugins = {
   "akinsho/bufferline.nvim",
   -- do not like flash jump feature in vim search
   "folke/flash.nvim",
-  -- do not like devicons and nerd font combination
-  "nvim-tree/nvim-web-devicons",
+  -- breaks interaction with the editor in some but enough frequent cases
+  "folke/noice.nvim",
+  -- do not like devicons and/or nerd font combination
+  -- but decidede to give a try to ascii version, see ui.lua mini.icons setup
+  -- "echasnovski/mini.icons",
 }
 
 local conf = {}
