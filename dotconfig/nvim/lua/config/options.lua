@@ -18,7 +18,10 @@ vim.g.autoformat = false
 -- why it is happening and explanation of the solution below https://github.com/LazyVim/LazyVim/discussions/2150#discussioncomment-7787591
 vim.g.root_spec = {"cwd"}
 
--- disabable conceal syntax vim feature
+-- disable conceal syntax vim feature
 vim.opt.conceallevel = 0
 -- wrap line when it is longer that current neovim window width
 vim.opt.wrap = true
+
+-- disable editor animation
+vim.g.snacks_animate = false
