@@ -26,6 +26,9 @@ brew install --cask google-chrome
 # Install raycast https://raycast.com
 brew install --cask raycast
 
+# Install ghostty terminal
+brew install --cask ghostty
+
 # Install VScode
 # brew install --cask visual-studio-code
 
@@ -92,6 +95,8 @@ mkdir -p .config/zed/
 mkdir -p .config/fd/
 mkdir -p .config/ripgrep/
 mkdir -p .config/aerospace/
+mkdir -p .config/ghostty/
+mkdir -p .config/ghostty/themes/
 
 ln -si $HOME/dotfiles/asdfrc .asdfrc
 ln -si $HOME/dotfiles/gitconfig .gitconfig
@@ -106,6 +111,7 @@ ln -si $HOME/dotfiles/dotconfig/fd/ignore .config/fd/ignore
 ln -si $HOME/dotfiles/fzf.zsh .fzf.zsh
 ln -si $HOME/dotfiles/zshenv .zshenv
 ln -si $HOME/dotfiles/zshrc .zshrc
+ln -si $HOME/dotfiles/dotconfig/ghostty/config .config/ghostty/config
 ln -si $HOME/dotfiles/zprofile .zprofile
 ln -si $HOME/dotfiles/rgrc .config/ripgrep/rgrc
 ln -si $HOME/dotfiles/starship.toml .config/starship.toml
