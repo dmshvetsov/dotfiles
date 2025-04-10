@@ -124,6 +124,7 @@ export CPPFLAGS="-I/usr/local/opt/libpq/include"
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ngit="nvim -c \"lua require('neogit').open(); vim.api.nvim_buf_delete(1, { force = true })\""
+alias ss=spaces
 
 #
 # pkgx shell integration
@@ -159,4 +160,9 @@ function open_command() {
 function nodejsdocs {
   local section=${1:-all}
   open_command "https://nodejs.org/docs/$(node --version)/api/$section.html"
+}
+
+# use Aerospace and Fzf to jump between open apps
+function spaces {
+  aerospace list-windows --all | fzf --bind 'enter:execute(aerospace focus --window-id {1})+abort'
 }
