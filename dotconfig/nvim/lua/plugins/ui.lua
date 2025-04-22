@@ -1,31 +1,21 @@
 return {
   { "dmshvetsov/neo-colorscheme.nvim" },
-  { "embark-theme/vim" },
   {
-    "olivercederborg/poimandres.nvim",
-    lazy = false,
+    "davidosomething/vim-colors-meh",
     priority = 1000,
     config = function()
-      require('poimandres').setup {
-        -- leave this setup function empty for default config
-        -- or refer to the configuration section
-        -- for configuration options
-      }
+      vim.cmd.colorscheme("meh")
     end,
-
-    -- optionally set the colorscheme within lazy config
-    -- init = function()
-    --   vim.cmd("colorscheme poimandres")
-    -- end
   },
-
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "embark",
       icons = {
         misc = {
           dots = "..",
+        },
+        ft = {
+          octo = " ",
         },
         dap = {
           Stopped = { "st", "DiagnosticWarn", "DapStoppedLine" },
@@ -41,58 +31,66 @@ return {
           Info = "in",
         },
         git = {
-          added = "ad",
-          modified = "md",
-          removed = "rm",
+          added = "++",
+          modified = "+-",
+          removed = "--",
         },
         kinds = {
-          Array = " ",
-          Boolean = "󰨙 ",
-          Class = " ",
-          Codeium = "󰘦 ",
-          Color = " ",
-          Control = " ",
-          Collapsed = " ",
-          Constant = "󰏿 ",
-          Constructor = " ",
-          Copilot = " ",
-          Enum = " ",
-          EnumMember = " ",
-          Event = " ",
-          Field = " ",
-          File = " ",
-          Folder = " ",
-          Function = "󰊕 ",
-          Interface = " ",
-          Key = " ",
-          Keyword = " ",
-          Method = "󰊕 ",
-          Module = " ",
-          Namespace = "󰦮 ",
-          Null = " ",
-          Number = "󰎠 ",
-          Object = " ",
-          Operator = " ",
-          Package = " ",
-          Property = " ",
-          Reference = " ",
-          Snippet = " ",
-          String = " ",
-          Struct = "󰆼 ",
-          TabNine = "󰏚 ",
-          Text = " ",
-          TypeParameter = " ",
-          Unit = " ",
-          Value = " ",
-          Variable = "󰀫 ",
+          Array = "  ",
+          Boolean = "  ",
+          Class = "  ",
+          Codeium = "  ",
+          Color = "  ",
+          Control = "  ",
+          Collapsed = "  ",
+          Constant = "  ",
+          Constructor = "  ",
+          Copilot = "  ",
+          Enum = "  ",
+          EnumMember = "  ",
+          Event = "  ",
+          Field = "  ",
+          File = "  ",
+          Folder = "  ",
+          Function = "  ",
+          Interface = "  ",
+          Key = "  ",
+          Keyword = "  ",
+          Method = "  ",
+          Module = "  ",
+          Namespace = "  ",
+          Null = "  ",
+          Number = "  ",
+          Object = "  ",
+          Operator = "  ",
+          Package = "  ",
+          Property = "  ",
+          Reference = "  ",
+          Snippet = "  ",
+          String = "  ",
+          Struct = "  ",
+          Supermaven = "  ",
+          TabNine = "  ",
+          Text = "  ",
+          TypeParameter = "  ",
+          Unit = "  ",
+          Value = "  ",
+          Variable = "  ",
         },
       },
     },
   },
 
   {
+    "echasnovski/mini.icons",
+    opts = {
+      style = "ascii",
+    },
+  },
+
+  {
     "fzf-lua",
-  -- TODO: views does not work,
+    -- TODO: views does not work,
     -- opts = {
     --   { winopts = { fullscreen = true, border = "none" } },
     -- },
