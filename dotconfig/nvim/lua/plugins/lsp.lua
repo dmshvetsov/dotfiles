@@ -1,8 +1,3 @@
-local function is_deno_project()
-  local cwd = vim.fn.getcwd()
-  return vim.fn.filereadable(cwd .. "/deno.json") == 1 or vim.fn.filereadable(cwd .. "/deno.jsonc") == 1
-end
-
 return {
   {
     "williamboman/mason.nvim",
@@ -45,11 +40,14 @@ return {
         },
         -- end of `harper-ls` and `typos-lsp` NOTE
         vtsls = {
-          enabled = not is_deno_project(),
+          root_dir = require("lspconfig").util.root_pattern({ "package.json", "tsconfig.json" }),
+          single_file_support = false,
         },
         -- Deno
         denols = {
-          enabled = is_deno_project(),
+          root_dir = require("lspconfig").util.root_pattern({"deno.json", "deno.jsonc"}),
+          single_file_support = false,
+          settings = {},
         },
       },
     },
