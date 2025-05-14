@@ -4,7 +4,6 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
-        "move-analyzer",
         "typos-lsp",
         "harper-ls",
         "tailwindcss-language-server",
