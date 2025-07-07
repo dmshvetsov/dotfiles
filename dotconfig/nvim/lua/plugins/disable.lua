@@ -1,5 +1,8 @@
 -- disabled lazyvim builtin plugins
 local disabled_plugins = {
+  -- do not use the features of this plugin
+  -- and changing colors when i change color scheme is time waste
+  "folke/todo-comments.nvim",
   -- do not likea when it inserts pair of quotes before string start or end
   -- can be fixed with config
   "echasnovski/mini.pairs",
