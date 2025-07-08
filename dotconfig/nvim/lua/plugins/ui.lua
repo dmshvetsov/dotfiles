@@ -1,10 +1,11 @@
 return {
   { "dmshvetsov/neo-colorscheme.nvim" },
   {
-    "davidosomething/vim-colors-meh",
+    -- "dmshvetsov/laconic-color-scheme",
+    dir = "~/Projects/personal/laconic-color-scheme/",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("meh")
+      vim.cmd.colorscheme("laconic")
     end,
   },
   {
