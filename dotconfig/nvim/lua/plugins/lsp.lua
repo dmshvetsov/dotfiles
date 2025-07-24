@@ -55,16 +55,25 @@ return {
         },
 
         -- Typescript (must be disbaled for Javascript projects)
-        vtsls = {
-          root_dir = require("lspconfig").util.root_pattern({ "package.json", "tsconfig.json" }),
-          single_file_support = false,
-        },
+        -- the same trick is done by LazyVim config
+        -- vtsls = {
+        --   root_dir = require("lspconfig").util.root_pattern({ "package.json", "tsconfig.json" }),
+        --   single_file_support = false,
+        -- },
 
         -- Deno
         denols = {
-          root_dir = require("lspconfig").util.root_pattern({ "deno.json", "deno.jsonc" }),
+          root_dir = require("lspconfig").util.root_pattern({
+            "deno.json",
+            "deno.jsonc",
+            "import_map.json",
+          }),
           single_file_support = false,
-          settings = {},
+          settings = {
+            deno = {
+              enablePaths = { "./supabase/functions" }
+            }
+          },
         },
       },
     },
