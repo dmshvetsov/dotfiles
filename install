@@ -21,13 +21,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "Installing applications using homebrew"
 
 # Install chrome browser
-brew install --cask google-chrome
+brew install --cask google-chrome || echo "[WARN] failed to install google chrome app"
 
 # Install raycast https://raycast.com
-brew install --cask raycast
+brew install --cask raycast || echo "[WARN] failed to install raycast app"
 
 # Install ghostty terminal
-brew install --cask ghostty
+brew install --cask ghostty || echo "[WARN] failed to install ghostty app"
 
 # Install VScode
 # brew install --cask visual-studio-code
@@ -35,13 +35,13 @@ brew install --cask ghostty
 echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
-brew install zsh starship httpie fd git gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf pkgxdev/made/pkgx colordiff htop neovim ethereum mongosh libpq cmake
+brew install zsh starship httpie fd git gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf colordiff htop neovim ethereum mongosh libpq cmake
 # cmake required by: sui cli
 
 # install util to contoll logi MX3 mouse
-brew install --cask mos
+brew install --cask mos || echo "[WARN] failed to install mos app"
 # AeroSpace is an i3-like tiling window manager for macOS
-brew install --cask nikitabobko/tap/aerospace
+brew install --cask nikitabobko/tap/aerospace || echo "[WARN] failed to install aerospace app"
 
 # Install docker desktop or TODO find automated options maybe brew cask
 echo "Install programming languages using asdf"
@@ -84,8 +84,9 @@ defaults write com.apple.dock persistent-apps -array
 # TODO
 
 # Install solana tools
-echo "install Solana CLI"
-sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+# echo "install Solana CLI"
+# sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+# TODO use homebrew
 
 echo "linking configs files from dotfiles"
 
@@ -97,6 +98,8 @@ mkdir -p .config/ripgrep/
 mkdir -p .config/aerospace/
 mkdir -p .config/ghostty/
 mkdir -p .config/ghostty/themes/
+
+touch ~/.secrets
 
 ln -si $HOME/dotfiles/asdfrc .asdfrc
 ln -si $HOME/dotfiles/gitconfig .gitconfig

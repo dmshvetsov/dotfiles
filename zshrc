@@ -127,14 +127,6 @@ alias ngit="nvim -c \"lua require('neogit').open(); vim.api.nvim_buf_delete(1, {
 alias ss=spaces
 
 #
-# pkgx shell integration
-#
-
-if which pkgx &> /dev/null; then
-  source <(pkgx --shellcode)
-fi
-
-#
 # Shell extensions
 #
 
