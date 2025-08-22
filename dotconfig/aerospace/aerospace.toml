@@ -179,11 +179,14 @@ shift-down = ['volume set 0', 'mode main']
 
 # app specific callbacks
 [[on-window-detected]]
-  if.app-id = "com.tinyspeck.slackmacgap"
-  run = "move-node-to-workspace S"
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace S'
 [[on-window-detected]]
-  if.app-id = "com.electron.logseq"
-  run = "move-node-to-workspace T"
+if.app-id = 'com.electron.logseq'
+run = 'move-node-to-workspace T'
 [[on-window-detected]]
-  if.app-id = "com.notion.mac"
-  run = "move-node-to-workspace T"
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace T'
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace A'
