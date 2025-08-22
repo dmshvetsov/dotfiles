@@ -102,7 +102,7 @@ else
 fi
 
 # PNPM configuration
-export PNPM_HOME="/Users/dima/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # PNPM end
 
