@@ -9,16 +9,20 @@ export LC_ALL=en_US.UTF-8
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# command autocomplition for homebrew installed packages
+# command autocompletion for homebrew installed packages
 #
 # You must manually configure your shell to enable its completion support. This is because the Homebrew-managed completions are stored under HOMEBREW_PREFIX which your system shell may not be aware of, and since it is difficult to automatically configure bash and zsh completions in a robust manner, the Homebrew installer does not do it for you.
 # for more details https://docs.brew.sh/Shell-Completion
-autoload -Uz compinit
-compinit
+if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
+  echo "[INFO] zsh autocompletion is disabled in Warp terminal in favour Warp autocompletion"
+else
+  autoload -Uz compinit
+  compinit
+fi
 
 # Shell prompt
 if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
-  echo "[INFO] starship prompt is disabled in Warp terminal"
+  echo "[INFO] starship prompt is disabled in Warp terminal in favour Warp UI"
 else
   eval "$(starship init zsh)"
 fi
@@ -96,7 +100,7 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 # must be after `fzf` configuration to keep CTRL-R keybing for Atuin
 #
 if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
-  echo "[INFO] atuin is disabled in Warp terminal"
+  echo "[INFO] atuin is disabled in Warp terminal in favour Warp ctrl-r history"
 else
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
