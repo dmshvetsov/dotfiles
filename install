@@ -91,7 +91,6 @@ defaults write com.apple.dock persistent-apps -array
 echo "linking configs files from dotfiles"
 
 cd ~
-mkdir -p .config/nvim/
 mkdir -p .config/zed/
 mkdir -p .config/fd/
 mkdir -p .config/ripgrep/
@@ -105,8 +104,6 @@ ln -si $HOME/dotfiles/asdfrc .asdfrc
 ln -si $HOME/dotfiles/gitconfig .gitconfig
 ln -si $HOME/dotfiles/gitignoreglobal .gitignoreglobal
 ln -si $HOME/dotfiles/psqlrc .psqlrc
-ln -si $HOME/dotfiles/vim .vim
-ln -si $HOME/dotfiles/vimrc .vimrc
 ln -si $HOME/dotfiles/dotconfig/nvim .config/nvim
 ln -si $HOME/dotfiles/dotconfig/zed/settings.json .config/zed/settings.json
 ln -si $HOME/dotfiles/dotconfig/zed/keymap.json .config/zed/keymap.json
