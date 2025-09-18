@@ -10,6 +10,24 @@ avaliable configuration files:
 - $HOME/.zlogin - same as zprofile but read after .zshrc
 - $HOME/.zlogout - execute command on shell exit
 
+## Git
+
+Setup users in `~/Projects/sosleek/.gitconfig`
+
+```
+[user]
+  name = ""
+  email = ""
+```
+
+Or source configuration files from other folders for granular git configuration
+
+```
+[include]
+	path = ~/Projects/open-source/.gitconfig
+	path = ~/Projects/temporary/.gitconfig
+```
+
 ## TODO
 
 - create .gitconfig in Projects folder or inform to do so manually
