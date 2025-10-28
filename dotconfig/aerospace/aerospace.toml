@@ -188,5 +188,8 @@ run = 'move-node-to-workspace T'
 if.app-id = 'notion.id'
 run = 'move-node-to-workspace T'
 [[on-window-detected]]
+if.app-id = 'com.todoist.mac.Todoist'
+run = 'move-node-to-workspace T'
+[[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace A'
