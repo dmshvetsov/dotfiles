@@ -7,15 +7,16 @@ return {
     },
     config = function()
       require("codeium").setup({
-        -- Optionally disable cmp source if using virtual text only
+        -- do not use cmp
         enable_cmp_source = false,
+
         virtual_text = {
           enabled = true,
 
           -- These are the defaults
 
           -- Set to true if you never want completions to be shown automatically.
-          manual = false,
+          manual = true,
           -- A mapping of filetype to true or false, to enable virtual text.
           filetypes = {},
           -- Whether to enable virtual text of not for filetypes not specifically listed above.
