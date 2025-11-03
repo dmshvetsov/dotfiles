@@ -1,5 +1,6 @@
 local home_dir = vim.fn.expand("~")
 
+-- NOTE: no need for ensure_installed, LazyVim will install everything that is mentioned in `servers = {}`
 return {
   {
     "neovim/nvim-lspconfig",
@@ -40,6 +41,8 @@ return {
         -- end of `harper-ls` and `typos-lsp` NOTE
 
         tailwindcss = {},
+
+        biome = {},
 
         -- Move analyzer for Sui
         -- not supported by Mason, Sui CLI + move-analyzer myst be installed manyally
