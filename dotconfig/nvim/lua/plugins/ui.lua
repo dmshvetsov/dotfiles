@@ -91,10 +91,17 @@ return {
 
   {
     "fzf-lua",
-    -- TODO: views does not work,
-    -- opts = {
-    --   { winopts = { fullscreen = true, border = "none" } },
-    -- },
+    -- NOTE: function is need to prevent layvim to override the config below
+    opts = function(_, opts)
+      opts.winopts = {
+        fullscreen = true,
+        border = "none",
+        preview = {
+          border = "none",
+        },
+      }
+      return opts
+    end,
   },
 
   -- TODO: views does not work,
