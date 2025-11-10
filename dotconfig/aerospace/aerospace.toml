@@ -178,6 +178,7 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 # app specific callbacks
+# to get app id `osascript -e 'id of app "Application Name"'`
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace S'
@@ -193,3 +194,6 @@ run = 'move-node-to-workspace T'
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace A'
+[[on-window-detected]]
+if.app-id = 'com.figma.Desktop'
+run = 'move-node-to-workspace D'
