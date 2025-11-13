@@ -18,12 +18,35 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import any extras modules here
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.rust" },
-    { import = "lazyvim.plugins.extras.lang.tailwind" },
+    -- available on versions above v15.13.0 (current)
+    -- { import = "lazyvim.plugins.extras.lang.solidity" },
+    -- manually copy solidity config from lazyvim in advance
+    -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/solidity.lua
+    -- Add Solidity & related to treesitter
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = { ensure_installed = { "solidity" } },
+    },
+
+    -- Correctly setup lspconfig for Solidity
+    {
+      "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          solidity_ls = {},
+        },
+      },
+    },
+    -- Formatter for Solidity
+    -- {
+    --   "stevearc/conform.nvim",
+    --   optional = true,
+    --   opts = {
+    --     formatters_by_ft = {
+    --       solidity = { "forge_fmt" },
+    --     },
+    --   },
+    -- },
     -- import/override with your plugins
     { import = "plugins" },
   },
