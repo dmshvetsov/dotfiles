@@ -35,7 +35,7 @@ brew install --cask ghostty || echo "[WARN] failed to install ghostty app"
 echo "Installing packages using homebrew"
 
 brew tap ethereum/ethereum
-brew install zsh starship httpie fd git cdiff gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf colordiff htop neovim ethereum mongosh libpq cmake
+brew install zsh zsh-autosuggestions zsh-autocomplete starship httpie fd git cdiff gnupg rg atuin editorconfig tree cloc watch ccat m-cli fzf typos-cli jq asdf colordiff htop neovim ethereum mongosh libpq cmake
 # cmake required by: sui cli
 
 # install util to contoll logi MX3 mouse

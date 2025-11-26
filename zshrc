@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 export LC_ALL=en_US.UTF-8
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -14,10 +7,10 @@ export LC_ALL=en_US.UTF-8
 # You must manually configure your shell to enable its completion support. This is because the Homebrew-managed completions are stored under HOMEBREW_PREFIX which your system shell may not be aware of, and since it is difficult to automatically configure bash and zsh completions in a robust manner, the Homebrew installer does not do it for you.
 # for more details https://docs.brew.sh/Shell-Completion
 if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
-  echo "[INFO] zsh autocompletion is disabled in Warp terminal in favour Warp autocompletion"
+  echo "[INFO] zsh autocompletion and autosuggestion is disabled in Warp terminal in favour Warp autocompletion"
 else
-  autoload -Uz compinit
-  compinit
+  source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # Shell prompt
@@ -83,6 +76,9 @@ bindkey -v '^?' backward-delete-char
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
+
+# zsh-autosuggestion plugin https://github.com/zsh-users/zsh-autosuggestions?tab=readme-ov-file#key-bindings
+bindkey '^F' autosuggest-accept
 
 #
 # fzf configuration
