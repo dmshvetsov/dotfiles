@@ -12,5 +12,6 @@
 # Empty values reset the configuration to the default value
 # font-family =
 font-family = "JetBrains Mono"
+font-size = 14.5
 
 theme = "mellow"
