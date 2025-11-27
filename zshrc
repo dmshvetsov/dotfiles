@@ -80,6 +80,9 @@ bindkey "^X^E" edit-command-line
 # zsh-autosuggestion plugin https://github.com/zsh-users/zsh-autosuggestions?tab=readme-ov-file#key-bindings
 bindkey '^F' autosuggest-accept
 
+# disable arrow up hitory search in favour of other tools such as atuin
+bindkey -r "^[[A"
+
 #
 # fzf configuration
 # make sure it is installed with homebrew `brew install fzf`
