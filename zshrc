@@ -114,8 +114,9 @@ export PATH=$PATH:~/Projects/personal/utils
 export PATH=$PATH:~/bin
 # Postgres libql & client
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
 export PATH="/usr/local/opt/solana/bin:$PATH"
+export PATH="/usr/local/bin/tailscale:$PATH"
+
 export LDFLAGS="-L/usr/local/opt/libpq/lib"
 export CPPFLAGS="-I/usr/local/opt/libpq/include"
 
