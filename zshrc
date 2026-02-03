@@ -80,9 +80,6 @@ bindkey "^X^E" edit-command-line
 # zsh-autosuggestion plugin https://github.com/zsh-users/zsh-autosuggestions?tab=readme-ov-file#key-bindings
 bindkey '^F' autosuggest-accept
 
-# disable arrow up hitory search in favour of other tools such as atuin
-bindkey -r "^[[A"
-
 #
 # fzf configuration
 # make sure it is installed with homebrew `brew install fzf`
@@ -101,21 +98,26 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden'
 if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
   echo "[INFO] atuin is disabled in Warp terminal in favour Warp ctrl-r history"
 else
-  eval "$(atuin init zsh --disable-up-arrow)"
+  eval "$(atuin init zsh)"
+  bindkey -r '^P'
+  bindkey '^P' atuin-search
 fi
 
 # PNPM configuration
 export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# PNPM end
 
-export PATH=$PATH:~/Projects/personal/git-scripts
-export PATH=$PATH:~/Projects/personal/utils
-export PATH=$PATH:~/bin
+# PATH configuration
+
+PATH=$PATH:~/Projects/personal/git-scripts
+PATH=$PATH:~/Projects/personal/utils
+PATH=$PATH:~/bin
 # Postgres libql & client
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/usr/local/opt/solana/bin:$PATH"
-export PATH="/usr/local/bin/tailscale:$PATH"
+PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+PATH="/usr/local/opt/solana/bin:$PATH"
+PATH="/usr/local/bin/tailscale:$PATH"
+PATH="$PNPM_HOME:$PATH"
+
+export PATH
 
 export LDFLAGS="-L/usr/local/opt/libpq/lib"
 export CPPFLAGS="-I/usr/local/opt/libpq/include"
