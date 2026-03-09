@@ -6,12 +6,15 @@ export LC_ALL=en_US.UTF-8
 #
 # You must manually configure your shell to enable its completion support. This is because the Homebrew-managed completions are stored under HOMEBREW_PREFIX which your system shell may not be aware of, and since it is difficult to automatically configure bash and zsh completions in a robust manner, the Homebrew installer does not do it for you.
 # for more details https://docs.brew.sh/Shell-Completion
-if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
-  echo "[INFO] zsh autocompletion and autosuggestion is disabled in Warp terminal in favour Warp autocompletion"
-else
-  source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+# 
+# Note: do not like how zsh-autosuggestions and zsh-autocomplete works, has compinit warnigns when used with multiple accounts and homebrew, will look for alternatives, disabled for now
+#
+# if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
+#   echo "[INFO] zsh autocompletion and autosuggestion is disabled in Warp terminal in favour Warp autocompletion"
+# else
+#   source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+#   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fi
 
 # Shell prompt
 if [ "$TERM_PROGRAM" = "WarpTerminal" ]; then
@@ -25,17 +28,6 @@ fi
 
 # ASDF
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/dmitrijsvecov/TempProjects/aws_serverless_try/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/dmitrijsvecov/TempProjects/aws_serverless_try/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/dmitrijsvecov/TempProjects/aws_serverless_try/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/dmitrijsvecov/TempProjects/aws_serverless_try/node_modules/tabtab/.completions/sls.zsh
-
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/dmitrijsvecov/.npm/_npx/97826/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/dmitrijsvecov/.npm/_npx/97826/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
