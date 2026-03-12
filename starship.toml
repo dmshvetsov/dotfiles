@@ -4,6 +4,14 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
+[directory]
+style = "white"
+
+[character]
+success_symbol = '[*](bold white)'
+error_symbol = '[*](bold red)'
+vimcmd_symbol = '[v](bold white)'
+
 [battery]
 full_symbol = "• "
 charging_symbol = "⇡ "
@@ -11,14 +19,17 @@ discharging_symbol = "⇣ "
 unknown_symbol = "❓ "
 empty_symbol = "❗ "
 
-[erlang]
-symbol = "ⓔ "
-
 [nodejs]
-symbol = "[⬢](bold green) "
+style = "white"
+version_format = "${raw}"
+symbol = "nodejs:"
 
-[pulumi]
-symbol = "🧊 "
+[git_branch]
+symbol = "git:"
+style = "white"
+
+[git_status]
+style = "white"
 
 [typst]
 symbol = "t "
