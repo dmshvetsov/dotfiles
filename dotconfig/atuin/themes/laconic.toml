@@ -1,0 +1,10 @@
+[theme]
+name = "laconic"
+parent = "" # use default
+
+[colors]
+Muted = "#6f788a"
+AlertInfo = "#ddaa66"
+Important = "#de7766"
+Annotation = "#6f788a"
+Base = "#b2b2b2"
