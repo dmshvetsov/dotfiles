@@ -8,8 +8,8 @@ add_newline = false
 style = "white"
 
 [character]
-success_symbol = '[*](bold white)'
-error_symbol = '[*](bold red)'
+success_symbol = '[*](bold red)'
+error_symbol = '[*](bold yellow)'
 vimcmd_symbol = '[v](bold white)'
 
 [battery]
