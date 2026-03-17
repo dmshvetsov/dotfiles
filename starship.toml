@@ -5,7 +5,12 @@
 add_newline = false
 
 [directory]
+truncation_length = 5
 style = "white"
+before_repo_root_style = "white"
+repo_root_style = "white"
+# repo_root_format = 'repo:[$repo_root]($repo_root_style)[$read_only]($read_only_style) '
+repo_root_format = '[repo:](white)[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
 
 [character]
 success_symbol = '[*](bold red)'
