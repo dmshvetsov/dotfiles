@@ -38,3 +38,8 @@ style = "white"
 
 [typst]
 symbol = "t "
+
+[jobs]
+number_threshold = 1
+symbol = "fg:"
+style = "white"
