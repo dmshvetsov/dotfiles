@@ -10,6 +10,7 @@
 [alias]
 	l = log --graph --oneline --branches --remotes --tags --graph --oneline --decorate --notes --decorate
 	ll = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --remotes --tags --graph --oneline --decorate --notes
+	lauthor = log --oneline --pretty=format:'%h [%an] %s'
 	context = blame
 [pull]
 	ff = only
